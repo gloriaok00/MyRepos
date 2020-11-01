@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src=" http://code.jquery.com/jquery-1.4.1.min.js"></script>
+    <script>
+        console.log("ddd");
+        $(document).ready(function () {
+            var jsondata={"cameraId":"test",
+                "cameraName":"人员入口GeLin-c2",
+                "worksiteId":"L-CS00-CSSDG01",
+                "stageId":"L-CS00-CSSDG01.01",
+                "area":"南区",
+                "cameraType":1,
+                "coordinate":"23,23232",
+                "activity":1};
+            $.ajax({
+                type: "POST",
+                url: "http://39.105.95.23:7010/api/camera",
+                contentType: "application/json",
+                data:JSON.stringify(jsondata),
+                dataType: "json",
+                success:function (message) {
+                    console.log("提交成功"+JSON.stringify(message));
+                },
+                error:function (message) {
+                    console.log("提交失败"+JSON.stringify(message));
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+spring:
+  profiles:
+   active: @profileActive@
+logging:
+  level:
+    com:
+      example:
+        demo:
+          pingshi:
+            session: debug

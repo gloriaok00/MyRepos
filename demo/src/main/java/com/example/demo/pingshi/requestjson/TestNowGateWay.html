@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src=" http://code.jquery.com/jquery-1.4.1.min.js"></script>
+    <script>
+        console.log("zhangyu test");
+        $(document).ready(function () {
+           $.ajax({
+                url:'xx',
+                type:'post', 
+                data:JSON.stringify({
+                        "cameraId":"068B3001100110046L",
+                        "worksiteId":"L-CS00-CSSDG01",
+                        "stageId":"L-CS00-CSSDG01.01"
+                }),
+                beforeSend: function(xhr) {
+                      xhr.setRequestHeader("X-Gaia-Api-Key", "0ef0b81f-2d92-4d50-b92c-84092ccab671");
+                },
+                contentType: "application/json",
+                dataType: "json",
+                success:function(data){   
+                console.log(data);
+                },
+                error: function (error) {
+                console.log(err);
+                },
+                complete: function () {
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

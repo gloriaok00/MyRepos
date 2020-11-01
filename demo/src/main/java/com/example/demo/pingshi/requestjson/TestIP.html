@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src=" http://code.jquery.com/jquery-1.4.1.min.js"></script>
+    <script>
+        console.log("ddd");
+        $(document).ready(function () {
+           $.ajax({
+                url:'http://39.105.245.136:7010/api/testIP11',
+                type:'get',
+                success:function(data){   
+                console.log(data);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
