@@ -244,7 +244,7 @@
             <artifactId>SweetProduction-gRPC</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>/Users/zhangyu/IdeaProjects/BackRepos/demo/src/main/resources/lib/SweetProduction-gRPC.jar
+            <systemPath>/Users/zhangyu/IdeaProjects/MyRepos/demo/src/main/resources/lib/SweetProduction-gRPC.jar
             </systemPath>
         </dependency>
         <dependency>
@@ -253,7 +253,7 @@
             <version>1.0.0</version>
             <scope>system</scope>
             <systemPath>
-                /Users/zhangyu/IdeaProjects/BackRepos/demo/src/main/resources/lib/sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT.jar
+                /Users/zhangyu/IdeaProjects/MyRepos/demo/src/main/resources/lib/sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT.jar
             </systemPath>
         </dependency>
 

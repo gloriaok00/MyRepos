@@ -15,7 +15,7 @@ public class GsonCustomSerializationDemo {
         GsonBuilder gsonBuilder = new GsonBuilder().setPrettyPrinting();
         gsonBuilder.registerTypeAdapter(Date.class, new CustomDateSerializer());
         //gsonBuilder.registerTypeAdapter(Date.class, new CustomDateDeserializer());
-        gsonBuilder.registerTypeAdapter(CommonModel.GUUID.class, new CustomGUUIDSerializer());
+        //gsonBuilder.registerTypeAdapter(CommonModel.GUUID.class, new CustomGUUIDSerializer());
         Gson gson = gsonBuilder.create();
          
         Car car = new Car();
