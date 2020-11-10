@@ -22,10 +22,10 @@ public class TestProducer {
         props.put("key.serializer", StringSerializer.class.getName());
         props.put("value.serializer", StringSerializer.class.getName());
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(props);
-        for (int i=0;i<300;i++){
+        for (int i=0;i<3000;i++){
             JSONObject obj=new JSONObject();
-            obj.put("symbol","zy");
-            obj.put("volume", new Long(String.valueOf(i)));
+            obj.put("deviceId",i);
+            obj.put("age",i*2);
             producer.send(new ProducerRecord<String, String>("t3","Message"+i,JSONObject.toJSONString(obj)));
             System.out.println("已发送..");
             Thread.sleep(1500);

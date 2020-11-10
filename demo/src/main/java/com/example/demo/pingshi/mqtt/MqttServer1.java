@@ -47,11 +47,13 @@ public class MqttServer1 {
             message.setQos(1);
             message.setRetained(false);
             JSONObject obj=new JSONObject();
-            obj.put("param","mqtt");
+            obj.put("name",1);
             while(true){
+                obj.put("amount",Math.random());
+                obj.put("mqttdate",System.currentTimeMillis());
                 message.setPayload(JSONObject.toJSONString(obj).getBytes());
                 client.publish(MQTT_TOPIC, message);
-                Thread.sleep(1500);
+                Thread.sleep(10);
             }
         } catch (Exception e) {
             e.printStackTrace();
