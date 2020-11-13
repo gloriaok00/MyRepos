@@ -6,7 +6,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import java.util.HashMap;
+import java.math.BigDecimal;
 
 /**
  * @author zhangyu
@@ -19,18 +19,18 @@ public class MqttServer {
     /**
      * 代理服务器ip地址
      */
-    public static final String MQTT_BROKER_HOST = "tcp://broker.emqx.io:1883";
+    public static final String MQTT_BROKER_HOST = "tcp://127.0.0.1:1883";
 
     /**
      * 订阅标识
      */
-    public static final String MQTT_TOPIC = "t1";
+    public static final String MQTT_TOPIC = "t2";
 
 
     /**
      * 客户端唯一标识
      */
-    public static final String MQTT_CLIENT_ID = "wewqcew";
+    public static final String MQTT_CLIENT_ID = "waaaqk09k09wew";
 
 
     /**
@@ -48,23 +48,15 @@ public class MqttServer {
             MqttMessage message = new MqttMessage();
             message.setQos(1);
             message.setRetained(false);
-            while(true){
-                JSONObject jsonObj=new JSONObject();
-                jsonObj.put("name","zy");
-                jsonObj.put("amount",Math.random());
-                JSONObject jsonObjSub=new JSONObject();
-                jsonObjSub.put("age",Math.random());
-                HashMap<String,String> m1=new HashMap<>();
-                m1.put("m1","m1");
-                m1.put("m11","m11");
-                jsonObjSub.put("metadata",m1);
-                jsonObj.put("req",jsonObjSub);
-                message.setPayload(JSONObject.toJSONBytes(jsonObj));
-                //message.setPayload(String.valueOf(Math.random()).getBytes());
-                System.out.println("已经发送:");
-                System.out.println(jsonObj);
+            JSONObject obj=new JSONObject();
+            Thread.sleep(1000);
+            for (int i = 0; i < 1000; i++) {
+                obj.put("mqttId",1);
+                obj.put("time",i+1);
+                obj.put("guanwen",new BigDecimal(Math.random()).setScale(2,1).doubleValue());
+                obj.put("redianouwendu",new BigDecimal(Math.random()).setScale(2,1).doubleValue());
+                message.setPayload(JSONObject.toJSONString(obj).getBytes());
                 client.publish(MQTT_TOPIC, message);
-                Thread.sleep(1500);
             }
         } catch (Exception e) {
             e.printStackTrace();
