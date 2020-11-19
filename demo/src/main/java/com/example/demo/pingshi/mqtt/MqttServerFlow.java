@@ -14,12 +14,12 @@ import java.math.BigDecimal;
  * @date 2020-05-28 14:43
  */
 
-public class MqttServer {
+public class MqttServerFlow {
 
     /**
      * 代理服务器ip地址
      */
-    public static final String MQTT_BROKER_HOST = "tcp://127.0.0.1:1883";
+    public static final String MQTT_BROKER_HOST = "tcp://ai.bodable.cn:1883";
 
     /**
      * 订阅标识
@@ -50,7 +50,7 @@ public class MqttServer {
             message.setRetained(false);
             JSONObject obj=new JSONObject();
             Thread.sleep(1000);
-            for (int i = 0; i < 10000000; i++) {
+            for (int i = 0; i < 100000; i++) {
                 obj.put("mqttId",1);
                 obj.put("time",i+1);
                 obj.put("guanwen",new BigDecimal(Math.random()).setScale(3,1).doubleValue());
