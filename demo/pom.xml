@@ -282,6 +282,11 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>3.12.7</version>
         </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.execution.reorder</groupId>
+            <artifactId>siddhi-execution-reorder</artifactId>
+            <version>5.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
