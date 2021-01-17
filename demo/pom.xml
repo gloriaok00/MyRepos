@@ -287,6 +287,21 @@
             <artifactId>siddhi-execution-reorder</artifactId>
             <version>5.0.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.wso2.carbon.analytics/org.wso2.carbon.siddhi.editor.core -->
+        <dependency>
+            <groupId>org.wso2.carbon.analytics</groupId>
+            <artifactId>org.wso2.carbon.siddhi.editor.core</artifactId>
+            <version>3.0.47</version>
+        </dependency>
+       <!-- <dependency>
+            <groupId>org.wso2.carbon.siddhi.editor.core-3.0.47</groupId>
+            <artifactId>org.wso2.carbon.siddhi.editor.core-3.0.47</artifactId>
+            <version>3.0.47</version>
+            <scope>system</scope>
+            <systemPath>
+                /Users/zhangyu/IdeaProjects/iot/siddhiEditor-carbonAnalytics/components/org.wso2.carbon.siddhi.editor.core/target/org.wso2.carbon.siddhi.editor.core-3.0.47.jar
+            </systemPath>
+        </dependency>-->
     </dependencies>
 
     <build>

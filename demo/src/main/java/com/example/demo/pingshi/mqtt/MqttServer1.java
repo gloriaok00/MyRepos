@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  * @date 2020-05-28 14:43
  */
 
-public class MqttServer {
+public class MqttServer1 {
 
     /**
      * 代理服务器ip地址
@@ -24,13 +24,13 @@ public class MqttServer {
     /**
      * 订阅标识
      */
-    public static final String MQTT_TOPIC = "t2";
+    public static final String MQTT_TOPIC = "t3";
 
 
     /**
      * 客户端唯一标识
      */
-    public static final String MQTT_CLIENT_ID = "waaaqk09k09wew";
+    public static final String MQTT_CLIENT_ID = "waaaqk01119k09wew";
 
 
     /**
@@ -51,7 +51,7 @@ public class MqttServer {
             JSONObject obj=new JSONObject();
             Thread.sleep(1000);
             for (int i = 0; i < 10000000; i++) {
-                obj.put("id1",1);
+                obj.put("id2",1);
                 obj.put("time",i+1);
                 obj.put("guanwen",new BigDecimal(Math.random()).setScale(3,1).doubleValue());
                 obj.put("redianouwendu",new BigDecimal(Math.random()).setScale(3,1).doubleValue());
