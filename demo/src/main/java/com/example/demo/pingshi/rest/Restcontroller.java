@@ -1,8 +1,7 @@
 package com.example.demo.pingshi.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zhangyu
@@ -12,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @ResponseBody
-public class restcontroller {
+@Slf4j
+public class Restcontroller {
 
     @GetMapping("/getPerson")
     public Person getPerson(){
         Person p=new Person("zy","23");
+        log.info("ddddL:"+p.getName());
         return p;
     }
 
@@ -24,5 +25,11 @@ public class restcontroller {
     public String getPerson11(){
         Person p=new Person("zy","23");
         return p.toString();
+    }
+
+    @PostMapping("/getPerson22")
+    public String getPerson11(@RequestBody Person person){
+        log.info(person.toString());
+        return person.toString();
     }
 }
