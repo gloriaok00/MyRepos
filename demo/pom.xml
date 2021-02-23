@@ -214,6 +214,11 @@
             <version>4.13</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>carbon-kernel-osgi-tests</artifactId>
+            <version>5.2.13</version>
+        </dependency>
         <!--  <dependency>
               <groupId>io.siddhi.extension.map.protobuf</groupId>
               <artifactId>siddhi-map-protobuf</artifactId>
@@ -318,6 +323,11 @@
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>
             <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.0.0</version>
         </dependency>
     </dependencies>
 
