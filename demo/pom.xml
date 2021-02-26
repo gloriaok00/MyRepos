@@ -219,6 +219,39 @@
             <artifactId>carbon-kernel-osgi-tests</artifactId>
             <version>5.2.13</version>
         </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.archetype</groupId>
+            <artifactId>siddhi-archetype-execution</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.archetype</groupId>
+            <artifactId>siddhi-archetype-map</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.archetype</groupId>
+            <artifactId>siddhi-extension-archetype</artifactId>
+            <version>2.0.1</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.archetype</groupId>
+            <artifactId>siddhi-archetype-io</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.archetype</groupId>
+            <artifactId>siddhi-archetype-store</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.archetype</groupId>
+            <artifactId>siddhi-archetype-script</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+
         <!--  <dependency>
               <groupId>io.siddhi.extension.map.protobuf</groupId>
               <artifactId>siddhi-map-protobuf</artifactId>
@@ -276,11 +309,6 @@
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.io.cdc</groupId>
-            <artifactId>siddhi-io-cdc</artifactId>
-            <version>2.0.9</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
