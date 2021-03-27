@@ -294,6 +294,12 @@
                 ${project.basedir}/src/main/resources/lib/sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT.jar
             </systemPath>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.wso2.extension.siddhi.execution.extrema/siddhi-execution-extrema -->
+        <dependency>
+            <groupId>org.wso2.extension.siddhi.execution.extrema</groupId>
+            <artifactId>siddhi-execution-extrema</artifactId>
+            <version>4.1.0</version>
+        </dependency>
 
         <dependency>
             <groupId>com.googlecode.protobuf-java-format</groupId>
@@ -357,6 +363,13 @@
             <artifactId>amqp-client</artifactId>
             <version>5.0.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.wso2.extension.siddhi.store.mongodb/siddhi-store-mongodb -->
+        <dependency>
+            <groupId>org.wso2.extension.siddhi.store.mongodb</groupId>
+            <artifactId>siddhi-store-mongodb</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
