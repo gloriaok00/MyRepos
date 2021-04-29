@@ -10,8 +10,10 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * @author zhangyu
@@ -30,7 +32,7 @@ public class MqttServerSWBJ {
     /**
      * 订阅标识
      */
-    public static final String MQTT_TOPIC = "SiteWhere/default/input/json";
+    public static final String MQTT_TOPIC = "SiteWhere/show/input/json";
 
 
     /**
@@ -73,17 +75,19 @@ public class MqttServerSWBJ {
     public void sendNonStandardMeasurements(MqttMessage message) throws SiteWhereException {
         while(true) {
             DeviceRequest request = new DeviceRequest();
-            request.setDeviceToken("58463-MEGA2560-188048");
+            request.setDeviceToken("guan1");
             request.setType(DeviceRequest.Type.DeviceMeasurement);
             DeviceMeasurementCreateRequest mx = new DeviceMeasurementCreateRequest();
             mx.setName("normal");
             mx.setValue(10.23);
+            mx.setEventDate(new Date());
             Map<String, String> metadata = new HashMap<String, String>();
             metadata.put("Device_Temperature", String.valueOf(Math.random()*100));
             metadata.put("Device_FX3U_Status", String.valueOf(Math.random()*10));
             metadata.put("Device_Foreward_Status", String.valueOf(Math.random()*100));
             metadata.put("Device_Pluse_Counts", String.valueOf(Math.random()*10000));
-            metadata.put("Device_Reversal_Status", "1");
+            Random r=new Random();
+            metadata.put("Device_Reversal_Status",String.valueOf(r.nextInt(2)));
             mx.setMetadata(metadata);
             mx.setUpdateState(true);
             request.setRequest(mx);

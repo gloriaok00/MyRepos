@@ -369,6 +369,13 @@
             <artifactId>siddhi-store-mongodb</artifactId>
             <version>2.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.siddhi.extension.execution.tensorflow</groupId>
+            <artifactId>siddhi-execution-tensorflow</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+
 
     </dependencies>
 
@@ -428,7 +435,7 @@
 
     <!-- ali repos -->
     <repositories>
-        <repository>
+       <!-- <repository>
             <id>aliyun</id>
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
@@ -438,7 +445,7 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>
+        </repository>-->
     </repositories>
 
     <!-- 环境设置-->
