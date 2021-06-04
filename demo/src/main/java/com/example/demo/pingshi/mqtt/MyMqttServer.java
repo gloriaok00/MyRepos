@@ -9,10 +9,10 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 /**
  * @author zhangyu
  * @description  MQTT 发布者
- * @date 2020-05-28 14:43
+ * @date 2021-05-07 10:17
  */
 
-public class MqttServer1 {
+public class MyMqttServer {
 
     /**
      * 代理服务器ip地址
@@ -22,13 +22,13 @@ public class MqttServer1 {
     /**
      * 订阅标识
      */
-    public static final String MQTT_TOPIC = "t1";
+    public static final String MQTT_TOPIC = "t2";
 
 
     /**
      * 客户端唯一标识
      */
-    public static final String MQTT_CLIENT_ID = "waaaqk01119k09wew";
+    public static final String MQTT_CLIENT_ID = "waaaqk09k09wew";
 
 
     /**
@@ -48,11 +48,10 @@ public class MqttServer1 {
             message.setRetained(false);
             JSONObject obj=new JSONObject();
             Thread.sleep(1000);
-            for (int i = 100000; i < 10000000; i++) {
+            for (int i = 0; i < 10000000; i++) {
                 obj.put("id",i);
                 message.setPayload(JSONObject.toJSONString(obj).getBytes());
                 client.publish(MQTT_TOPIC, message);
-                System.out.println("已发送..");
                 Thread.sleep(100);
             }
         } catch (Exception e) {

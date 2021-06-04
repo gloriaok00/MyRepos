@@ -25,4 +25,8 @@ public class Book implements Comparable{
         return this.id - b.id;
 
     }
+
+    public Book(Integer id) {
+        this.id = id;
+    }
 }
