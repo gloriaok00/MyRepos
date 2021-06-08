@@ -39,7 +39,7 @@ public class MysqlJDBC {
             System.out.println(" 实例化Statement对象...");
             stmt = conn.createStatement();
 
-            for (int i = 1; i < 21; i++) {
+            for (int i = 1; i < 20001; i++) {
                 String sql = "INSERT INTO demo " +
                         "VALUES ("+i+", 'dfdsf')";
                 stmt.executeUpdate(sql);
