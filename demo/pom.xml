@@ -407,6 +407,12 @@
             <artifactId>ojdbc8</artifactId>
             <version>21.1.0.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.siddhi.extension.io.cdc/siddhi-io-cdc -->
+        <dependency>
+            <groupId>io.siddhi.extension.io.cdc</groupId>
+            <artifactId>siddhi-io-cdc</artifactId>
+            <version>2.0.10</version>
+        </dependency>
     </dependencies>
 
     <build>

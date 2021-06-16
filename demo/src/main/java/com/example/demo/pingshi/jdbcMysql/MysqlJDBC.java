@@ -1,7 +1,10 @@
 package com.example.demo.pingshi.jdbcMysql;
 
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * @author zhangyu
@@ -10,10 +13,6 @@ import java.sql.*;
  */
 
 public class MysqlJDBC {
-
-    // MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
-    //static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    //static final String DB_URL = "jdbc:mysql://localhost:3306/RUNOOB";
 
     // MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -38,13 +37,17 @@ public class MysqlJDBC {
             // 执行查询
             System.out.println(" 实例化Statement对象...");
             stmt = conn.createStatement();
-
-            for (int i = 1; i < 20001; i++) {
-                String sql = "INSERT INTO demo " +
-                        "VALUES ("+i+", 'dfdsf')";
+            String sql ="";
+            for (int i = 1; i < 5001; i++) {
+                sql = "INSERT INTO demo(id,name,cd) VALUES ("+i+",'zy',now())";
+                System.out.println("sql_insert:"+i+":"+sql);
                 stmt.executeUpdate(sql);
+                if(i%5==0){
+                    sql = "update demo set name='zy1' where id="+i;
+                    System.out.println("sql_update:"+i+":"+sql);
+                    stmt.executeUpdate(sql);
+                }
             }
-
             stmt.close();
             conn.close();
         }catch(SQLException se){

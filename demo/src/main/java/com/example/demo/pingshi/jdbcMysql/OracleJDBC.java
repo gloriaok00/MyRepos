@@ -29,12 +29,26 @@ public class OracleJDBC {
         Class.forName(DBDRIVER);    // 加载驱动程序
         conn = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
         PreparedStatement pstmt = null;
-        for (int i = 1; i < 10; i++) {
+        /*
+         for (int i = 1; i < 10; i++) {
             String sql = "INSERT INTO demo(id,name) VALUES ("+i+",'zy')";//手动设置主键的自增
             pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();    // 执行更新操作
         }
-        pstmt.close();
+         */
+        //SimpleDateFormat format0 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //Date ss =null;
+        for (int i = 1; i < 11; i++) {
+            //ss = new Date();
+            //String time = format0.format(ss.getTime());
+            //System.out.println("格式化结果0：" + time);
+            //String sql = "INSERT INTO demo(id,name,cd) VALUES ("+i+",'zy',TO_DATE('"+time+"','yyyy-mm-dd hh24:mi:ss'))";
+            String sql = "INSERT INTO d1 VALUES ("+i+")";
+            pstmt = conn.prepareStatement(sql);
+            System.out.println(sql);
+            pstmt.executeUpdate();
+            pstmt.close();
+        }
         conn.close();            // 数据库关闭
     }
 }
