@@ -25,10 +25,10 @@ public class SiddhiZH {
 
         // 连接到数据库
         MongoDatabase mongoDatabase = mongoClient.getDatabase("Foo");
-        MongoCollection<Document> myCollect = mongoDatabase.getCollection("test2");
+        MongoCollection<Document> myCollect = mongoDatabase.getCollection("test1");
         Document show=new Document();
-        show.put("_id",0);
-        show.put("type",0);
+        show.put("name",1);
+        show.put("parameters",1);
         AggregateIterable<Document> result =myCollect.aggregate(
                 Arrays.asList(
                         Aggregates.match(new Document("type", "source")),
