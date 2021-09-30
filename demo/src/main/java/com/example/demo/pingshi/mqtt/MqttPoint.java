@@ -77,7 +77,7 @@ public class MqttPoint {
                 d2.put("x", i);
                 d2.put("y", new Random().nextInt(1000) + 101);
                 data.add(d2);
-                obj.put("data", data);
+                obj.put("event", data);
                 System.out.println("xx:" + obj.toJSONString());
                 message.setPayload(JSONObject.toJSONString(obj).getBytes());
                 client.publish(MQTT_TOPIC, message);
