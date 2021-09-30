@@ -13,7 +13,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * @author zhangyu
@@ -27,12 +26,12 @@ public class MqttServerSWBJ {
      * 代理服务器ip地址
      */
     //public static final String MQTT_BROKER_HOST = "tcp://39.100.14.20:30703";
-    public static final String MQTT_BROKER_HOST = "tcp://www.ca1078.cc:30703";
+    public static final String MQTT_BROKER_HOST = "tcp://223.223.176.32:30703";
 
     /**
      * 订阅标识
      */
-    public static final String MQTT_TOPIC = "SiteWhere/show/input/json";
+    public static final String MQTT_TOPIC = "SuperLink/default/input/json";
 
 
     /**
@@ -75,19 +74,17 @@ public class MqttServerSWBJ {
     public void sendNonStandardMeasurements(MqttMessage message) throws SiteWhereException {
         while(true) {
             DeviceRequest request = new DeviceRequest();
-            request.setDeviceToken("guan1");
+            request.setDeviceToken("81625-IPHONE6S-7081704");
             request.setType(DeviceRequest.Type.DeviceMeasurement);
             DeviceMeasurementCreateRequest mx = new DeviceMeasurementCreateRequest();
             mx.setName("normal");
-            mx.setValue(10.23);
+            mx.setValue(100);
             mx.setEventDate(new Date());
             Map<String, String> metadata = new HashMap<String, String>();
-            metadata.put("Device_Temperature", String.valueOf(Math.random()*100));
-            metadata.put("Device_FX3U_Status", String.valueOf(Math.random()*10));
-            metadata.put("Device_Foreward_Status", String.valueOf(Math.random()*100));
-            metadata.put("Device_Pluse_Counts", String.valueOf(Math.random()*10000));
-            Random r=new Random();
-            metadata.put("Device_Reversal_Status",String.valueOf(r.nextInt(2)));
+            metadata.put("t10", String.valueOf(Math.random()*100));
+            metadata.put("t11", String.valueOf(Math.random()*10));
+            metadata.put("t12", String.valueOf(Math.random()*100));
+            metadata.put("t1", String.valueOf(Math.random()*10000));
             mx.setMetadata(metadata);
             mx.setUpdateState(true);
             request.setRequest(mx);
