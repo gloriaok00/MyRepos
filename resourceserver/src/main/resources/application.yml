@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: resourcesserver
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: test-secret
