@@ -19,8 +19,8 @@ public class CodeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig()
-                .setOutputDir(projectPath + "/src/main/java/")
-                .setFileOverride(false)
+                .setOutputDir("/Users/zhangyu/IdeaProjects/MyRepos/security-demo/1111" + "/src/main/java/")
+                .setFileOverride(true)
                 .setOpen(false)
                 .setAuthor("icefery")
                 .setIdType(IdType.AUTO)
@@ -31,9 +31,9 @@ public class CodeGenerator {
         DataSourceConfig dsc = new DataSourceConfig()
                 .setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://localhost:3306/security_demo")
+                .setUrl("jdbc:mysql://localhost:3306/employees")
                 .setUsername("root")
-                .setPassword("root");
+                .setPassword("!Qazxsw2");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -49,7 +49,9 @@ public class CodeGenerator {
                             "sys_role",
                             "sys_permission",
                             "sys_role_user",
-                            "sys_role_permission")
+                            "sys_role_permission",
+                            "sys_device",
+                            "sys_user_device")
                 .setNaming(NamingStrategy.underline_to_camel)
                 .setColumnNaming(NamingStrategy.underline_to_camel)
                 .setRestControllerStyle(true)
