@@ -1,7 +1,9 @@
 package xyz.icefery.demo.security.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.icefery.demo.security.entity.Device;
 import xyz.icefery.demo.security.mapper.DeviceMapper;
@@ -58,7 +60,7 @@ public class HelloController {
 
     // 设备列表
     @GetMapping("/devicelist")
-    public List<Device> deviceList() {
-        return deviceMapper.selectList(null);
+    public List<Device> deviceList(@RequestAttribute String id) {
+        return deviceMapper.selectList(new LambdaQueryWrapper<Device>().eq(Device::getId, id));
     }
 }
