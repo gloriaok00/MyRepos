@@ -1,10 +1,18 @@
 package xyz.icefery.demo.security.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import xyz.icefery.demo.security.entity.Device;
+import xyz.icefery.demo.security.mapper.DeviceMapper;
+
+import java.util.List;
 
 @RestController
 public class HelloController {
+
+    @Autowired  private DeviceMapper deviceMapper;
+
     // 在权限表中 | 访问资源需要角色 ROLE_1
     @GetMapping("/hello1")
     public String hello1() {
@@ -45,5 +53,12 @@ public class HelloController {
     @GetMapping("/hello5")
     public String hello5() {
         return "Hello5";
+    }
+
+
+    // 设备列表
+    @GetMapping("/devicelist")
+    public List<Device> deviceList() {
+        return deviceMapper.selectList(null);
     }
 }
