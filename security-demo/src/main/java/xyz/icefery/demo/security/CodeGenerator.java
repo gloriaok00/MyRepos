@@ -19,8 +19,8 @@ public class CodeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig()
-                .setOutputDir("/Users/zhangyu/IdeaProjects/MyRepos/security-demo/1111" + "/src/main/java/")
-                .setFileOverride(true)
+                .setOutputDir(projectPath + "/src/main/java/")
+                .setFileOverride(false)
                 .setOpen(false)
                 .setAuthor("icefery")
                 .setIdType(IdType.AUTO)
