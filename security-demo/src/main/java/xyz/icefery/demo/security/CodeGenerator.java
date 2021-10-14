@@ -19,7 +19,7 @@ public class CodeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig()
-                .setOutputDir(projectPath + "/src/main/java/")
+                .setOutputDir("/Users/zhangyu/IdeaProjects/MyRepos/security-demo/" + "/src/main/java/")
                 .setFileOverride(false)
                 .setOpen(false)
                 .setAuthor("icefery")
