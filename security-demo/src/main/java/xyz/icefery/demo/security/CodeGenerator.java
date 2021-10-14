@@ -44,7 +44,7 @@ public class CodeGenerator {
         .setServiceImpl("service.impl")
         .setMapper("mapper")
         .setEntity("entity")
-        .setXml("..resources.mapper");
+        .setXml("resources.mapper");
         mpg.setPackageInfo(pc);
 
         // 策略配置
@@ -56,8 +56,7 @@ public class CodeGenerator {
                             "sys_role_user",
                             "sys_role_permission",
                             "sys_device",
-                            "sys_user_device",
-                            "sys_test")
+                            "sys_user_device")
                 .setNaming(NamingStrategy.underline_to_camel)
                 .setColumnNaming(NamingStrategy.underline_to_camel)
                 .setRestControllerStyle(true)
