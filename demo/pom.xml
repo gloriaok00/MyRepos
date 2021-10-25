@@ -443,7 +443,13 @@
             <artifactId>simpleclient_pushgateway</artifactId>
             <version>0.5.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.dsfsf</groupId>
+            <artifactId>ddd</artifactId>
+            <version>0.5.0</version>
+            <scope>system</scope>
+            <systemPath>/Users/zhangyu/IdeaProjects/MyRepos/demo/src/main/resources/lib/groovy-all-1.1-rc-1.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
