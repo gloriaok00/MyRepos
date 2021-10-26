@@ -10,7 +10,7 @@ import java.util.Properties;
 
 /**
  * @author zhangyu
- * @description
+ * @description 注释生成类
  * @date 2021-10-26 22:30
  */
 

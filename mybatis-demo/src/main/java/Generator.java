@@ -20,7 +20,7 @@ import java.util.List;
 public class Generator {
     public static void main(String[] args) throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {
         List<String> warnings = new ArrayList<>();
-        // 如果已经存在生成过的文件是否进行覆盖
+        // 如果已经存在生成过的文件是否进行覆盖，不覆盖的话，对于已经存在的会再新建名字为1的类
         boolean overwrite = true;
         File configFile = new File("/Users/zhangyu/IdeaProjects/MyRepos/mybatis-demo/src/main/resources/generator-config.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
