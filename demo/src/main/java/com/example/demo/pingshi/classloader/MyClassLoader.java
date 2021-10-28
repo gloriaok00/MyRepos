@@ -51,11 +51,11 @@ public class MyClassLoader extends ClassLoader {
     public static void main(String[] args)  {
 
         MyClassLoader classLoader = new MyClassLoader();
-        classLoader.setRoot("/Users/zhangyu/IdeaProjects/MyRepos/demo/target/classes/com/example/demo/pingshi/classloader/");
+        classLoader.setRoot("/Users/zhangyu/Desktop/");
 
         Class<?> testClass = null;
         try {
-            testClass = classLoader.loadClass("com.example.demo.pingshi.classloader.HMain");
+            testClass = classLoader.loadClass("com.example.demo.DemoApplication");
             Object object = testClass.newInstance();
             System.out.println(object.getClass().getClassLoader());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
