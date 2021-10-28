@@ -5,8 +5,9 @@ public class InitialOrderWithoutExtend {
     SampleClass sam1 = new SampleClass("普通成员sam1初始化");
     static {
         System.out.println("static块执行");
-        if (sam == null)
+        if (sam == null){
             System.out.println("sam is null");
+        }
         sam = new SampleClass("静态块内初始化sam成员变量");
     }
 
