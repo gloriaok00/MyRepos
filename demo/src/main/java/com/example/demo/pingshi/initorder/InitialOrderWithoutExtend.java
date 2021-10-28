@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.classloader;
+package com.example.demo.pingshi.initorder;
 
 public class InitialOrderWithoutExtend {
     static SampleClass sam = new SampleClass("静态成员sam初始化");

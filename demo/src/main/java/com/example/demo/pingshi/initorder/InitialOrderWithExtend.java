@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.classloader;
+package com.example.demo.pingshi.initorder;
 
 public class InitialOrderWithExtend {
     public static void main(String[] args) {
