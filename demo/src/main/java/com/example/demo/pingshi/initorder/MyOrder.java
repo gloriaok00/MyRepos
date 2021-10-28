@@ -8,9 +8,6 @@ package com.example.demo.pingshi.initorder;
  */
 
 public class MyOrder {
-    static{
-        System.out.println("静态块");
-    };
     public  subA subB=new subA("非静态变量");
     public static void getSS(){
         System.out.println("静态方法");
@@ -19,14 +16,17 @@ public class MyOrder {
     public MyOrder(String a){
         System.out.println("构造函数MyOrder:"+a);
     }
-    {
-        System.out.println("非静态块");
-    }
+    static{
+        System.out.println("静态块");
+    };
+
     public void getNonSS(){
         System.out.println("非静态方法");
     }
     public static subA subA=new subA("静态变量");
-
+    {
+        System.out.println("非静态块");
+    }
 
     public static void main(String[] args) {
         MyOrder a=new MyOrder("MyOrder啊");
