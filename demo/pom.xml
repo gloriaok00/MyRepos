@@ -456,7 +456,37 @@
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
             </plugin>
+
+            <!-- 非spring工程，可包含依赖-->
+          <!--  <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    &lt;!&ndash; 加上只会产生一个含有dependencies的jar 不会生成两个&ndash;&gt;
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            &lt;!&ndash; 此处指定main方法入口的class &ndash;&gt;
+                            <mainClass>org.example.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        &lt;!&ndash; 在package生命周期中执行 &ndash;&gt;
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
         </plugins>
+
+
     </build>
 
     <!-- ali repos -->
