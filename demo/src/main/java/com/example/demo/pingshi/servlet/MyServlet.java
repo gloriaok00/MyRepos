@@ -37,6 +37,9 @@ public class MyServlet implements Servlet {
         PrintWriter pw=servletResponse.getWriter();
         pw.write("1213123213-service yisa"+this.getServletConfig().getInitParameter("name"));
         System.out.println("service方法启动");
+        this.config.getServletContext().setAttribute("aa","我爱白云");
+        pw.append("往ServletContext置放属性aa");
+
     }
 
     @Override
