@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @description  restcontroller本身这个参数是value，仅仅是
  * 语义上的含义或说明 并不是路径的定义 若用路径的 需要用@RequestMapping
- * @date 2019/12/1 15:13
+ * @date 2021/11/17 10:41
  */
 
 
