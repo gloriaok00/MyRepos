@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @description
  * @date 2020-08-29 21:10
  */
-@Component
+@Component("my_initApp")
 public class InitApp implements ApplicationRunner {
 
     @Override
@@ -18,5 +18,6 @@ public class InitApp implements ApplicationRunner {
         consumer.start();
         Producer producer=new Producer();
         producer.start();*/
+        System.out.println("from init app..");
     }
 }

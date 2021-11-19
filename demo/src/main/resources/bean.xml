@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--若没写id 会以class的全名作为bean的名称 在xml配置的时候-->
+    <bean id="mywoman" name="womanwoman" class="com.example.demo.pingshi.spring.mybean.myauto.Woman"></bean>
+    <!--当设置两个同样的ID时，spring启动时就报错-->
+<!--
+    <bean id="mywoman" class="com.example.demo.pingshi.spring.mybean.myauto.Man"></bean>
+-->
+
+   
+</beans>
