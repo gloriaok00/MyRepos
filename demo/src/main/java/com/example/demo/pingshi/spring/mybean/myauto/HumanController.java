@@ -9,11 +9,10 @@ import javax.annotation.Resource;
 @RequestMapping("/an")
 public class HumanController {
 
-    //启动时会报错，当没指定name或type时，
-    //@resource也去按type去装配了，但有两个，所以也不行了
-    @Resource
+    //启动时会报错，当没指定name或type时，@resource也去按type去装配了，但有两个，所以也不行了
+    //@Resource()
     //@Autowired
-    //@Resource(name="woman")
+    @Resource(name="woman")
     //@Qualifier("woman")
     private Human human;
 
