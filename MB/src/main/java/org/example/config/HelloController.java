@@ -1,5 +1,6 @@
 package org.example.config;
 
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,12 @@ public class HelloController {
     }
 
     @GetMapping("/hello")
-    public String hello1() {
-        return "hello1";
+    public String hello() {
+        return "hello";
+    }
+
+    @GetMapping("/gg")
+    public String gg() {
+        return "gg";
     }
 }
