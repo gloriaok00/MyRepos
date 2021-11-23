@@ -1,5 +1,0 @@
-server:
- port: 30023
-
-siddhi:
- text: 'ceAssignmentId string, deviceIdEvent string, receivedDate string, eventDate string, metadata object, value double, name string);'

@@ -95,24 +95,6 @@
             <version>0.1.4</version>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.paho</groupId>
-            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <!-- grpc -->
-        <!--   <dependency>
-               <groupId>io.grpc</groupId>
-               <artifactId>grpc-all</artifactId>
-               <version>1.9.1</version>
-           </dependency>-->
-
-        <dependency>
             <groupId>com.sitewhere</groupId>
             <artifactId>sitewhere-java-client</artifactId>
             <version>2.1.1</version>
@@ -126,69 +108,6 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.61</version>
-        </dependency>
-        <!-- siddhi core-->
-        <dependency>
-            <groupId>io.siddhi</groupId>
-            <artifactId>siddhi-core</artifactId>
-            <version>5.1.13</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi</groupId>
-            <artifactId>siddhi-query-compiler</artifactId>
-            <version>5.1.13</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi</groupId>
-            <artifactId>siddhi-query-api</artifactId>
-            <version>5.1.13</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi</groupId>
-            <artifactId>siddhi-annotations</artifactId>
-            <version>5.1.13</version>
-        </dependency>
-        <!-- siddhi extension -->
-        <dependency>
-            <groupId>io.siddhi.extension.io.kafka</groupId>
-            <artifactId>siddhi-io-kafka</artifactId>
-            <version>5.0.8</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.store.mongodb</groupId>
-            <artifactId>siddhi-store-mongodb</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.execution.map</groupId>
-            <artifactId>siddhi-execution-map</artifactId>
-            <version>5.0.6</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.siddhi.extension.map.json/siddhi-map-json -->
-        <dependency>
-            <groupId>io.siddhi.extension.map.json</groupId>
-            <artifactId>siddhi-map-json</artifactId>
-            <version>5.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.map.text</groupId>
-            <artifactId>siddhi-map-text</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.map.binary</groupId>
-            <artifactId>siddhi-map-binary</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.map.keyvalue</groupId>
-            <artifactId>siddhi-map-keyvalue</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.io.mqtt</groupId>
-            <artifactId>siddhi-io-mqtt</artifactId>
-            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.hynnet</groupId>
@@ -208,81 +127,9 @@
             <version>3.11.0</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>carbon-kernel-osgi-tests</artifactId>
-            <version>5.2.13</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.archetype</groupId>
-            <artifactId>siddhi-archetype-execution</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.archetype</groupId>
-            <artifactId>siddhi-archetype-map</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.archetype</groupId>
-            <artifactId>siddhi-extension-archetype</artifactId>
-            <version>2.0.1</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.archetype</groupId>
-            <artifactId>siddhi-archetype-io</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.archetype</groupId>
-            <artifactId>siddhi-archetype-store</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.archetype</groupId>
-            <artifactId>siddhi-archetype-script</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-
-
-        <!--  <dependency>
-              <groupId>io.siddhi.extension.map.protobuf</groupId>
-              <artifactId>siddhi-map-protobuf</artifactId>
-              <version>1.1.0</version>
-          </dependency>
-          <dependency>
-              <groupId>io.siddhi.extension.map.binary</groupId>
-              <artifactId>siddhi-map-binary</artifactId>
-              <version>2.1.0</version>
-          </dependency>
-          <dependency>
-              <groupId>io.siddhi.extension.io.tcp</groupId>
-              <artifactId>siddhi-io-tcp</artifactId>
-              <version>3.0.5</version>
-          </dependency>
-          <dependency>
-              <groupId>io.siddhi.extension.io.kafka</groupId>
-              <artifactId>siddhi-io-kafka</artifactId>
-              <version>5.0.8</version>
-          </dependency>-->
-        <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
             <version>0.11</version>
-        </dependency>
-        <dependency>
-            <groupId>SweetProduction-gRPC</groupId>
-            <artifactId>SweetProduction-gRPC</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/lib/SweetProduction-gRPC.jar
-            </systemPath>
         </dependency>
         <dependency>
             <groupId>sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT</groupId>
@@ -294,11 +141,6 @@
             </systemPath>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.wso2.extension.siddhi.execution.extrema/siddhi-execution-extrema -->
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.execution.extrema</groupId>
-            <artifactId>siddhi-execution-extrema</artifactId>
-            <version>4.1.0</version>
-        </dependency>
 
         <dependency>
             <groupId>com.googlecode.protobuf-java-format</groupId>
@@ -309,7 +151,7 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.3.1</version>
+            <version>2.6.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.kafka</groupId>
@@ -320,27 +162,6 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>3.12.7</version>
         </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.execution.reorder</groupId>
-            <artifactId>siddhi-execution-reorder</artifactId>
-            <version>5.0.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.wso2.carbon.analytics/org.wso2.carbon.siddhi.editor.core -->
-        <dependency>
-            <groupId>org.wso2.carbon.analytics</groupId>
-            <artifactId>org.wso2.carbon.siddhi.editor.core</artifactId>
-            <version>3.0.47</version>
-        </dependency>
-       <!-- <dependency>
-            <groupId>org.wso2.carbon.siddhi.editor.core-3.0.47</groupId>
-            <artifactId>org.wso2.carbon.siddhi.editor.core-3.0.47</artifactId>
-            <version>3.0.47</version>
-            <scope>system</scope>
-            <systemPath>
-                /Users/zhangyu/IdeaProjects/iot/siddhiEditor-carbonAnalytics/components/org.wso2.carbon.siddhi.editor.core/target/org.wso2.carbon.siddhi.editor.core-3.0.47.jar
-            </systemPath>
-        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>javax.mail-api</artifactId>
@@ -356,85 +177,11 @@
             <artifactId>amqp-client</artifactId>
             <version>5.0.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.wso2.extension.siddhi.store.mongodb/siddhi-store-mongodb -->
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.store.mongodb</groupId>
-            <artifactId>siddhi-store-mongodb</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.siddhi.extension.execution.tensorflow</groupId>
-            <artifactId>siddhi-execution-tensorflow</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.store.influxdb</groupId>
-            <artifactId>siddhi-store-influxdb</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc10</artifactId>
-            <version>19.10.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.25</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
-            <version>21.1.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.siddhi.extension.io.cdc/siddhi-io-cdc -->
-        <dependency>
-            <groupId>io.siddhi.extension.io.cdc</groupId>
-            <artifactId>siddhi-io-cdc</artifactId>
-            <version>2.0.10</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.siddhi.extension.io.prometheus/siddhi-io-prometheus -->
-        <dependency>
-            <groupId>io.siddhi.extension.io.prometheus</groupId>
-            <artifactId>siddhi-io-prometheus</artifactId>
-            <version>2.1.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.prometheus/simpleclient_common -->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_common</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.prometheus/simpleclient -->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.prometheus/simpleclient_httpserver -->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_httpserver</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.prometheus/simpleclient_pushgateway -->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_pushgateway</artifactId>
-            <version>0.5.0</version>
         </dependency>
         <dependency>
             <groupId>com.dsfsf</groupId>
@@ -442,6 +189,26 @@
             <version>0.5.0</version>
             <scope>system</scope>
             <systemPath>/Users/zhangyu/IdeaProjects/MyRepos/demo/src/main/resources/lib/groovy-all-1.1-rc-1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.14</version>
         </dependency>
     </dependencies>
 
