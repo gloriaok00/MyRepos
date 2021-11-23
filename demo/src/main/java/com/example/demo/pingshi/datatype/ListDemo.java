@@ -1,7 +1,5 @@
 package com.example.demo.pingshi.datatype;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,13 +13,6 @@ import java.util.List;
 public class ListDemo {
 
     public static void main(String[] args) {
-
-    }
-
-
-    //list to 数组
-    @Test
-    public void listToArray(){
         List<String> deviceList=new ArrayList<>();
         deviceList.add("1");
         deviceList.add("2");

@@ -1,7 +1,5 @@
 package com.example.demo.pingshi.datatype;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 
 /**
@@ -13,11 +11,6 @@ import java.util.HashMap;
 public class HashMapDemo {
 
     public static void main(String[] args) {
-
-    }
-
-    @Test
-    public void container(){
         HashMap<String,String> map=new HashMap<>();
         map.put("1adf","ddf");
         map.put("qaz","wsx");

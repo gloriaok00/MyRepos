@@ -12,3 +12,9 @@ spring:
   output:
     ansi:
       enabled: always
+
+
+conn:
+  remoteIP: 196.0.0.0
+  name: root
+  password: mypassword
