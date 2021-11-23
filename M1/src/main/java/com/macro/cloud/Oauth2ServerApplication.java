@@ -1,13 +1,13 @@
-package org.example;
+package com.macro.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppApplication {
+public class Oauth2ServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run( AppApplication.class, args );
+        SpringApplication.run(Oauth2ServerApplication.class, args);
     }
 
 }
