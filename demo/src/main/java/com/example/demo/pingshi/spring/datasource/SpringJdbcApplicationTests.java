@@ -24,11 +24,10 @@ class SpringJdbcApplicationTests {
         System.out.println(dataSource.getClass() + "===========");
         Connection connection = dataSource.getConnection();
 
-        ResultSet rs=connection.createStatement().executeQuery("select * from employees");
-       if(rs.next()){
-
-           System.out.println("xx:"+rs.getString("emp_no"));
-       }
+        ResultSet rs = connection.createStatement().executeQuery("select * from employees limit 10");
+        while (rs.next()) {
+            System.out.println("xx:" + rs.getString("emp_no"));
+        }
 
         System.out.println(jdbcTemplate + "==========");
     }
