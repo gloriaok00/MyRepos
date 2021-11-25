@@ -1,7 +1,7 @@
 package com.macro.cloud.config;
 
 
-import com.macro.cloud.service.UserService;
+import com.macro.cloud.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -53,7 +53,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserService userService;
+    private MyUserDetailsService userService;
 
     /**
      * 使用密码模式需要配置
