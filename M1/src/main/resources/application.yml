@@ -3,3 +3,8 @@ server:
 spring:
   application:
     name: oauth2-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/m1
+    username: root
+    password: '!Qazxsw2'

@@ -3,6 +3,7 @@ package com.macro.cloud.config;
 
 import com.macro.cloud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,6 +11,12 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
 
 /**
  * 认证服务器配置
@@ -18,6 +25,17 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired
+    private TokenStore tokenStore;
+
+    @Bean
+    public TokenStore tokenStore() {
+        return new JdbcTokenStore( dataSource );
+    }
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -34,18 +52,20 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.authenticationManager(authenticationManager)
-                .userDetailsService(userService);
+                .userDetailsService(userService)
+                .tokenStore(tokenStore);
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
+        clients.jdbc(dataSource);
+        /* clients.inMemory()
                 .withClient("app")//配置client_id
                 .secret(passwordEncoder.encode("app"))//配置client-secret
                 .accessTokenValiditySeconds(3600)//配置访问token的有效期
                 .refreshTokenValiditySeconds(864000)//配置刷新token的有效期
                 .redirectUris("http://www.baidu.com")//配置redirect_uri，用于授权成功后跳转
                 .scopes("all")//配置申请的权限范围
-                .authorizedGrantTypes("authorization_code","password","client_credentials");//配置grant_type，表示授权类型
+                .authorizedGrantTypes("authorization_code","password","client_credentials");//配置grant_type，表示授权类型*/
     }
 }
