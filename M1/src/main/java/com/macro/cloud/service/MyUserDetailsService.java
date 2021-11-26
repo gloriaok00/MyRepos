@@ -39,12 +39,8 @@ public class MyUserDetailsService implements UserDetailsService {
         User user = userMapper.loadUserByUsername( userName );
         if (null != user) {
             List<Role> roles = roleMapper.getRolesByUserId( user.getId() );
-            List<Long> ids=roles.stream().map(Role::getId).collect(Collectors.toList());
-            List<Permission> permissionList = permissionMapper.getRolePermissions(ids);
+            List<Permission> permissionList = permissionMapper.getRolePermissions(roles.stream().map(Role::getId).collect(Collectors.toList()));
             MyUserDetails userDetails= new MyUserDetails(user,permissionList);
-            System.out.println("t1:"+userDetails.getUser().getUsername());
-            System.out.println("t2:"+userDetails.getPermissionList().get(0).getUrl());
-
             return userDetails;
         }
         throw new UsernameNotFoundException("用户名或密码错误");
