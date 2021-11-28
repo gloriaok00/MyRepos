@@ -40,7 +40,7 @@ public class MyUserDetailsService implements UserDetailsService {
         if (null != user) {
             List<Role> roles = roleMapper.getRolesByUserId( user.getId() );
             List<Permission> permissionList = permissionMapper.getRolePermissions(roles.stream().map(Role::getId).collect(Collectors.toList()));
-            MyUserDetails userDetails= new MyUserDetails(user,permissionList);
+            MyUserDetails userDetails= new MyUserDetails(user,permissionList,roles);
             return userDetails;
         }
         throw new UsernameNotFoundException("用户名或密码错误");

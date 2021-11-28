@@ -2,6 +2,7 @@ package com.macro.cloud.service;
 
 
 import com.macro.cloud.model.Permission;
+import com.macro.cloud.model.Role;
 import com.macro.cloud.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,11 +24,18 @@ public class MyUserDetails implements UserDetails {
     //拥有资源列表
     private List<Permission> permissionList;
 
+    //拥有角色列表
+    private List<Role> roleList;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         //返回当前用户的角色
-        return permissionList.stream()
+
+       /* return permissionList.stream()
                 .map(permission ->new SimpleGrantedAuthority(permission.getId()+":"+permission.getName()))
+                .collect(Collectors.toList());*/
+       return roleList.stream()
+                .map(role ->new SimpleGrantedAuthority("ROLE_"+role.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -77,8 +85,17 @@ public class MyUserDetails implements UserDetails {
         this.permissionList = permissionList;
     }
 
-    public MyUserDetails(User user, List<Permission> permissionList) {
+    public MyUserDetails(User user, List<Permission> permissionList, List<Role> roleList) {
         this.user = user;
         this.permissionList = permissionList;
+        this.roleList = roleList;
+    }
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 }

@@ -17,9 +17,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .anyRequest()
-                .authenticated()
-                .and()
+                .authenticated();
+              /*  .and()
                 .requestMatchers()
-                .antMatchers("/user/**");//配置需要保护的资源路径
+                .antMatchers("/user/**");//配置需要保护的资源路径*/
     }
 }
