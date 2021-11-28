@@ -1,5 +1,7 @@
 package com.example.demo.pingshi.servlet;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.*;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +22,7 @@ public class MyServlet implements Servlet {
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
-        System.out.println("init方法启动");
+        System.out.println("我是init方法，我是3");
         this.config=servletConfig;
     }
 
@@ -32,6 +34,7 @@ public class MyServlet implements Servlet {
     }
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        System.out.println("我是service方法，我是4");
         servletResponse.setCharacterEncoding("UTF-8");
         servletResponse.setContentType("text/html");
         PrintWriter pw=servletResponse.getWriter();
@@ -50,6 +53,25 @@ public class MyServlet implements Servlet {
 
     @Override
     public void destroy() {
-        System.out.println("destroy方法启动");
+        System.out.println("我是destroy方法，我是5");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("我是preDestroy方法，我是6.在Destroy之后执行。为啥在他之后执行还叫pre");
+    }
+
+    /**
+     * 构造方法执行之后，调用此方法
+     */
+    @PostConstruct
+    public void beforeInit(){
+        System.out.println("我是@PostConstruct方法,我是2.在构造方法之后，init()之前会被调");
+        System.out.println("而且全局范围内只启动一次");
+    }
+
+    public MyServlet(ServletConfig config) {
+        this.config = config;
+        System.out.println("我是构造器，我是1");
     }
 }
