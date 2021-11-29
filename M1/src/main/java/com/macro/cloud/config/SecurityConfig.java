@@ -4,6 +4,7 @@ import com.macro.cloud.mapper.PermissionMapper;
 import com.macro.cloud.model.Permission;
 import com.macro.cloud.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.ConfigAttribute;
@@ -76,5 +77,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 return map;
             }
         };
+    }
+
+
+    @ConditionalOnBean(name = "dynamicSecurityService")
+    @Bean
+    public DynamicSecurityMetadataSource dynamicSecurityMetadataSource() {
+        return new DynamicSecurityMetadataSource();
     }
 }
