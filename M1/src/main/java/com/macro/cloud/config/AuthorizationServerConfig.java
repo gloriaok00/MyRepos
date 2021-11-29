@@ -1,10 +1,13 @@
 package com.macro.cloud.config;
 
 
+import com.macro.cloud.mapper.PermissionMapper;
+import com.macro.cloud.model.Permission;
 import com.macro.cloud.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -16,6 +19,9 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import javax.sql.DataSource;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 认证服务器配置
@@ -24,6 +30,9 @@ import javax.sql.DataSource;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+
+    @Autowired
+    private PermissionMapper permissionMapper;
 
     @Autowired
     private DataSource dataSource;
@@ -75,4 +84,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes("all")//配置申请的权限范围
                 .authorizedGrantTypes("authorization_code","password","client_credentials");//配置grant_type，表示授权类型*/
     }
+
+
+    @Bean
+    public DynamicSecurityService dynamicSecurityService() {
+        return new DynamicSecurityService() {
+            @Override
+            public Map<String, ConfigAttribute> loadDataSource() {
+                Map<String, ConfigAttribute> map = new ConcurrentHashMap<>();
+                List<Permission> permissionList = permissionMapper.getAllPermissions();
+                for (Permission permission : permissionList) {
+                    map.put(permission.getUrl(), new org.springframework.security.access.SecurityConfig(permission.getId() + ":" + permission.getName()));
+                }
+                return map;
+            }
+        };
+    }
+
+
 }

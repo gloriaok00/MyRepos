@@ -11,6 +11,6 @@ spring:
 secure:
   ignored:
     urls: #安全路径白名单
-      - /oauth2/**
+      - /oauth/**
       - /login/**
       - /logout/**
