@@ -13,15 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class HiController {
 
     @GetMapping("/hi")
-    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     public String hi() {
         return "hi";
     }
 
     @GetMapping("/say")
-    @Secured({"ROLE_USER"})
     public String say() {
-        //Authentication mm=SecurityContextHolder.getContext().getAuthentication();
+        Authentication mm=SecurityContextHolder.getContext().getAuthentication();
         return "say";
     }
 

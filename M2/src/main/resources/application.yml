@@ -11,3 +11,12 @@ security:
       jwt:
         key-uri: http://localhost:8089/oauth/token_key
         key-value: iot
+
+spring:
+  application:
+    name: oauth2-resource
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/m1
+    username: root
+    password: '!Qazxsw2'
