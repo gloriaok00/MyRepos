@@ -8,3 +8,9 @@ spring:
     url: jdbc:mysql://localhost:3306/m1
     username: root
     password: '!Qazxsw2'
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /oauth2/**
+      - /login/**
+      - /logout/**
