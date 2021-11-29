@@ -23,4 +23,9 @@ public class UserController {
     public Object getCurrentTest() {
         return "test";
     }
+
+    @GetMapping("/ddd")
+    public Object getDDD() {
+        return "ddd";
+    }
 }
