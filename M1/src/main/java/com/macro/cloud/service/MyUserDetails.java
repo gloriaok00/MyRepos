@@ -29,14 +29,14 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //返回当前用户的角色
-
-       /* return permissionList.stream()
+        //返回当前用户的资源
+        return permissionList.stream()
                 .map(permission ->new SimpleGrantedAuthority(permission.getId()+":"+permission.getName()))
-                .collect(Collectors.toList());*/
-       return roleList.stream()
-                .map(role ->new SimpleGrantedAuthority("ROLE_"+role.getName()))
                 .collect(Collectors.toList());
+        //返回当前用户的角色
+     /*  return roleList.stream()
+                .map(role ->new SimpleGrantedAuthority("ROLE_"+role.getName()))
+                .collect(Collectors.toList());*/
     }
 
     @Override

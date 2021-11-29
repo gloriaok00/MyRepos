@@ -12,7 +12,11 @@ import java.util.List;
 @Mapper
 public interface PermissionMapper {
 
-    @Select( "SELECT C.NAME AS name,C.url,C.id as id FROM role AS A LEFT JOIN role_permission B ON A.id=B.role_id LEFT JOIN permission AS C ON B.permission_id=C.id")
+    @Select("<script>" + "SELECT p.name AS name,p.url,p.id as id FROM role_permission rp JOIN permission AS p ON rp.permission_id=p.id where role_id in"
+            +"<foreach item='id' collection='ids' open='(' separator=',' close=')'>"
+            + "#{id}"
+            + "</foreach>"
+            + "</script>")
     List<Permission> getRolePermissions(@Param("ids") List<Long> ids);
 
     @Select( "SELECT name,url,id FROM permission")
