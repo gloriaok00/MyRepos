@@ -1,6 +1,7 @@
-package com.example.demo.pingshi.spring.mybean.myauto.threelearn;
+package com.example.demo;
 
-import org.junit.jupiter.api.Test;
+import com.example.demo.pingshi.spring.mybean.myauto.threelearn.All;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
