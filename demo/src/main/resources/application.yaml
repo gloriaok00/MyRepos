@@ -22,3 +22,11 @@ conn:
   remoteIP: 196.0.0.0
   name: root
   password: mypassword
+
+remote:
+  connection:
+    ip: 111.111.111.111
+    name: test
+    password: aaa
+    enabled: true
+
