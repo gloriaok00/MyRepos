@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @description 学习@co
+ * @description 学习@ConfigurationProperties
  * @date 2021-11-20 17:43
  */
 
