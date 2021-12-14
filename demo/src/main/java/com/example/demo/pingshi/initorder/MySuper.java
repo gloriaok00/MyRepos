@@ -15,4 +15,8 @@ public class MySuper {
         this.one=one;
     }
 
+    MySuper(){
+
+    }
+
 }
