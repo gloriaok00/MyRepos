@@ -56,6 +56,7 @@ public class TreeObjServlet implements Servlet {
         System.out.println("service4-调一次执行一次");
         System.out.println(getT_root());
         System.out.println(getT_leaf());
+        System.out.println(servletRequest.getAttribute("a"));
     }
 
     @Override
