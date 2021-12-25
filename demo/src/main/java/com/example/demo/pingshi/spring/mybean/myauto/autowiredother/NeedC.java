@@ -33,7 +33,7 @@ public class NeedC {
     @Resource(name="cc2")
     private List<String> bb;
 
-    @GetMapping
+    @GetMapping("/ss")
     public void ss(){
         System.out.println("mm:"+bb.get(0));
     }
