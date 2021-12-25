@@ -1,8 +1,9 @@
 package com.example.demo.pingshi.json;
 
-import com.example.demo.pingshi.rest.Person;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author zhangyu
@@ -13,13 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/dd")
 public class JSONList {
 
+    //@RequestParam不加也行，
+    // 不加时url里的参数名称与controller方法里的名称必须一致。加的话可以给value啥的换名称
     @GetMapping(value="/json22")
-    public Person getJson(@RequestParam String pp) {
-        Person p1=new Person();
-        p1.setAge("23");
-        p1.setName(pp);
-        //没有相应页面报错
-        return p1;
+    public String getJson(String p1) {
+        System.out.println("pp:"+p1);
+        return "index";
     }
 
     @GetMapping(value="/json1/{id}")
