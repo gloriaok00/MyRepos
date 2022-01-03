@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 
 /**
- * @description
+ * @description  再学习spring 注入
  * @date 2022-01-03 15:17
  */
 
