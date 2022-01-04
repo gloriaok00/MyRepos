@@ -23,13 +23,11 @@ public class Demo {
      * */
     @RequestMapping("/demo")
     public String getParam(HttpServletRequest request) {
-        System.out.println("啊1");
         System.out.println(request);
-        System.out.println(request.getParameter("userName"));
-        System.out.println("test");
-        //return request.getParameter("userName");
+        System.out.println("myParam:"+request.getParameter("username"));
         HttpServletRequest req = ((ServletRequestAttributes) Objects
                 .requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+        System.out.println("从上下文中直接拿:"+req.getParameter("username"));
         String ip= ServletUtil.getClientIP(req);
         return ip;
     }
@@ -38,7 +36,7 @@ public class Demo {
      * 方法 2 使用 RequestParam 接收
      * */
     @RequestMapping("/demo2")
-    public String getParam2(@RequestParam(value = "userName") String userName) {
+    public String getParam2(@RequestParam(value = "username") String userName) {
         return userName;
     }
 
