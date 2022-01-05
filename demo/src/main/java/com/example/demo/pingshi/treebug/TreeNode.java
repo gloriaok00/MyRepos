@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @description  树形结构节点
+ * @description 树形结构节点
  */
 
 @Data
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TreeNode {
 
-    public String id ;
+    public String id;
     public String name;
 
 }

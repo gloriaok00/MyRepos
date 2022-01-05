@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 /**
  * @author zhangyu
- * @description  MQTT 发布者
+ * @description MQTT 发布者
  * @date 2020-05-28 14:43
  */
 
@@ -48,13 +48,13 @@ public class MqttServerFlow {
             MqttMessage message = new MqttMessage();
             message.setQos(1);
             message.setRetained(false);
-            JSONObject obj=new JSONObject();
+            JSONObject obj = new JSONObject();
             Thread.sleep(1000);
             for (int i = 0; i < 100000; i++) {
-                obj.put("mqttId",1);
-                obj.put("time",i+1);
-                obj.put("guanwen",new BigDecimal(Math.random()).setScale(3,1).doubleValue());
-                obj.put("redianouwendu",new BigDecimal(Math.random()).setScale(3,1).doubleValue());
+                obj.put("mqttId", 1);
+                obj.put("time", i + 1);
+                obj.put("guanwen", new BigDecimal(Math.random()).setScale(3, 1).doubleValue());
+                obj.put("redianouwendu", new BigDecimal(Math.random()).setScale(3, 1).doubleValue());
                 message.setPayload(JSONObject.toJSONString(obj).getBytes());
                 client.publish(MQTT_TOPIC, message);
             }

@@ -19,9 +19,9 @@ public class CustomGuuidSerializer implements JsonSerializer<Guuid> {
 
     @Override
     public JsonElement serialize(Guuid guuid, Type typeOfSrc, JsonSerializationContext context) {
-        BigDecimal mostBigDecimal=new BigDecimal(guuid.getMsb());
-        BigDecimal leastBigDecimal=new BigDecimal(guuid.getLsb());
-        return new JsonPrimitive(new UUID(mostBigDecimal.longValue(),leastBigDecimal.longValue()).toString());
+        BigDecimal mostBigDecimal = new BigDecimal(guuid.getMsb());
+        BigDecimal leastBigDecimal = new BigDecimal(guuid.getLsb());
+        return new JsonPrimitive(new UUID(mostBigDecimal.longValue(), leastBigDecimal.longValue()).toString());
     }
 
 }

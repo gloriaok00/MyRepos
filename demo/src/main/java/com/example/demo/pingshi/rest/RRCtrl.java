@@ -20,27 +20,27 @@ public class RRCtrl {
 
     //form-data
     @PostMapping("/getPerson")
-    public void getPerson(int id, MultipartFile file){
+    public void getPerson(int id, MultipartFile file) {
         System.out.println(id);
         System.out.println(file.getName());
     }
 
     //x-www-form-urlencoded
     @PostMapping("/getPerson1")
-    public void getPerson1(@RequestBody MultiValueMap<String, String> values){
+    public void getPerson1(@RequestBody MultiValueMap<String, String> values) {
         System.out.println(values.get("a"));
         System.out.println(values.get("b"));
     }
 
     //json
     @PostMapping("/getPerson22")
-    public String getPerson11(@RequestBody Person person){
+    public String getPerson11(@RequestBody Person person) {
         log.info(person.toString());
         return person.toString();
     }
 
     @Data
-    class Person1{
+    class Person1 {
         public String id;
         public String name;
     }

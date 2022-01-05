@@ -10,8 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @description  bean放在其它的类里没问题，但放在本类中就报错.
- * @description  问题已找到，一开始用@springbootTest以及@test写的就是不行。
+ * @description bean放在其它的类里没问题，但放在本类中就报错.
+ * @description 问题已找到，一开始用@springbootTest以及@test写的就是不行。
  * 改成@RestController后就可以了 2021-11-26 15:20
  * @date 2021-11-25 16:49
  */
@@ -21,21 +21,25 @@ import java.util.List;
 public class NeedC {
 
     @Bean("cc1")
-    public List<String> a1(){
-        return Arrays.asList("a","b");
-    };
+    public List<String> a1() {
+        return Arrays.asList("a", "b");
+    }
+
+    ;
 
     @Bean("cc2")
-    public List<String> a2(){
-        return Arrays.asList("c","d");
-    };
+    public List<String> a2() {
+        return Arrays.asList("c", "d");
+    }
 
-    @Resource(name="cc2")
+    ;
+
+    @Resource(name = "cc2")
     private List<String> bb;
 
     @GetMapping("/ss")
-    public void ss(){
-        System.out.println("mm:"+bb.get(0));
+    public void ss() {
+        System.out.println("mm:" + bb.get(0));
     }
 
 }

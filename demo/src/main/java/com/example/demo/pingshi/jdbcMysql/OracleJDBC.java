@@ -43,7 +43,7 @@ public class OracleJDBC {
             //String time = format0.format(ss.getTime());
             //System.out.println("格式化结果0：" + time);
             //String sql = "INSERT INTO demo(id,name,cd) VALUES ("+i+",'zy',TO_DATE('"+time+"','yyyy-mm-dd hh24:mi:ss'))";
-            String sql = "INSERT INTO d1 VALUES ("+i+")";
+            String sql = "INSERT INTO d1 VALUES (" + i + ")";
             pstmt = conn.prepareStatement(sql);
             System.out.println(sql);
             pstmt.executeUpdate();

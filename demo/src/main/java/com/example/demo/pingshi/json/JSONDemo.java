@@ -13,7 +13,7 @@ import java.util.List;
 public class JSONDemo {
 
     public static void main(String[] args) {
-        String s="{\n" +
+        String s = "{\n" +
                 "    \"name\": \"王小二\",\n" +
                 "    \"age\": 15,\n" +
                 "    \"address\": {\n" +
@@ -27,23 +27,23 @@ public class JSONDemo {
                 "        \"乒乓球\"\n" +
                 "    ]\n" +
                 "}";
-        JSONObject obj= JSONObject.parseObject(s);
-        String name=obj.getString("name");
+        JSONObject obj = JSONObject.parseObject(s);
+        String name = obj.getString("name");
         System.out.println(name);
-        JSONArray array=obj.getJSONArray("hobby");
+        JSONArray array = obj.getJSONArray("hobby");
         for (int i = 0; i < array.size(); i++) {
-          String temp= array.getString(i);
-          System.out.println(temp);
+            String temp = array.getString(i);
+            System.out.println(temp);
         }
-        JSONObject address=obj.getJSONObject("address");
-        String province=address.getString("province");
+        JSONObject address = obj.getJSONObject("address");
+        String province = address.getString("province");
         System.out.println(province);
 
-        List<String> mylist=new ArrayList<>();
+        List<String> mylist = new ArrayList<>();
         mylist.add("1");
         mylist.add("2");
         mylist.add("3");
-        String result=JSONArray.toJSONString(mylist);
+        String result = JSONArray.toJSONString(mylist);
         System.out.println(result);
 
     }

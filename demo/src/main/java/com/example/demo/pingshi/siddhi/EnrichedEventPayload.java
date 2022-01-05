@@ -12,10 +12,14 @@ import lombok.Data;
 @Data
 public class EnrichedEventPayload {
 
-    /** Extra context */
+    /**
+     * Extra context
+     */
     private DeviceEventContext eventContext;
 
-    /** Event */
+    /**
+     * Event
+     */
     private DeviceEvent event;
 
 }

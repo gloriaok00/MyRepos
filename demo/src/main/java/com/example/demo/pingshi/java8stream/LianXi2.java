@@ -24,10 +24,7 @@ public class LianXi2 {
         //list.stream().map(Person::getName).collect(Collectors.toList()).forEach(e-> System.out.println(e));
         //list.stream().filter(Person->Person.getAge()==20).map(Person::getName).collect(Collectors.toList()).forEach(e-> System.out.println(e));
         //list.stream().distinct().collect(Collectors.toList()).forEach(e-> System.out.println(e));
-        list.stream().sorted(Comparator.comparingInt(Person::getAge)).collect(Collectors.toList()).forEach(e-> System.out.println(e));
-
-
-
+        list.stream().sorted(Comparator.comparingInt(Person::getAge)).collect(Collectors.toList()).forEach(e -> System.out.println(e));
 
 
     }

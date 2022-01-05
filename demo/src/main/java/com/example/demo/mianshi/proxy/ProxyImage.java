@@ -10,8 +10,8 @@ public class ProxyImage implements Image {
 
     @Override
     public void display() {
-        if (realImage==null){
-            realImage=new RealImage();
+        if (realImage == null) {
+            realImage = new RealImage();
         }
         System.out.println("dfdsf");
         realImage.display();

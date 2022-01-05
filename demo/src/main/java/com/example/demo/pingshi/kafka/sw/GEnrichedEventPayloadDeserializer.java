@@ -14,9 +14,9 @@ public class GEnrichedEventPayloadDeserializer implements Deserializer<DeviceEve
     @Override
     public DeviceEventModel.GEnrichedEventPayload deserialize(String topic, byte[] data) {
         try {
-            return parseFromBytes(data) ;
+            return parseFromBytes(data);
         } catch (Exception e) {
-            throw new RuntimeException(e) ;
+            throw new RuntimeException(e);
         }
     }
 
@@ -26,12 +26,13 @@ public class GEnrichedEventPayloadDeserializer implements Deserializer<DeviceEve
 
     /**
      * parse an instance of GEnrichedEventPayload from byte stream
+     *
      * @param payload
      * @return
      * @throws InvalidProtocolBufferException
      */
     private static DeviceEventModel.GEnrichedEventPayload parseFromBytes(byte[] payload) throws InvalidProtocolBufferException {
         DeviceEventModel.GEnrichedEventPayload grpc = DeviceEventModel.GEnrichedEventPayload.parseFrom(payload);
-        return grpc ;
+        return grpc;
     }
 }

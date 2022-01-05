@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 书操作
  * 测试这个包下边的文件是否是debug级别
+ *
  * @author zhangyu
  * @date 2020/10/12 23:26
  */
@@ -19,7 +20,7 @@ public class BRest {
      * 根据ID查找书籍
      */
     @GetMapping("/dd")
-    public String getBookById(){
+    public String getBookById() {
         log.debug("debug getBookById");
         log.info("info getBookById");
         return "1";

@@ -8,15 +8,15 @@ package com.example.demo.pingshi.gc;
  */
 
 public class BigObjGC {
-    private final int mbsize=1024*1024;
+    private final int mbsize = 1024 * 1024;
 
     public static void main(String[] args) {
-          BigObjGC minorGc =new BigObjGC();
-          minorGc.gcSimulation();
+        BigObjGC minorGc = new BigObjGC();
+        minorGc.gcSimulation();
     }
 
-    public void gcSimulation(){
+    public void gcSimulation() {
         byte[] allocation4;
-        allocation4=new byte[4*mbsize];
+        allocation4 = new byte[4 * mbsize];
     }
 }

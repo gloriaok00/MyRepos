@@ -25,7 +25,7 @@ public class SmsServiceImpl implements SmsService {
    */
     @Override
     public void sendSms(String mobile) {
-        log.info("已向{}成功发短信!",mobile);
+        log.info("已向{}成功发短信!", mobile);
        /* log.info("aa!",text);
         log.info("bb",port);*/
 

@@ -15,8 +15,8 @@ public class Demo {
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("请输入一个字符");
-           Object ddd= bufferedReader.read();
-            System.out.println("你输入的字符为"+ddd);
+            Object ddd = bufferedReader.read();
+            System.out.println("你输入的字符为" + ddd);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

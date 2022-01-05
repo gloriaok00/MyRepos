@@ -10,9 +10,9 @@ import java.util.HashSet;
 
 public class RuntimeConstantPoolOOM {
     public static void main(String[] args) {
-        int i=0;
-        HashSet set=new HashSet();
-        while(true){
+        int i = 0;
+        HashSet set = new HashSet();
+        while (true) {
             set.add(String.valueOf(i++).intern());
         }
     }

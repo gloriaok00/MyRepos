@@ -10,6 +10,6 @@ package com.example.demo.pingshi.service;
 public interface SmsService {
 
 
-     void sendSms(String mobile);
+    void sendSms(String mobile);
 
 }

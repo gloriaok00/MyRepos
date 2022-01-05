@@ -27,7 +27,7 @@ public class MainConnection {
     private ConnProp connProp2;
 
     @GetMapping("/connprop")
-    public void show(){
+    public void show() {
         System.out.println("=====test1:==========");
         System.out.println(connProp.getRemoteIP());
         System.out.println(connProp.getName());
@@ -45,7 +45,7 @@ public class MainConnection {
 @Component
 @AllArgsConstructor
 @NoArgsConstructor
-class ConnProp{
+class ConnProp {
 
     private String remoteIP;
     private String name;
@@ -53,8 +53,8 @@ class ConnProp{
 
 
     @Bean("connProp2")
-    public ConnProp getDefaultConnProp(){
-        return new ConnProp(remoteIP,name,password);
+    public ConnProp getDefaultConnProp() {
+        return new ConnProp(remoteIP, name, password);
     }
 
 }

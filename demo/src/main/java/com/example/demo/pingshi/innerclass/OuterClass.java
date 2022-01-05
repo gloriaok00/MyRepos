@@ -7,22 +7,22 @@ package com.example.demo.pingshi.innerclass;
 
 public class OuterClass {
 
-    private int a=1;
+    private int a = 1;
 
-    protected void oo(){
+    protected void oo() {
         System.out.println("这是受保护的方法");
     }
 
-    protected class InnerClass{
-      public void show(String s){
+    protected class InnerClass {
+        public void show(String s) {
 
-      }
+        }
     }
 }
 
 //保留类
-class NonPublicClass{
-    public void show(){
+class NonPublicClass {
+    public void show() {
         System.out.println("这是非公共类");
     }
 }

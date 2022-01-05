@@ -21,7 +21,7 @@ public class Demo3 {
 
         List<String> resultValues = map.entrySet().stream()
                 .sorted(Map.Entry.<Integer, String>comparingByKey().reversed())
-                .map(x -> x.getKey()+"-"+x.getValue())
+                .map(x -> x.getKey() + "-" + x.getValue())
                 .collect(Collectors.toList());
         resultValues.forEach(System.out::println);
     }

@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2019-09-15 15:34
  */
 
-class MyThread implements Callable{
+class MyThread implements Callable {
     @Override
     public Object call() throws Exception {
         System.out.println(" 计算中 from callable");
@@ -20,11 +20,11 @@ class MyThread implements Callable{
 
 public class MyCallable {
     public static void main(String[] args) throws Exception {
-        FutureTask futureTask=new FutureTask(new MyThread());
-        new Thread(futureTask,"AA").start();
-        System.out.println(Thread.currentThread().getName()+"继续...");
-        int result2=100;
-        int result1=(int)futureTask.get();
-        System.out.println(result1+result2);
+        FutureTask futureTask = new FutureTask(new MyThread());
+        new Thread(futureTask, "AA").start();
+        System.out.println(Thread.currentThread().getName() + "继续...");
+        int result2 = 100;
+        int result1 = (int) futureTask.get();
+        System.out.println(result1 + result2);
     }
 }

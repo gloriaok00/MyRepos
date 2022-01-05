@@ -31,30 +31,30 @@ public class MyProducerSW {
         props.put("key.serializer", StringSerializer.class.getName());
         props.put("value.serializer", StringSerializer.class.getName());
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(props);
-        for (int i=1;i<=10;i++){
-            EnrichedEventPayload temp=initPayload(i);
-            producer.send(new ProducerRecord<String, String>("t3","Message"+i, JSONObject.toJSONString(temp)));
+        for (int i = 1; i <= 10; i++) {
+            EnrichedEventPayload temp = initPayload(i);
+            producer.send(new ProducerRecord<String, String>("t3", "Message" + i, JSONObject.toJSONString(temp)));
         }
         producer.close();
     }
 
-    public static EnrichedEventPayload initPayload(int i){
-        EnrichedEventPayload instance=new EnrichedEventPayload();
-        DeviceEventContext eventContext=new DeviceEventContext();
-        UUID deviceId=UUID.randomUUID();
+    public static EnrichedEventPayload initPayload(int i) {
+        EnrichedEventPayload instance = new EnrichedEventPayload();
+        DeviceEventContext eventContext = new DeviceEventContext();
+        UUID deviceId = UUID.randomUUID();
         eventContext.setDeviceId(deviceId);
         eventContext.setAssignmentStatus(DeviceAssignmentStatus.Active);
         eventContext.setDeviceTypeId(UUID.randomUUID());
         instance.setEventContext(eventContext);
-        DeviceMeasurement deviceMeasurement=new DeviceMeasurement();
-        deviceMeasurement.setName(i+"号设备");
+        DeviceMeasurement deviceMeasurement = new DeviceMeasurement();
+        deviceMeasurement.setName(i + "号设备");
         deviceMeasurement.setValue(Math.random());
-        HashMap metaMap=new HashMap();
-        metaMap.put("deviceFX3UStatus",Math.random()>0.5?1:0);
-        metaMap.put("devicePluseCounts",123);
-        metaMap.put("deviceForewardStatus",223);
-        metaMap.put("deviceReversalStatus",323);
-        metaMap.put("deviceTemperature",new BigDecimal(Math.random() * 100).setScale(1, BigDecimal.ROUND_HALF_UP));
+        HashMap metaMap = new HashMap();
+        metaMap.put("deviceFX3UStatus", Math.random() > 0.5 ? 1 : 0);
+        metaMap.put("devicePluseCounts", 123);
+        metaMap.put("deviceForewardStatus", 223);
+        metaMap.put("deviceReversalStatus", 323);
+        metaMap.put("deviceTemperature", new BigDecimal(Math.random() * 100).setScale(1, BigDecimal.ROUND_HALF_UP));
         deviceMeasurement.setMetadata(metaMap);
         deviceMeasurement.setId(UUID.randomUUID());
         deviceMeasurement.setDeviceId(deviceId);

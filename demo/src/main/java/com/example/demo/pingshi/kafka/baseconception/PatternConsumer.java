@@ -12,12 +12,12 @@ import java.util.regex.Pattern;
 
 /**
  * @author zhangyu
- * @description  kafka基本概念 正则表达式
+ * @description kafka基本概念 正则表达式
  * @date 2020-10-07 20:31
  */
 public class PatternConsumer {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
         props.put("group.id", "zydemo1111");

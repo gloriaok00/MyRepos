@@ -21,7 +21,7 @@ public class BBController {
     private B1 b1;
 
     @GetMapping("/springbean")
-    public void nnn(){
+    public void nnn() {
         System.out.println("查看bb对象是否拿到了:");
         bb.show();
         b1.show();
@@ -30,25 +30,25 @@ public class BBController {
 
 
 @Configuration
-class BB{
+class BB {
 
-    public void show(){
+    public void show() {
         System.out.println("我是BB的show方法");
     }
 
     @Bean
-    public B1 registB1(){
+    public B1 registB1() {
         return new B1();
     }
 
 }
 
-class B1{
-    public B1(){
+class B1 {
+    public B1() {
         System.out.println("我是B1的默认构造器");
     }
 
-    public void show(){
+    public void show() {
         System.out.println("我是B1对象的show方法");
     }
 }

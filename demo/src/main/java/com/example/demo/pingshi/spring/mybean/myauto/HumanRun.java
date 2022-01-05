@@ -19,6 +19,6 @@ public class HumanRun {
 
     @Test
     public void runMarathon() {
-        System.out.println("bb:"+human.runMarathon());
+        System.out.println("bb:" + human.runMarathon());
     }
 }

@@ -52,10 +52,10 @@ public class ConsumerCD implements Runnable {
         props.put("key.deserializer", StringDeserializer.class.getName());
         props.put("value.deserializer", GEnrichedEventPayloadDeserializer.class);
         this.consumer = new KafkaConsumer<String, DeviceEventModel.GEnrichedEventPayload>(props);
-        Set topicSet=consumer.listTopics().keySet();
+        Set topicSet = consumer.listTopics().keySet();
         List<String> topicList = new ArrayList<>(topicSet);
-        List<String> outboundTopicList=topicList.stream().filter(topic -> topic.contains(".outbound-events")).collect(Collectors.toList());
-        log.info("subscribedTopic:"+outboundTopicList);
+        List<String> outboundTopicList = topicList.stream().filter(topic -> topic.contains(".outbound-events")).collect(Collectors.toList());
+        log.info("subscribedTopic:" + outboundTopicList);
         this.consumer.subscribe(outboundTopicList);
     }
 
@@ -89,8 +89,8 @@ public class ConsumerCD implements Runnable {
                         log.info(jsonString);
 
                         UUID deviceId = asApiUuid(msg.getContext().getDeviceId());
-                        String topic = String.format("cep-tenant-%s-deviceId-%s", getSubStr(record.topic(),"sitewhere.sitewhere.tenant.(.*?).outbound-events"),deviceId);
-                        log.info("子topic:"+topic);
+                        String topic = String.format("cep-tenant-%s-deviceId-%s", getSubStr(record.topic(), "sitewhere.sitewhere.tenant.(.*?).outbound-events"), deviceId);
+                        log.info("子topic:" + topic);
                         producer.send(new ProducerRecord<String, String>(topic, "Message", jsonString));
                         //System.out.println("单次结束");
                         //Thread.sleep(5000);
@@ -127,15 +127,15 @@ public class ConsumerCD implements Runnable {
     public void initGson() {
         GsonBuilder gsonBuilder = new GsonBuilder().setPrettyPrinting();
         gsonBuilder.registerTypeAdapter(Guuid.class, new CustomGuuidSerializer());
-        gsonBuilder.registerTypeAdapter(Long.class,new CustomDateSerializer());
+        gsonBuilder.registerTypeAdapter(Long.class, new CustomDateSerializer());
         gson = gsonBuilder.create();
     }
 
-    public static String getSubStr(String soap,String rgex){
+    public static String getSubStr(String soap, String rgex) {
         Pattern pattern = Pattern.compile(rgex);
         Matcher m = pattern.matcher(soap);
-        while(m.find()){
-           return m.group(1);
+        while (m.find()) {
+            return m.group(1);
         }
         return soap;
     }

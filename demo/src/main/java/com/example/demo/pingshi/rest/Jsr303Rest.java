@@ -14,7 +14,7 @@ import javax.validation.Valid;
 public class Jsr303Rest {
 
     @GetMapping(value = "/test/jsr")
-    public String validatorParam(@Valid @RequestBody PersonImportDTO personImportDTO){
+    public String validatorParam(@Valid @RequestBody PersonImportDTO personImportDTO) {
         return personImportDTO.toString();
     }
 

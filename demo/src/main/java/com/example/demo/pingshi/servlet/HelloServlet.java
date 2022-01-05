@@ -6,19 +6,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class HelloServlet extends HttpServlet
-{
+public class HelloServlet extends HttpServlet {
     private String msg;
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         msg = req.getParameter("msg");
-        try
-        {
+        try {
             Thread.sleep(1000);
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         resp.getWriter().println(msg);

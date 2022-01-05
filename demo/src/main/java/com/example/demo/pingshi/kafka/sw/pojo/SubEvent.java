@@ -7,7 +7,7 @@ import java.util.HashMap;
 @Data
 public class SubEvent {
 
-    private HashMap<String,Double> metadata;
+    private HashMap<String, Double> metadata;
     private Guuid areaId;
     private Guuid assetId;
     private Guuid customerId;

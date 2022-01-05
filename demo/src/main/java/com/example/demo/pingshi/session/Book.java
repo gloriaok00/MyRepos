@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 书
+ *
  * @author zhangyu
  * @date 2020/3/29 10:09
  */
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book implements Comparable{
+public class Book implements Comparable {
 
     private Integer id;
     private String name;
@@ -21,7 +22,7 @@ public class Book implements Comparable{
     @Override
     public int compareTo(Object o) {
 
-        Book b = (Book)(o);
+        Book b = (Book) (o);
         return this.id - b.id;
 
     }

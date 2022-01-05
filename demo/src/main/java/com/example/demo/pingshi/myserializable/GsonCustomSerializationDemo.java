@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class GsonCustomSerializationDemo {
 
-    public static void main(String args[]) throws Exception{
+    public static void main(String args[]) throws Exception {
 
         GsonBuilder gsonBuilder = new GsonBuilder().setPrettyPrinting();
         gsonBuilder.registerTypeAdapter(Date.class, new CustomDateSerializer());
@@ -22,12 +22,12 @@ public class GsonCustomSerializationDemo {
         car.setName("AUDI");
         car.setModel(2014);
         car.setPrice(30000);
-        car.setPromoDate( new Date());
-        UUID deviceId= UUID.randomUUID();
+        car.setPromoDate(new Date());
+        UUID deviceId = UUID.randomUUID();
         car.setDeviceId(asGrpcUuid(deviceId));
-        UUID areaId= UUID.randomUUID();
+        UUID areaId = UUID.randomUUID();
         car.setAreaId(asGrpcUuid(areaId));
-        UUID customerId= UUID.randomUUID();
+        UUID customerId = UUID.randomUUID();
         car.setCustomerId(asGrpcUuid(customerId));
 
         car.getColors().add("GRAY");

@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * 工地信息
+ *
  * @author zhangyu
  * @date 2019-11-06 18:26
  */
@@ -13,7 +14,7 @@ import java.util.List;
 public class WorksitePartDTO {
 
     private String worksiteId;
-    private String  worksiteName;
+    private String worksiteName;
     private List<StageInfoDTO> stageList;
 
 }

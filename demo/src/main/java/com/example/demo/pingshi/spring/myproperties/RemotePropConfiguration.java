@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(RemoteProp.class)
-@ConditionalOnProperty(prefix = "remote.connection",value = "enabled")
+@ConditionalOnProperty(prefix = "remote.connection", value = "enabled")
 public class RemotePropConfiguration {
 }

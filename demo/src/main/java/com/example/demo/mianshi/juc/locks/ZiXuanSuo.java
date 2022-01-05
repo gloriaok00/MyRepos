@@ -10,44 +10,45 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class ZiXuanSuo {
 
-    AtomicReference<Thread> atomicReference=new AtomicReference<Thread>();
+    AtomicReference<Thread> atomicReference = new AtomicReference<Thread>();
 
-    public void getMylock(){
-        Thread currentThread=Thread.currentThread();
-        System.out.println(currentThread+"coming");
-        while(!atomicReference.compareAndSet(null,currentThread)){
+    public void getMylock() {
+        Thread currentThread = Thread.currentThread();
+        System.out.println(currentThread + "coming");
+        while (!atomicReference.compareAndSet(null, currentThread)) {
             //System.out.println(currentThread.getName()+"试图抢锁");
         }
     }
 
-    public void unlockMylock(){
-        Thread currentThread=Thread.currentThread();
-        System.out.println(currentThread+"unlock");
-        atomicReference.compareAndSet(currentThread,null);
+    public void unlockMylock() {
+        Thread currentThread = Thread.currentThread();
+        System.out.println(currentThread + "unlock");
+        atomicReference.compareAndSet(currentThread, null);
     }
 
     public static void main(String[] args) {
-        ZiXuanSuo demo=new ZiXuanSuo();
-        new Thread(()->{
+        ZiXuanSuo demo = new ZiXuanSuo();
+        new Thread(() -> {
             demo.getMylock();
-            try{
+            try {
                 TimeUnit.SECONDS.sleep(5);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
-            };
+            }
+            ;
             demo.unlockMylock();
-        },"t5").start();
+        }, "t5").start();
 
-        try{
+        try {
             //Time.sleep(1);
             TimeUnit.SECONDS.sleep(1);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        new Thread(()->{
+        new Thread(() -> {
             demo.getMylock();
             demo.unlockMylock();
-        },"t6").start();
+        }, "t6").start();
     }
 }

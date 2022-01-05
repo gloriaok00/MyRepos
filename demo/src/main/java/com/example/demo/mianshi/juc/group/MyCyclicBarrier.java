@@ -9,18 +9,18 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class MyCyclicBarrier {
 
-    public static void main(String[] args) throws Exception{
-        CyclicBarrier cyclicBarrier=new CyclicBarrier(7,()->{
+    public static void main(String[] args) throws Exception {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(7, () -> {
             System.out.println("召唤神龙成功");
         });
 
-        for (int i = 1; i <  8; i++) {
-            final int temp=i;
-            new Thread(()->{
-                System.out.println("搜集神龙"+temp+"成功");
-                try{
+        for (int i = 1; i < 8; i++) {
+            final int temp = i;
+            new Thread(() -> {
+                System.out.println("搜集神龙" + temp + "成功");
+                try {
                     cyclicBarrier.await();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }).start();

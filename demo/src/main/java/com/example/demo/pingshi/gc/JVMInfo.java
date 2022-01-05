@@ -14,7 +14,7 @@ public class JVMInfo {
 
     public static void main(String[] args) {
         List<GarbageCollectorMXBean> l = ManagementFactory.getGarbageCollectorMXBeans();
-        for(GarbageCollectorMXBean b : l) {
+        for (GarbageCollectorMXBean b : l) {
             System.out.println(b.getName());
         }
 

@@ -44,14 +44,12 @@ class Phone2 implements Runnable {
 public class KeChongRuLock2 {
 
     public static void main(String[] args) {
-        Phone2 phone2=new Phone2();
+        Phone2 phone2 = new Phone2();
         Thread t3 = new Thread(phone2, "t3");
         Thread t4 = new Thread(phone2, "t4");
         t3.start();
         t4.start();
     }
-
-
 
 
 }

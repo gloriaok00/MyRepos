@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class Woman implements Human {
 
-	public String runMarathon() {
-		return "An woman run marathon";
-	}
+    public String runMarathon() {
+        return "An woman run marathon";
+    }
 
 }

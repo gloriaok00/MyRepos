@@ -8,16 +8,16 @@ import java.util.concurrent.CountDownLatch;
  * @despcrtion 减法
  */
 public class MyCountDownLatch {
-    public static void main(String[] args) throws Exception{
-        CountDownLatch mylatch=new CountDownLatch(5);
+    public static void main(String[] args) throws Exception {
+        CountDownLatch mylatch = new CountDownLatch(5);
         for (int i = 0; i < 5; i++) {
-            final int temp=i;
-            new Thread(()->{
+            final int temp = i;
+            new Thread(() -> {
                 mylatch.countDown();
-                System.out.println("第"+temp+"位同学离开了教室");
-            },String.valueOf(temp)).start();
+                System.out.println("第" + temp + "位同学离开了教室");
+            }, String.valueOf(temp)).start();
         }
         mylatch.await();
-        System.out.println(Thread.currentThread()+"班长锁上门");
+        System.out.println(Thread.currentThread() + "班长锁上门");
     }
 }

@@ -10,12 +10,15 @@ class Father {
     {
         System.out.println("父类 非静态块 2  执行");
     }
+
     static {
         System.out.println("父类 static块 2  执行");
     }
+
     static Sample staticSam1 = new Sample("父类 静态成员 staticSam1 初始化");
     Sample sam1 = new Sample("父类 普通成员 sam1 初始化");
     static Sample staticSam2 = new Sample("父类 静态成员 staticSam2 初始化");
+
     static {
         System.out.println("父类 static块 1  执行");
     }

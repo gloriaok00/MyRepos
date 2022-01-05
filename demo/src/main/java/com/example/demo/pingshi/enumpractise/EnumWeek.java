@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Getter
 public enum EnumWeek {
 
-    Monday(1,"星期一"),
-    Tuesday(2,"星期二");
+    Monday(1, "星期一"),
+    Tuesday(2, "星期二");
 
     private int code;
     private String name;

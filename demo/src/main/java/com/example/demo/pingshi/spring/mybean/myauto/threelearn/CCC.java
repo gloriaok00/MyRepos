@@ -21,7 +21,7 @@ public class CCC {
     private All mm;
 
     @Test
-    public void xxx(){
-       mm.show();
+    public void xxx() {
+        mm.show();
     }
 }

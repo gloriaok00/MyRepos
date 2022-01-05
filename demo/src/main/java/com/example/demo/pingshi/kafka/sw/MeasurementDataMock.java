@@ -10,9 +10,10 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
-public  class MeasurementDataMock {
+public class MeasurementDataMock {
     /**
      * 随机生成UUID
+     *
      * @return
      */
     private GUUID generateMockGuuid() {
@@ -27,8 +28,8 @@ public  class MeasurementDataMock {
 
     private GAnyDeviceEvent createGAnyDeviceEvent() {
         GAnyDeviceEvent.Builder grpc = GAnyDeviceEvent.newBuilder();
-        grpc.setMeasurement(createDeviceMeasurement()) ;
-        return grpc.build() ;
+        grpc.setMeasurement(createDeviceMeasurement());
+        return grpc.build();
     }
 
     private GDeviceMeasurement createDeviceMeasurement() {
@@ -45,16 +46,16 @@ public  class MeasurementDataMock {
         grpc.setDeviceTypeId(generateMockGuuid());
         grpc.setDeviceStatus(GOptionalString.newBuilder().setValue("On"));
 
-        Map<String, String> allDeviceMetaData = new HashMap<String, String>() ;
-        allDeviceMetaData.put("meta1", "val1") ;
-        allDeviceMetaData.put("meta2", "val2") ;
+        Map<String, String> allDeviceMetaData = new HashMap<String, String>();
+        allDeviceMetaData.put("meta1", "val1");
+        allDeviceMetaData.put("meta2", "val2");
         grpc.putAllDeviceMetadata(allDeviceMetaData);
-        grpc.setAssignmentStatus(GDeviceAssignmentStatus.ASSN_STATUS_ACTIVE) ;
+        grpc.setAssignmentStatus(GDeviceAssignmentStatus.ASSN_STATUS_ACTIVE);
 
-        Map<String, String> allAssignmentMetaData = new HashMap<String, String>() ;
-        allAssignmentMetaData.put("ass1", "valass1") ;
-        allAssignmentMetaData.put("ass2", "valass2") ;
-        allAssignmentMetaData.put("ass3", "valass3") ;
+        Map<String, String> allAssignmentMetaData = new HashMap<String, String>();
+        allAssignmentMetaData.put("ass1", "valass1");
+        allAssignmentMetaData.put("ass2", "valass2");
+        allAssignmentMetaData.put("ass3", "valass3");
         grpc.putAllAssignmentMetadata(allAssignmentMetaData);
         return grpc.build();
     }
@@ -70,7 +71,7 @@ public  class MeasurementDataMock {
         grpc.setAssetId(generateMockGuuid());
         grpc.setEventDate(System.currentTimeMillis());
         grpc.setReceivedDate(System.currentTimeMillis());
-        Map<String, String> allEventMetaData = new HashMap<String, String>() ;
+        Map<String, String> allEventMetaData = new HashMap<String, String>();
         Random random = new Random(100);
         allEventMetaData.put("Device_Temperature", Float.toString(random.nextFloat()));
         allEventMetaData.put("Device_Flow", Float.toString(random.nextFloat()));
@@ -79,10 +80,10 @@ public  class MeasurementDataMock {
         return grpc.build();
     }
 
-    public GEnrichedEventPayload createMockGEnrichedEventPayload(){
+    public GEnrichedEventPayload createMockGEnrichedEventPayload() {
         GEnrichedEventPayload.Builder grpc = GEnrichedEventPayload.newBuilder();
-        grpc.setContext(createMockGDeviceEventContext()) ;
-        grpc.setEvent(createGAnyDeviceEvent()) ;
-        return grpc.build() ;
+        grpc.setContext(createMockGDeviceEventContext());
+        grpc.setEvent(createGAnyDeviceEvent());
+        return grpc.build();
     }
 }

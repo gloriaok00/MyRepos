@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class A {
 
-    public void show(){
+    public void show() {
         System.out.println("这是被spring容器实例化后的A对象的show方法");
     }
 }

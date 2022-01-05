@@ -11,16 +11,16 @@ import java.util.List;
 public class TreeObj {
 
     public static void main(String[] args) {
-        List<TreeNode> treeList=new ArrayList<>();
-        TreeNode t1=new TreeNode("1","站点1");
-        TreeNode t2=new TreeNode("2","站点2");
-        TreeNode t3=new TreeNode("3","站点3");
+        List<TreeNode> treeList = new ArrayList<>();
+        TreeNode t1 = new TreeNode("1", "站点1");
+        TreeNode t2 = new TreeNode("2", "站点2");
+        TreeNode t3 = new TreeNode("3", "站点3");
         treeList.add(t1);
         treeList.add(t2);
         treeList.add(t3);
-        List<TreeNode> ll=new ArrayList<>();
-        TreeNode o=new TreeNode("","");
-        for (TreeNode t:treeList) {
+        List<TreeNode> ll = new ArrayList<>();
+        TreeNode o = new TreeNode("", "");
+        for (TreeNode t : treeList) {
             t.setId(t.getId());
             t.setName(t.getName());
             ll.add(t);

@@ -14,38 +14,41 @@ public class Person {
     private String name;
     private int age;
 
-    private Person(Person p){
-        this.id=p.id;
-        this.name=p.name;
-        this.age=p.age;
+    private Person(Person p) {
+        this.id = p.id;
+        this.name = p.name;
+        this.age = p.age;
     }
 
-    private Person(){};
+    private Person() {
+    }
 
-    public static class Builder{
+    ;
 
-        private Person p1=new Person();
+    public static class Builder {
 
-        public Builder(int id){
-            p1.id=id;
+        private Person p1 = new Person();
+
+        public Builder(int id) {
+            p1.id = id;
         }
 
-        public Builder id(int id){
-            p1.id=id;
+        public Builder id(int id) {
+            p1.id = id;
             return this;
         }
 
-        public Builder name(String name){
-            p1.name=name;
+        public Builder name(String name) {
+            p1.name = name;
             return this;
         }
 
-        public Builder age(int age){
-            p1.age=age;
+        public Builder age(int age) {
+            p1.age = age;
             return this;
         }
 
-        public Person build(){
+        public Person build() {
             return new Person(this.p1);
         }
     }

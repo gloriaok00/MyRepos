@@ -19,7 +19,7 @@ public class MainRemote {
     private RemoteProp remoteProp;
 
     @Test
-    public void show(){
+    public void show() {
         System.out.println("从配置文件装配完的属性为:");
         System.out.println(remoteProp.getIp());
         System.out.println(remoteProp.getName());

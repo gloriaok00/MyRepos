@@ -11,7 +11,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 /**
  * @author zhangyu
- * @description  MQTT 发布者
+ * @description MQTT 发布者
  * @date 2021-05-07 10:17
  */
 
@@ -63,10 +63,10 @@ public class MqttMongo {
                 @Override
                 public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
                     System.out.println("Topic: " + s + " 收到Message: " + mqttMessage.toString());
-                    JSONObject obj= JSON.parseObject(mqttMessage.toString());
-                    obj.put("createdTime",System.currentTimeMillis());
+                    JSONObject obj = JSON.parseObject(mqttMessage.toString());
+                    obj.put("createdTime", System.currentTimeMillis());
                     System.out.println(obj.toJSONString());
-                    Document doc= Document.parse(obj.toJSONString());
+                    Document doc = Document.parse(obj.toJSONString());
                     myCollect.insertOne(doc);
                 }
 

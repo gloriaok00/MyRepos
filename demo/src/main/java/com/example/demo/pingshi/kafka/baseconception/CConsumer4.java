@@ -12,12 +12,12 @@ import java.util.Properties;
 
 /**
  * @author zhangyu
- * @description  kafka基本概念 集群
+ * @description kafka基本概念 集群
  * @date 2020-09-02 22:36
  */
 public class CConsumer4 {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         OutputStream outStream = new FileOutputStream(new File("./src/main/resources/c4.txt"));
 
         Properties props = new Properties();
@@ -26,11 +26,11 @@ public class CConsumer4 {
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList("t1","t2","t3"));
+        consumer.subscribe(Arrays.asList("t1", "t2", "t3"));
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records) {
-                outStream.write(String.format("%s,%s,%s,%s",record.value(),record.partition(),record.topic(),"\n").getBytes());
+                outStream.write(String.format("%s,%s,%s,%s", record.value(), record.partition(), record.topic(), "\n").getBytes());
             }
         }
     }

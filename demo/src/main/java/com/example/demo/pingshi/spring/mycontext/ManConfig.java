@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class ManConfig {
 
     @Bean
-    public Man getMyMan(){
+    public Man getMyMan() {
         return new Man();
     }
 }

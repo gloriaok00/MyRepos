@@ -26,19 +26,21 @@ public class BirdMain {
     private BirdService bird2;
 
     @Bean
-    public BirdService bird3(){
+    public BirdService bird3() {
         return new Bird3();
     }
 
     @Bean
-    public BirdService bird4(){
+    public BirdService bird4() {
         //return (int a,int b) -> b/a;
         //return ( a, b) -> b/a;
-        return (a,b) -> {return b/a;};
+        return (a, b) -> {
+            return b / a;
+        };
     }
 
     @Test
-    public void usingBean(){
+    public void usingBean() {
         System.out.println(b11.fly(10, 20));
         System.out.println(bird2.fly(10, 20));
         System.out.println(bird3().fly(10, 20));

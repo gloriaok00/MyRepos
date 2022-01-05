@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class Httpcontroller {
 
     @PostMapping("/validate-loan")
-    public ValidationResponse validateLoan(@RequestBody ValidateLoan validateLoan){
+    public ValidationResponse validateLoan(@RequestBody ValidateLoan validateLoan) {
         log.info(validateLoan.getName());
-        ValidationResponse response=new ValidationResponse(true,23.231,5);
+        ValidationResponse response = new ValidationResponse(true, 23.231, 5);
         return response;
     }
 }

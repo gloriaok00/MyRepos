@@ -37,7 +37,7 @@ public class RequestJsonController {
         BufferedReader reader = request.getReader();
         String readerStr = "";// 接收用户端传来的JSON字符串（body体里的数据）
         String line;
-        while ((line = reader.readLine()) != null){
+        while ((line = reader.readLine()) != null) {
             readerStr = readerStr.concat(line);
         }
 

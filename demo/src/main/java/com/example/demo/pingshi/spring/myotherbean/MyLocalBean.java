@@ -17,7 +17,7 @@ public class MyLocalBean {
     private OtherJarBean aaa;
 
     @Test
-    public void show(){
+    public void show() {
         System.out.println(aaa.a);
     }
 

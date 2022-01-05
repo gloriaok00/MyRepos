@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Node{
+public class Node {
 
-    public String id ;
+    public String id;
     public String name;
     public String parentId;
 

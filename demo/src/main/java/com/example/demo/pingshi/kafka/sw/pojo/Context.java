@@ -9,8 +9,8 @@ public class Context {
 
     private String assignmentStatus;
     private Guuid deviceTypeId;
-    private HashMap<String,String> assignmentMetadata;
-    private HashMap<String,String> deviceMetadata;
+    private HashMap<String, String> assignmentMetadata;
+    private HashMap<String, String> deviceMetadata;
     private Guuid deviceId;
     private DeviceStatus deviceStatus;
 

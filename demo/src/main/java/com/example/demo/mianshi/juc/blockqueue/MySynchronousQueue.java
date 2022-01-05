@@ -25,7 +25,7 @@ public class MySynchronousQueue {
         }, "AAA").start();
 
         new Thread(() -> {
-            try{
+            try {
                 try {
                     TimeUnit.SECONDS.sleep(3);
                 } catch (Exception e) {
@@ -48,7 +48,7 @@ public class MySynchronousQueue {
                 }
 
                 System.out.println(syncQueue.take() + "放出去了");
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }, "BBB").start();

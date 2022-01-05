@@ -11,7 +11,7 @@ public class Demo {
         //ExecutorService pool= Executors.newFixedThreadPool(5);
         //ExecutorService pool= Executors.newSingleThreadExecutor();
         //ExecutorService pool= Executors.newCachedThreadPool();
-        ExecutorService pool=new ThreadPoolExecutor(
+        ExecutorService pool = new ThreadPoolExecutor(
                 2,
                 5,
                 1L,
@@ -19,17 +19,17 @@ public class Demo {
                 new LinkedBlockingQueue<>(3),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy());
-        try{
-            for (int i = 1; i <=100 ; i++) {
-                final int temp=i;
-                pool.execute(new Thread(()->{
-                    Thread currentThread=Thread.currentThread();
-                    System.out.println("第"+temp+"位客户正在用第"+currentThread+"个窗口办理业务");
+        try {
+            for (int i = 1; i <= 100; i++) {
+                final int temp = i;
+                pool.execute(new Thread(() -> {
+                    Thread currentThread = Thread.currentThread();
+                    System.out.println("第" + temp + "位客户正在用第" + currentThread + "个窗口办理业务");
                 }));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             pool.shutdown();
         }
     }

@@ -10,7 +10,7 @@
         $(document).ready(function () {
            $.ajax({
                 url:'http://10.232.3.150:7010/api/camera/worksite/custom',
-                type:'post', 
+                type:'post',
                 data:JSON.stringify({
                         "cameraId":"068B3001100110046L",
                         "worksiteId":"L-CS00-CSSDG01",
@@ -18,7 +18,7 @@
                 }),
                 contentType: "application/json",
                 dataType: "json",
-                success:function(data){   
+                success:function(data){
                 console.log(data);
                 },
                 error: function (error) {
@@ -29,6 +29,7 @@
                 }
             });
         });
+
     </script>
 </head>
 <body>

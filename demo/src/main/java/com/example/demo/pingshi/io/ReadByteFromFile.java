@@ -11,7 +11,7 @@ import java.io.FileReader;
 
 public class ReadByteFromFile {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         BufferedReader reader = new BufferedReader(new FileReader("/Users/zhangyu/IdeaProjects/MyRepos/demo/src/main/resources/aa.yml"));
         StringBuilder stringBuilder = new StringBuilder();

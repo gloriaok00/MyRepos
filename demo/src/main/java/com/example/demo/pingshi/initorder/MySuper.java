@@ -10,12 +10,12 @@ public class MySuper {
     private int one;
     private int two;
 
-    MySuper(int one){
+    MySuper(int one) {
         System.out.println("我是父类含参构造器");
-        this.one=one;
+        this.one = one;
     }
 
-    MySuper(){
+    MySuper() {
 
     }
 

@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 /**
  * 平台kafka连接
+ *
  * @author zhangyu
  * @date 2020/08/24 10:48
  */
@@ -24,10 +25,10 @@ public class TestConnection {
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        Set topicSet=consumer.listTopics().keySet();
+        Set topicSet = consumer.listTopics().keySet();
         List<String> topicList = new ArrayList<>(topicSet);
-        List<String> outboundTopicList=topicList.stream().filter(topic -> topic.contains(".outbound-events")).collect(Collectors.toList());
-        System.out.println("subscribedTopic:"+outboundTopicList);
+        List<String> outboundTopicList = topicList.stream().filter(topic -> topic.contains(".outbound-events")).collect(Collectors.toList());
+        System.out.println("subscribedTopic:" + outboundTopicList);
         consumer.subscribe(outboundTopicList);
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);

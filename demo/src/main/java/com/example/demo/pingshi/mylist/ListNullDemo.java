@@ -14,8 +14,8 @@ public class ListNullDemo {
 
     public static void main(String[] args) {
         //ArrayList<String> dd=new ArrayList();
-        ArrayList<String> dd=null;
+        ArrayList<String> dd = null;
         System.out.println(CollUtil.isEmpty(dd));
-        System.out.println(dd.size()==0);
+        System.out.println(dd.size() == 0);
     }
 }

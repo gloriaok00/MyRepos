@@ -6,6 +6,6 @@ package com.example.demo.mianshi.proxy;
  */
 public interface Image {
 
-     void display();
+    void display();
 
 }

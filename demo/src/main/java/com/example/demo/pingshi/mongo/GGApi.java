@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  * @author zhangyu
- * @description  通过Mongo取数据，然后翻译，然后入库
+ * @description 通过Mongo取数据，然后翻译，然后入库
  * @date 2021-08-26 11:16
  */
 
@@ -27,26 +27,26 @@ public class GGApi {
         // 连接到数据库
         MongoDatabase mongoDatabase = mongoClient.getDatabase("Foo");
         MongoCollection<Document> myCollect = mongoDatabase.getCollection("test1");
-        ArrayList<Document> dd=myCollect.find(Filters.eq("type","sinkMap")).into(new ArrayList<>());
+        ArrayList<Document> dd = myCollect.find(Filters.eq("type", "sinkMap")).into(new ArrayList<>());
         //GT g = GT.getInstance();
         for (Document e : dd) {
-           ArrayList<Document> pp=(ArrayList<Document>)e.get("parameters");
+            ArrayList<Document> pp = (ArrayList<Document>) e.get("parameters");
             for (Document p : pp) {
                 System.out.println("===========");
-                System.out.println(e.getString("name")+"-"+p.getString("name"));
+                System.out.println(e.getString("name") + "-" + p.getString("name"));
                 //gg api
-                String txt=p.getString("name").replace(".","%20");
-                System.out.println("txt:"+txt);
-                String gt= HttpUtil.httpget("https://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i="+txt,null,null);
-                JSONObject obj=JSONObject.parseObject(gt);
-                JSONObject sss=obj.getJSONArray("translateResult").getJSONArray(0).getObject(0,JSONObject.class);
+                String txt = p.getString("name").replace(".", "%20");
+                System.out.println("txt:" + txt);
+                String gt = HttpUtil.httpget("https://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=" + txt, null, null);
+                JSONObject obj = JSONObject.parseObject(gt);
+                JSONObject sss = obj.getJSONArray("translateResult").getJSONArray(0).getObject(0, JSONObject.class);
                 System.out.println(sss.getString("tgt"));
-                String tgt=sss.getString("tgt");
-                Document query=new Document();
-                query.put("type","sinkMap");
-                query.put("name",e.getString("name"));
-                query.put("parameters.name",p.getString("name"));
-                myCollect.updateOne(query,new Document("$set",new Document("parameters.$.zhName",tgt)));
+                String tgt = sss.getString("tgt");
+                Document query = new Document();
+                query.put("type", "sinkMap");
+                query.put("name", e.getString("name"));
+                query.put("parameters.name", p.getString("name"));
+                myCollect.updateOne(query, new Document("$set", new Document("parameters.$.zhName", tgt)));
                 Thread.sleep(1000);
             }
         }

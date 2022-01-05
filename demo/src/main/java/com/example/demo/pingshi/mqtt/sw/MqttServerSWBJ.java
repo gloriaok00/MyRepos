@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * @author zhangyu
- * @description  MQTT 发布者
+ * @description MQTT 发布者
  * @date 2020-05-28 14:43
  */
 
@@ -57,7 +57,7 @@ public class MqttServerSWBJ {
             message.setRetained(false);
 
             //调用各性化message
-            MqttServerSWBJ instance=new MqttServerSWBJ();
+            MqttServerSWBJ instance = new MqttServerSWBJ();
 
             //选择event类型
             instance.sendNonStandardMeasurements(message);
@@ -72,7 +72,7 @@ public class MqttServerSWBJ {
      * @throws SiteWhereException
      */
     public void sendNonStandardMeasurements(MqttMessage message) throws SiteWhereException {
-        while(true) {
+        while (true) {
             DeviceRequest request = new DeviceRequest();
             request.setDeviceToken("81625-IPHONE6S-7081704");
             request.setType(DeviceRequest.Type.DeviceMeasurement);
@@ -81,10 +81,10 @@ public class MqttServerSWBJ {
             mx.setValue(100);
             mx.setEventDate(new Date());
             Map<String, String> metadata = new HashMap<String, String>();
-            metadata.put("t10", String.valueOf(Math.random()*100));
-            metadata.put("t11", String.valueOf(Math.random()*10));
-            metadata.put("t12", String.valueOf(Math.random()*100));
-            metadata.put("t1", String.valueOf(Math.random()*10000));
+            metadata.put("t10", String.valueOf(Math.random() * 100));
+            metadata.put("t11", String.valueOf(Math.random() * 10));
+            metadata.put("t12", String.valueOf(Math.random() * 100));
+            metadata.put("t1", String.valueOf(Math.random() * 10000));
             mx.setMetadata(metadata);
             mx.setUpdateState(true);
             request.setRequest(mx);

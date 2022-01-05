@@ -16,7 +16,7 @@ public class Demo33 {
         list.add("ddd eee fff");
         list.add("ggg hhh iii");
 
-        list.stream().map(s -> s.split(" ")).flatMap(Arrays::stream).collect(Collectors.toList()).forEach(e-> System.out.println(e));
+        list.stream().map(s -> s.split(" ")).flatMap(Arrays::stream).collect(Collectors.toList()).forEach(e -> System.out.println(e));
 
     }
 }

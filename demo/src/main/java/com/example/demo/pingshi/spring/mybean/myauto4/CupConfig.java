@@ -12,12 +12,12 @@ import org.springframework.context.annotation.Configuration;
 public class CupConfig {
 
     @Bean(name = "b1")
-    public Cup cup(){
+    public Cup cup() {
         return new SmallCup();
     }
 
     @Bean(name = "b22")
-    public Cup cup2(){
+    public Cup cup2() {
         return new BigCup();
     }
 }

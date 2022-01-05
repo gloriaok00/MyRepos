@@ -6,5 +6,5 @@ package com.example.demo.pingshi.java8stream.mylambda;
  */
 public interface BirdService {
 
-    int fly(int start,int end);
+    int fly(int start, int end);
 }

@@ -8,15 +8,15 @@ package com.example.demo.pingshi.oom;
 
 public class StackOOM {
 
-    private int i=1;
+    private int i = 1;
 
-    private void addNum(){
+    private void addNum() {
         i++;
         addNum();
     }
 
     public static void main(String[] args) {
-        StackOOM stackOOM=new StackOOM();
+        StackOOM stackOOM = new StackOOM();
         stackOOM.addNum();
     }
 }

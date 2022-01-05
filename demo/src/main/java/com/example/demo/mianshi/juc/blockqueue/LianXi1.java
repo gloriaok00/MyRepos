@@ -9,47 +9,47 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2019-09-15 11:38
  */
 
-class SharedData{
-    private int number=0;
-    Lock lock=new ReentrantLock();
-    Condition condition=lock.newCondition();
+class SharedData {
+    private int number = 0;
+    Lock lock = new ReentrantLock();
+    Condition condition = lock.newCondition();
 
-    public void increase() throws Exception{
-        try{
+    public void increase() throws Exception {
+        try {
             lock.lock();
             //判断
-            while (number!=0){
+            while (number != 0) {
                 //等待，不能生产
                 condition.await();
             }
             //生产
             number++;
-            System.out.println(Thread.currentThread().getName()+"生产了1个");
+            System.out.println(Thread.currentThread().getName() + "生产了1个");
             //通知
             condition.signalAll();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
 
-    public void decrease() throws Exception{
-        try{
+    public void decrease() throws Exception {
+        try {
             lock.lock();
             //判断
-            while (number==0){
+            while (number == 0) {
                 //等待，不能消耗
                 condition.await();
             }
             //生产
             number--;
-            System.out.println(Thread.currentThread().getName()+"消耗了1个");
+            System.out.println(Thread.currentThread().getName() + "消耗了1个");
             //通知
             condition.signalAll();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }

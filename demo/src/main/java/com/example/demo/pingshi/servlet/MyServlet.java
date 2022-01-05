@@ -13,9 +13,9 @@ import java.io.PrintWriter;
  * @date 2021-11-08 10:40
  */
 
-@WebServlet(urlPatterns = "/ssaa",initParams = {
-        @WebInitParam(name="name", value="小明"),
-        @WebInitParam(name="pwd", value="123456")})
+@WebServlet(urlPatterns = "/ssaa", initParams = {
+        @WebInitParam(name = "name", value = "小明"),
+        @WebInitParam(name = "pwd", value = "123456")})
 public class MyServlet implements Servlet {
 
     private ServletConfig config;
@@ -23,7 +23,7 @@ public class MyServlet implements Servlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         System.out.println("我是init方法，我是3");
-        this.config=servletConfig;
+        this.config = servletConfig;
     }
 
     @Override
@@ -32,15 +32,16 @@ public class MyServlet implements Servlet {
 
         return config;
     }
+
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         System.out.println("我是service方法，我是4");
         servletResponse.setCharacterEncoding("UTF-8");
         servletResponse.setContentType("text/html");
-        PrintWriter pw=servletResponse.getWriter();
-        pw.write("1213123213-service yisa"+this.getServletConfig().getInitParameter("name"));
+        PrintWriter pw = servletResponse.getWriter();
+        pw.write("1213123213-service yisa" + this.getServletConfig().getInitParameter("name"));
         System.out.println("service方法启动");
-        this.config.getServletContext().setAttribute("aa","我爱白云");
+        this.config.getServletContext().setAttribute("aa", "我爱白云");
         pw.append("往ServletContext置放属性aa");
 
     }
@@ -65,7 +66,7 @@ public class MyServlet implements Servlet {
      * 构造方法执行之后，调用此方法
      */
     @PostConstruct
-    public void beforeInit(){
+    public void beforeInit() {
         System.out.println("我是@PostConstruct方法,我是2.在构造方法之后，init()之前会被调");
         System.out.println("而且全局范围内只启动一次");
     }

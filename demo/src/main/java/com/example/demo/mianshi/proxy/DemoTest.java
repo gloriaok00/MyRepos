@@ -6,7 +6,7 @@ package com.example.demo.mianshi.proxy;
  */
 public class DemoTest {
     public static void main(String[] args) {
-        Image demo=new ProxyImage();
+        Image demo = new ProxyImage();
         demo.display();
     }
 }

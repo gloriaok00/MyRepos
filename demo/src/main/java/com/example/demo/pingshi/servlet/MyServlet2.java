@@ -22,10 +22,10 @@ public class MyServlet2 extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html");
-        PrintWriter pw=resp.getWriter();
+        PrintWriter pw = resp.getWriter();
         pw.write("s我是中文herewr");
-        if(ObjectUtil.isNotEmpty(super.getServletConfig().getServletContext().getAttribute("aa"))){
-            pw.append("我是从ServletConfig的aa中取出的:"+super.getServletConfig().getServletContext().getAttribute("aa"));
+        if (ObjectUtil.isNotEmpty(super.getServletConfig().getServletContext().getAttribute("aa"))) {
+            pw.append("我是从ServletConfig的aa中取出的:" + super.getServletConfig().getServletContext().getAttribute("aa"));
         }
     }
 }

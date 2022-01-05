@@ -20,21 +20,21 @@ public class Demo {
 
     /**
      * 方法 1 使用 HttpServletRequest 接收
-     * */
+     */
     @RequestMapping("/demo")
     public String getParam(HttpServletRequest request) {
         System.out.println(request);
-        System.out.println("myParam:"+request.getParameter("username"));
+        System.out.println("myParam:" + request.getParameter("username"));
         HttpServletRequest req = ((ServletRequestAttributes) Objects
                 .requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-        System.out.println("从上下文中直接拿:"+req.getParameter("username"));
-        String ip= ServletUtil.getClientIP(req);
+        System.out.println("从上下文中直接拿:" + req.getParameter("username"));
+        String ip = ServletUtil.getClientIP(req);
         return ip;
     }
 
     /**
      * 方法 2 使用 RequestParam 接收
-     * */
+     */
     @RequestMapping("/demo2")
     public String getParam2(@RequestParam(value = "username") String userName) {
         return userName;
@@ -42,7 +42,7 @@ public class Demo {
 
     /**
      * 方法 3 与 方法 2 相同，只是变量名相同可以简化书写
-     * */
+     */
     @RequestMapping("/demo3")
     public String getParam3(String userName) {
         return userName;

@@ -121,7 +121,7 @@ public class Consumer implements Runnable {
     public void initGson() {
         GsonBuilder gsonBuilder = new GsonBuilder().setPrettyPrinting();
         gsonBuilder.registerTypeAdapter(Guuid.class, new CustomGuuidSerializer());
-        gsonBuilder.registerTypeAdapter(Long.class,new CustomDateSerializer());
+        gsonBuilder.registerTypeAdapter(Long.class, new CustomDateSerializer());
         gson = gsonBuilder.create();
     }
 }

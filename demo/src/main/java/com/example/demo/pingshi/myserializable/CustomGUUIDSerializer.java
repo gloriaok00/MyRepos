@@ -13,11 +13,11 @@ public class CustomGUUIDSerializer implements JsonSerializer<CommonModel.GUUID> 
 
     @Override
     public JsonElement serialize(CommonModel.GUUID guuid, Type typeOfSrc, JsonSerializationContext context) {
-        System.out.println("guuid序列化:"+asApiUuid(guuid).toString());
+        System.out.println("guuid序列化:" + asApiUuid(guuid).toString());
         return new JsonPrimitive(asApiUuid(guuid).toString());
     }
 
-    public static UUID asApiUuid(CommonModel.GUUID grpc){
+    public static UUID asApiUuid(CommonModel.GUUID grpc) {
         if (grpc == null) {
             return null;
         }

@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class RestDemo {
 
-    @RequestMapping(value="/getReq")
-    public String getReq(@RequestBody User u){
+    @RequestMapping(value = "/getReq")
+    public String getReq(@RequestBody User u) {
         System.out.println("ddd");
         System.out.println("dsssss");
-        return u.getId()+u.getName();
+        return u.getId() + u.getName();
     }
 
     @GetMapping("/test/ajax")
-    public String testAjax(){
-       return  "成功";
+    public String testAjax() {
+        return "成功";
     }
 }

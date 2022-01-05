@@ -23,18 +23,18 @@ import javax.validation.constraints.NotBlank;
 public class MyValid {
 
     @GetMapping("/valid")
-    public void show(@Valid @RequestBody MyParam param){
-        System.out.println("valid:"+param.id);
+    public void show(@Valid @RequestBody MyParam param) {
+        System.out.println("valid:" + param.id);
     }
 
     @GetMapping("/valid2")
-    public void show2(@RequestParam @Min(1) @Max(10) int id){
-        System.out.println("valid2:"+id);
+    public void show2(@RequestParam @Min(1) @Max(10) int id) {
+        System.out.println("valid2:" + id);
     }
 
     @GetMapping("/valid3")
-    public void show3(@RequestParam @NotBlank String id){
-        System.out.println("valid3:"+id);
+    public void show3(@RequestParam @NotBlank String id) {
+        System.out.println("valid3:" + id);
     }
 
 

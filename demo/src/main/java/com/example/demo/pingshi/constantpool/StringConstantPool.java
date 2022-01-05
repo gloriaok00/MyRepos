@@ -8,8 +8,8 @@ package com.example.demo.pingshi.constantpool;
 
 public class StringConstantPool {
 
-    public static final String a="123";
-    public static final String b="456";
+    public static final String a = "123";
+    public static final String b = "456";
 
 /*    static {
         a = "123";
@@ -26,7 +26,7 @@ public class StringConstantPool {
         String s7 = "H";
         String s8 = "ello";
         String s9 = s7 + s8;
-        String s10=new String("Hello");
+        String s10 = new String("Hello");
 
         //true
         System.out.println(s1 == s2);
@@ -35,7 +35,7 @@ public class StringConstantPool {
         //false
         System.out.println(s1 == s4);
         //false
-        System.out.println("s1 == s9:"+(s1 == s9));
+        System.out.println("s1 == s9:" + (s1 == s9));
         //false
         System.out.println(s4 == s5);
         //true

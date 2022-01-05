@@ -8,18 +8,18 @@ package com.example.demo.pingshi.gc;
  */
 
 public class MinorGC {
-    private final int mbsize=1024*1024;
+    private final int mbsize = 1024 * 1024;
 
     public static void main(String[] args) {
-          MinorGC minorGc =new MinorGC();
-          minorGc.gcSimulation();
+        MinorGC minorGc = new MinorGC();
+        minorGc.gcSimulation();
     }
 
-    public void gcSimulation(){
-        byte[] allocation1,allocation2,allocation3,allocation4;
-        allocation1=new byte[2*mbsize];
-        allocation2=new byte[2*mbsize];
-        allocation3=new byte[2*mbsize];
-        allocation4=new byte[4*mbsize];
+    public void gcSimulation() {
+        byte[] allocation1, allocation2, allocation3, allocation4;
+        allocation1 = new byte[2 * mbsize];
+        allocation2 = new byte[2 * mbsize];
+        allocation3 = new byte[2 * mbsize];
+        allocation4 = new byte[4 * mbsize];
     }
 }

@@ -7,11 +7,11 @@ import org.junit.Test;
  * @date 2021-12-02 14:13
  */
 
-public class MyPrivateSub extends MyPrivate{
+public class MyPrivateSub extends MyPrivate {
 
     @Test
     public void show() {
-        MyPrivateSub myPrivateSub=new MyPrivateSub();
+        MyPrivateSub myPrivateSub = new MyPrivateSub();
         System.out.println(myPrivateSub.s);
     }
 }

@@ -20,7 +20,7 @@ import java.util.Random;
 
 /**
  * @author zhangyu
- * @description  MQTT 发布者
+ * @description MQTT 发布者
  * @date 2020-05-28 14:43
  */
 
@@ -62,7 +62,7 @@ public class MqttServerSWSZY {
             message.setRetained(false);
 
             //调用各性化message
-            MqttServerSWSZY instance=new MqttServerSWSZY();
+            MqttServerSWSZY instance = new MqttServerSWSZY();
 
             //选择event类型
             //instance.sendLocationOverMqtt(message);
@@ -72,8 +72,8 @@ public class MqttServerSWSZY {
         }
     }
 
-    public void puremessageMqtt(MqttMessage message) throws Exception{
-        Random r=new Random();
+    public void puremessageMqtt(MqttMessage message) throws Exception {
+        Random r = new Random();
         while (true) {
             message.setPayload(String.valueOf(r.nextInt()).getBytes());
             client.publish(MQTT_TOPIC, message);
@@ -84,11 +84,12 @@ public class MqttServerSWSZY {
 
     /**
      * Location
+     *
      * @param message
      * @throws SiteWhereException
      */
     public void sendLocationOverMqtt(MqttMessage message) throws SiteWhereException {
-        while(true){
+        while (true) {
             DeviceRequest request = new DeviceRequest();
             //request.setDeviceToken((Math.random()>0.5)?"40678-OPENHAB-324906":"70991-OPENHAB-8397183");
             //request.setDeviceToken((Math.random()>0.5)?"41520-LAIPAC-S911-4159787":"94176-LAIPAC-S911-2308706");
@@ -106,7 +107,7 @@ public class MqttServerSWSZY {
             try {
                 String payload = MarshalUtils.PRETTY_MAPPER.writeValueAsString(request);
                 message.setPayload(payload.getBytes());
-                client.publish("SiteWhere/default/input/json",message);
+                client.publish("SiteWhere/default/input/json", message);
                 System.out.println("已发送Request:");
                 System.out.println(JSONObject.toJSON(request));
                 Thread.sleep(1000);
@@ -124,7 +125,7 @@ public class MqttServerSWSZY {
      * @throws SiteWhereException
      */
     public void sendNonStandardMeasurements(MqttMessage message) throws SiteWhereException {
-        while(true){
+        while (true) {
             DeviceRequest request = new DeviceRequest();
             //String DeviceToken1="41520-LAIPAC-S911-4159787";
             //String DeviceToken2="94176-LAIPAC-S911-2308706";
@@ -140,9 +141,9 @@ public class MqttServerSWSZY {
             Map<String, String> metadata = new HashMap<String, String>();
             //模拟数据时，deviceA只放A集合参数，deviceB放B集合参数
 
-            metadata.put("Device_FX3U_Status",(Math.random()>0.5)?"0":"1");
-            metadata.put("Device_Pressure",String.format("%.2f", Math.random()*100));
-            metadata.put("Device_Flow",String.format("%.2f", Math.random()));
+            metadata.put("Device_FX3U_Status", (Math.random() > 0.5) ? "0" : "1");
+            metadata.put("Device_Pressure", String.format("%.2f", Math.random() * 100));
+            metadata.put("Device_Flow", String.format("%.2f", Math.random()));
 
             //metadata.put("from","mqtt");
             mx.setMetadata(metadata);
@@ -154,7 +155,7 @@ public class MqttServerSWSZY {
                 String payload = mapper.writeValueAsString(json);
                 System.out.println("Payload:\n\n" + payload);
                 message.setPayload(payload.getBytes());
-                client.publish("SiteWhere/default/input/json",message);
+                client.publish("SiteWhere/default/input/json", message);
                 System.out.println("Message sent successfully.");
                 Thread.sleep(1000);
             } catch (JsonProcessingException e) {

@@ -19,6 +19,6 @@ public class Shop {
     private int shopid;
     private String user;
     private Book book;
-    private Map<String,String> googleMap;
+    private Map<String, String> googleMap;
 
 }

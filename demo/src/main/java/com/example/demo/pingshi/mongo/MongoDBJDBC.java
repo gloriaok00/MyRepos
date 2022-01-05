@@ -19,7 +19,7 @@ public class MongoDBJDBC {
             // 新增数据
             for (int i = 0; i < 10; i++) {
                 Document temp = new Document();
-                Random r=new Random();
+                Random r = new Random();
                 temp.put("age", r.nextInt());
                 myCollect.insertOne(temp);
             }

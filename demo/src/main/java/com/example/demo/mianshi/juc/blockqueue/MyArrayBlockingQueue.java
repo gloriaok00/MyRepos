@@ -35,10 +35,10 @@ public class MyArrayBlockingQueue {
             e.printStackTrace();
         }
 
-        try{
-            arrayQueue.offer("d",2L, TimeUnit.SECONDS);//只阻塞2秒钟，如果在该期限内没成功，就返回false
-            arrayQueue.poll(2L,TimeUnit.SECONDS);
-        }catch (Exception e){
+        try {
+            arrayQueue.offer("d", 2L, TimeUnit.SECONDS);//只阻塞2秒钟，如果在该期限内没成功，就返回false
+            arrayQueue.poll(2L, TimeUnit.SECONDS);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

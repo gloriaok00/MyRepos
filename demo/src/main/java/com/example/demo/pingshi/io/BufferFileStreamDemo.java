@@ -29,10 +29,10 @@ public class BufferFileStreamDemo {
             while ((len = bis.read()) != -1) {
                 System.out.println(len);
             }*/
-            byte[] bytes=new byte[1024];
-            int len=0;
-            while ((len=fis.read(bytes)) != -1) {
-                System.out.println(new String(bytes,0,len));
+            byte[] bytes = new byte[1024];
+            int len = 0;
+            while ((len = fis.read(bytes)) != -1) {
+                System.out.println(new String(bytes, 0, len));
             }
         } catch (IOException e) {
             e.printStackTrace();

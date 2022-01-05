@@ -12,10 +12,10 @@ import groovy.sql.GroovyResultSetExtension;
 public class HMain {
 
     public static void main(String[] args) {
-       ClassLoader xx= GroovyResultSetExtension.class.getClassLoader();
-       while(xx!=null){
-           System.out.println(xx);
-           xx=xx.getParent();
-       }
+        ClassLoader xx = GroovyResultSetExtension.class.getClassLoader();
+        while (xx != null) {
+            System.out.println(xx);
+            xx = xx.getParent();
+        }
     }
 }

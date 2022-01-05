@@ -5,7 +5,7 @@ package com.example.demo.pingshi.myabstract;
  * @date 2021-11-08 15:24
  */
 
-public class C extends B{
+public class C extends B {
 
     public C(String c) {
         super(c);

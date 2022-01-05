@@ -15,11 +15,11 @@ public class MyFinal {
         String e = d + 2;
         System.out.println((a == c));
         System.out.println((a == e));
-Person p=new Person();
+        Person p = new Person();
 
     }
 }
 
-class Person{
+class Person {
 
 }

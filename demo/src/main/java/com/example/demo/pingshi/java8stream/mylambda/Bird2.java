@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class Bird2 implements BirdService{
+public class Bird2 implements BirdService {
 
     @Override
     public int fly(int start, int end) {
-        return start+end;
+        return start + end;
     }
 }

@@ -11,7 +11,7 @@ import java.io.*;
  */
 
 public class CleanUpDemo {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         @Cleanup
         OutputStream outStream = new FileOutputStream(new File("./src/main/resources/text.txt"));
         @Cleanup

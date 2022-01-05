@@ -11,13 +11,13 @@ import java.util.HashMap;
 public class HashMapDemo {
 
     public static void main(String[] args) {
-        HashMap<String,String> map=new HashMap<>();
-        map.put("1adf","ddf");
-        map.put("qaz","wsx");
-        map.put("edc","asd");
-        System.out.println("在hashmap里的字符串，contains方法不能部分匹配:"+map.containsKey("1a"));
+        HashMap<String, String> map = new HashMap<>();
+        map.put("1adf", "ddf");
+        map.put("qaz", "wsx");
+        map.put("edc", "asd");
+        System.out.println("在hashmap里的字符串，contains方法不能部分匹配:" + map.containsKey("1a"));
 
-        boolean result="1adf".contains("1a");
-        System.out.println("单纯的字符串里的是可以的:"+result);
+        boolean result = "1adf".contains("1a");
+        System.out.println("单纯的字符串里的是可以的:" + result);
     }
 }

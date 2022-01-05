@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class TestJVMInfo {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
 
 
@@ -38,7 +38,7 @@ public class TestJVMInfo {
             while ((c = in.read()) != -1) {
                 out.write(c);
             }
-        }finally {
+        } finally {
             if (in != null) {
                 in.close();
             }

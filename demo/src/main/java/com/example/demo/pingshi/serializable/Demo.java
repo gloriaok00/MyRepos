@@ -22,8 +22,8 @@ public class Demo {
 
         try {
             //User u2=new User();
-            ObjectInputStream inoss=new ObjectInputStream(new FileInputStream("SerializableDemo"));
-            User u2=(User) inoss.readObject();
+            ObjectInputStream inoss = new ObjectInputStream(new FileInputStream("SerializableDemo"));
+            User u2 = (User) inoss.readObject();
             System.out.println(u2.getName());
             System.out.println(u2.getId());
         } catch (IOException | ClassNotFoundException e) {

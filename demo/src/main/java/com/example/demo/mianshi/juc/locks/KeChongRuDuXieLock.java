@@ -13,54 +13,55 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 class MyCache {
 
     private volatile Map map = new HashMap<Integer, Object>();
-    private ReentrantReadWriteLock mylock=new ReentrantReadWriteLock();
+    private ReentrantReadWriteLock mylock = new ReentrantReadWriteLock();
 
-    public void put(int key,Object value){
-        Thread currentThread=Thread.currentThread();
+    public void put(int key, Object value) {
+        Thread currentThread = Thread.currentThread();
         mylock.writeLock().lock();
-        try{
-            System.out.println(currentThread.getName()+"正在写入");
+        try {
+            System.out.println(currentThread.getName() + "正在写入");
             TimeUnit.MILLISECONDS.sleep(300);
-            map.put(key,value);
-            System.out.println(currentThread.getName()+"写完");
-        }catch (Exception e){
+            map.put(key, value);
+            System.out.println(currentThread.getName() + "写完");
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             mylock.writeLock().unlock();
         }
     }
 
-    public void get(int key){
-        Thread currentThread=Thread.currentThread();
+    public void get(int key) {
+        Thread currentThread = Thread.currentThread();
         mylock.readLock().lock();
-        try{
-            System.out.println(currentThread.getName()+"正在读");
+        try {
+            System.out.println(currentThread.getName() + "正在读");
             TimeUnit.MILLISECONDS.sleep(100);
             map.get(key);
-            System.out.println(currentThread.getName()+"读完");
-        }catch (Exception e){
+            System.out.println(currentThread.getName() + "读完");
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             mylock.readLock().unlock();
         }
     }
 }
-public class KeChongRuDuXieLock{
+
+public class KeChongRuDuXieLock {
 
     public static void main(String[] args) {
-        MyCache cache=new MyCache();
+        MyCache cache = new MyCache();
         for (int i = 0; i < 5; i++) {
-            final int temp=i;
-            new Thread(()->{
-                cache.put(temp,temp);
-            },"t"+temp).start();
+            final int temp = i;
+            new Thread(() -> {
+                cache.put(temp, temp);
+            }, "t" + temp).start();
         }
 
         for (int i = 0; i < 5; i++) {
-            final int temp=i;
-            new Thread(()->{
+            final int temp = i;
+            new Thread(() -> {
                 cache.get(temp);
-            },"t"+temp).start();
+            }, "t" + temp).start();
         }
     }
 }

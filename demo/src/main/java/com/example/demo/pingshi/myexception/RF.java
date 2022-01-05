@@ -9,8 +9,8 @@ public class RF {
 
     public static void main(String[] args) {
         RF rf = new RF();
-        String result=rf.show();
-        System.out.println("结果:"+result);
+        String result = rf.show();
+        System.out.println("结果:" + result);
     }
 
     public String show() {

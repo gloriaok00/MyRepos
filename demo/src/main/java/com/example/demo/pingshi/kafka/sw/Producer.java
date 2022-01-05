@@ -19,14 +19,14 @@ import java.util.UUID;
 public class Producer {
 
     //消息打印输出实体
-    private static JSONObject obj=new JSONObject();
+    private static JSONObject obj = new JSONObject();
     //context
-    private static JSONObject context=new JSONObject();
-    private static JSONObject deviceStatus=new JSONObject();
+    private static JSONObject context = new JSONObject();
+    private static JSONObject deviceStatus = new JSONObject();
     //event
-    private static JSONObject event=new JSONObject();
-    private static JSONObject measurement=new JSONObject();
-    private static JSONObject subevent=new JSONObject();
+    private static JSONObject event = new JSONObject();
+    private static JSONObject measurement = new JSONObject();
+    private static JSONObject subevent = new JSONObject();
 
     public static void main(String[] args) {
         Properties props = new Properties();
@@ -38,7 +38,7 @@ public class Producer {
         props.put("value.serializer", com.example.demo.pingshi.kafka.sw.GEnrichedEventPayloadSerializer.class);
         KafkaProducer<String, DeviceEventModel.GEnrichedEventPayload> producer = new KafkaProducer<String, DeviceEventModel.GEnrichedEventPayload>(props);
         try {
-            for (int i=0;i<300;i++ ) {
+            for (int i = 0; i < 300; i++) {
                 MeasurementDataMock measurementDataMock = new MeasurementDataMock();
                 DeviceEventModel.GEnrichedEventPayload msg = null;
                 msg = measurementDataMock.createMockGEnrichedEventPayload();
@@ -53,42 +53,42 @@ public class Producer {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             producer.close();
         }
     }
 
-    private static void printSentMessage(DeviceEventModel.GEnrichedEventPayload msg){
+    private static void printSentMessage(DeviceEventModel.GEnrichedEventPayload msg) {
         //context
-        context.put("deviceId",asApiUuid(msg.getContext().getDeviceId()));
-        context.put("deviceTypeId",asApiUuid(msg.getContext().getDeviceTypeId()));
-        context.put("deviceStatus",deviceStatus);
-        deviceStatus.put("value",msg.getContext().getDeviceStatus().getValue());
-        context.put("deviceMetadata",msg.getContext().getDeviceMetadataMap());
-        context.put("assignmentStatus",msg.getContext().getAssignmentStatus());
-        context.put("assignmentMetadata",msg.getContext().getAssignmentMetadataMap());
-        obj.put("context",context);
+        context.put("deviceId", asApiUuid(msg.getContext().getDeviceId()));
+        context.put("deviceTypeId", asApiUuid(msg.getContext().getDeviceTypeId()));
+        context.put("deviceStatus", deviceStatus);
+        deviceStatus.put("value", msg.getContext().getDeviceStatus().getValue());
+        context.put("deviceMetadata", msg.getContext().getDeviceMetadataMap());
+        context.put("assignmentStatus", msg.getContext().getAssignmentStatus());
+        context.put("assignmentMetadata", msg.getContext().getAssignmentMetadataMap());
+        obj.put("context", context);
         //event
-        measurement.put("name",msg.getEvent().getMeasurement().getName());
-        measurement.put("value",msg.getEvent().getMeasurement().getValue());
-        subevent.put("id",asApiUuid(msg.getEvent().getMeasurement().getEvent().getId()));
-        UUID deviceId=asApiUuid(msg.getEvent().getMeasurement().getEvent().getDeviceId());
-        subevent.put("deviceId",deviceId);
-        subevent.put("deviceAssignmentId",asApiUuid(msg.getEvent().getMeasurement().getEvent().getDeviceAssignmentId()));
-        subevent.put("customerId",asApiUuid(msg.getEvent().getMeasurement().getEvent().getCustomerId()));
-        subevent.put("areaId",asApiUuid(msg.getEvent().getMeasurement().getEvent().getAreaId()));
-        subevent.put("assetId",asApiUuid(msg.getEvent().getMeasurement().getEvent().getAssetId()));
-        subevent.put("eventDate",msg.getEvent().getMeasurement().getEvent().getEventDate());
-        subevent.put("receivedDate",msg.getEvent().getMeasurement().getEvent().getReceivedDate());
-        subevent.put("metadata",msg.getEvent().getMeasurement().getEvent().getMetadataMap());
-        measurement.put("event",subevent);
-        event.put("measurement",measurement);
-        obj.put("event",event);
+        measurement.put("name", msg.getEvent().getMeasurement().getName());
+        measurement.put("value", msg.getEvent().getMeasurement().getValue());
+        subevent.put("id", asApiUuid(msg.getEvent().getMeasurement().getEvent().getId()));
+        UUID deviceId = asApiUuid(msg.getEvent().getMeasurement().getEvent().getDeviceId());
+        subevent.put("deviceId", deviceId);
+        subevent.put("deviceAssignmentId", asApiUuid(msg.getEvent().getMeasurement().getEvent().getDeviceAssignmentId()));
+        subevent.put("customerId", asApiUuid(msg.getEvent().getMeasurement().getEvent().getCustomerId()));
+        subevent.put("areaId", asApiUuid(msg.getEvent().getMeasurement().getEvent().getAreaId()));
+        subevent.put("assetId", asApiUuid(msg.getEvent().getMeasurement().getEvent().getAssetId()));
+        subevent.put("eventDate", msg.getEvent().getMeasurement().getEvent().getEventDate());
+        subevent.put("receivedDate", msg.getEvent().getMeasurement().getEvent().getReceivedDate());
+        subevent.put("metadata", msg.getEvent().getMeasurement().getEvent().getMetadataMap());
+        measurement.put("event", subevent);
+        event.put("measurement", measurement);
+        obj.put("event", event);
         System.out.println("已发送消息:");
         System.out.println(obj.toJSONString());
     }
 
-    public static UUID asApiUuid(CommonModel.GUUID grpc){
+    public static UUID asApiUuid(CommonModel.GUUID grpc) {
         if (grpc == null) {
             return null;
         }

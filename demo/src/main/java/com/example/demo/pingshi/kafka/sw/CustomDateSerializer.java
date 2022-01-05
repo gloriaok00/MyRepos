@@ -18,7 +18,7 @@ public class CustomDateSerializer implements JsonSerializer<Long> {
 
     @Override
     public JsonElement serialize(Long timeMillis, Type typeOfSrc, JsonSerializationContext context) {
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         return new JsonPrimitive(sdf.format(new Date(timeMillis)));
     }
 

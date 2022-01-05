@@ -19,12 +19,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class SelectCameraViewDTO{
+public class SelectCameraViewDTO {
 
     /**
      * 城市
      */
-    @Size(max=32)
+    @Size(max = 32)
     private String city;
 
     /**

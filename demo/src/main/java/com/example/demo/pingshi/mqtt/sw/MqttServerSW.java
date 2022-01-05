@@ -20,7 +20,7 @@ import java.util.Random;
 
 /**
  * @author zhangyu
- * @description  MQTT 发布者
+ * @description MQTT 发布者
  * @date 2020-05-28 14:43
  */
 
@@ -61,7 +61,7 @@ public class MqttServerSW {
             message.setRetained(false);
 
             //调用各性化message
-            MqttServerSW instance=new MqttServerSW();
+            MqttServerSW instance = new MqttServerSW();
 
             //选择event类型
             //instance.sendLocationOverMqtt(message);
@@ -71,8 +71,8 @@ public class MqttServerSW {
         }
     }
 
-    public void puremessageMqtt(MqttMessage message) throws Exception{
-        Random r=new Random();
+    public void puremessageMqtt(MqttMessage message) throws Exception {
+        Random r = new Random();
         while (true) {
             message.setPayload(String.valueOf(r.nextInt()).getBytes());
             client.publish(MQTT_TOPIC, message);
@@ -83,11 +83,12 @@ public class MqttServerSW {
 
     /**
      * Location
+     *
      * @param message
      * @throws SiteWhereException
      */
     public void sendLocationOverMqtt(MqttMessage message) throws SiteWhereException {
-        while(true){
+        while (true) {
             DeviceRequest request = new DeviceRequest();
             //request.setDeviceToken((Math.random()>0.5)?"40678-OPENHAB-324906":"70991-OPENHAB-8397183");
             //request.setDeviceToken((Math.random()>0.5)?"41520-LAIPAC-S911-4159787":"94176-LAIPAC-S911-2308706");
@@ -105,7 +106,7 @@ public class MqttServerSW {
             try {
                 String payload = MarshalUtils.PRETTY_MAPPER.writeValueAsString(request);
                 message.setPayload(payload.getBytes());
-                client.publish("SiteWhere/default/input/json",message);
+                client.publish("SiteWhere/default/input/json", message);
                 System.out.println("已发送Request:");
                 System.out.println(JSONObject.toJSON(request));
                 Thread.sleep(1000);
@@ -131,10 +132,10 @@ public class MqttServerSW {
             mx.setName("normal");
             mx.setValue(10.23);
             Map<String, String> metadata = new HashMap<String, String>();
-            metadata.put("Device_Temperature", String.valueOf(Math.random()*100));
-            metadata.put("Device_FX3U_Status", String.valueOf(Math.random()*10));
-            metadata.put("Device_Foreward_Status", String.valueOf(Math.random()*100));
-            metadata.put("Device_Pluse_Counts", String.valueOf(Math.random()*10000));
+            metadata.put("Device_Temperature", String.valueOf(Math.random() * 100));
+            metadata.put("Device_FX3U_Status", String.valueOf(Math.random() * 10));
+            metadata.put("Device_Foreward_Status", String.valueOf(Math.random() * 100));
+            metadata.put("Device_Pluse_Counts", String.valueOf(Math.random() * 10000));
             metadata.put("Device_Reversal_Status", "1");
             mx.setMetadata(metadata);
             mx.setUpdateState(true);

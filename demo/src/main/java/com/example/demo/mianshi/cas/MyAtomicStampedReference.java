@@ -9,7 +9,8 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  */
 public class MyAtomicStampedReference {
 
-    static AtomicReference<Integer> atomicReference=new AtomicReference<Integer>(100);
+    static AtomicReference<Integer> atomicReference = new AtomicReference<Integer>(100);
+
     public static void main(String[] args) {
         /*
         new Thread(()->{
@@ -28,14 +29,14 @@ public class MyAtomicStampedReference {
  */
 
 
-        AtomicStampedReference<Integer> atomicStampedReference=new AtomicStampedReference<Integer>(100,1);
-        new Thread(()->{
-            System.out.println(atomicStampedReference.compareAndSet(100,101,1,2)+"\t"+atomicReference.get()+"-"+atomicStampedReference.getStamp());
-            System.out.println(atomicStampedReference.compareAndSet(101,100,2,3)+"\t"+atomicReference.get()+"-"+atomicStampedReference.getStamp());
-        },"t3").start();
+        AtomicStampedReference<Integer> atomicStampedReference = new AtomicStampedReference<Integer>(100, 1);
+        new Thread(() -> {
+            System.out.println(atomicStampedReference.compareAndSet(100, 101, 1, 2) + "\t" + atomicReference.get() + "-" + atomicStampedReference.getStamp());
+            System.out.println(atomicStampedReference.compareAndSet(101, 100, 2, 3) + "\t" + atomicReference.get() + "-" + atomicStampedReference.getStamp());
+        }, "t3").start();
 
-        new Thread(()->{
-            System.out.println(atomicStampedReference.compareAndSet(100,101,3,4)+"\t"+atomicReference.get()+"-"+atomicStampedReference.getStamp());
-        },"t4").start();
+        new Thread(() -> {
+            System.out.println(atomicStampedReference.compareAndSet(100, 101, 3, 4) + "\t" + atomicReference.get() + "-" + atomicStampedReference.getStamp());
+        }, "t4").start();
     }
 }

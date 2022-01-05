@@ -7,9 +7,9 @@ package com.example.demo.pingshi.rest;
 public class TestException {
 
     public static void main(String[] args) {
-        try{
+        try {
             throw new IllegalStateException("ddddd");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -8,7 +8,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 /**
  * @author zhangyu
- * @description  MQTT 发布者
+ * @description MQTT 发布者
  * @date 2021-05-07 10:17
  */
 
@@ -46,10 +46,10 @@ public class MyMqttServer {
             MqttMessage message = new MqttMessage();
             message.setQos(1);
             message.setRetained(false);
-            JSONObject obj=new JSONObject();
+            JSONObject obj = new JSONObject();
             Thread.sleep(1000);
             for (int i = 0; i < 10000000; i++) {
-                obj.put("id",i);
+                obj.put("id", i);
                 message.setPayload(JSONObject.toJSONString(obj).getBytes());
                 client.publish(MQTT_TOPIC, message);
                 Thread.sleep(100);

@@ -7,6 +7,6 @@ package com.example.demo.mianshi.juc.threadpoolexecutor;
 public class Test {
 
     public static void main(String[] args) {
-        Singlon DDD=Singlon.getSinglon();
+        Singlon DDD = Singlon.getSinglon();
     }
 }

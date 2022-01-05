@@ -13,7 +13,7 @@ public interface MyInterf {
     @Override
     String toString();
 
-    default void lalalala(int i){
+    default void lalalala(int i) {
         System.out.println(i);
     }
 

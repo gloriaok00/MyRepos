@@ -9,9 +9,9 @@ import java.util.regex.Pattern;
 
 public class MyRegex {
     public static void main(String[] args) {
-        String regex=".+\\d+.+";
-        String str="sdasd12dsf";
+        String regex = ".+\\d+.+";
+        String str = "sdasd12dsf";
         System.out.println(str.matches(regex));
-        Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
+        Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
     }
 }

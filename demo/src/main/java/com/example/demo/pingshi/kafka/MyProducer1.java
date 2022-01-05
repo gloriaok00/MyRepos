@@ -16,7 +16,7 @@ import java.util.Properties;
 
 public class MyProducer1 {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
         props.put("acks", "all");
@@ -25,10 +25,10 @@ public class MyProducer1 {
         props.put("key.serializer", StringSerializer.class.getName());
         props.put("value.serializer", StringSerializer.class.getName());
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(props);
-        Book tempBook=new Book(1);
-        for (int i=2;i<100000;i++){
+        Book tempBook = new Book(1);
+        for (int i = 2; i < 100000; i++) {
             tempBook.setId(i);
-            producer.send(new ProducerRecord<String, String>("t1","Message"+i,JSONObject.toJSONString(tempBook)));
+            producer.send(new ProducerRecord<String, String>("t1", "Message" + i, JSONObject.toJSONString(tempBook)));
             System.out.println("已发送..");
             Thread.sleep(100);
         }

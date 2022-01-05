@@ -45,7 +45,7 @@ public class HttpUtil {
      * @param headers    传入header的map, 例如cookies等，当无值时，传入null即可
      * @param parameters 传入参数的map;当无参数时，传入的map=null即可
      */
-    public static String httpsget(String baseUrl,Map<String, String> parameters, Map<String, String> headers) {
+    public static String httpsget(String baseUrl, Map<String, String> parameters, Map<String, String> headers) {
 
         //创建一个返回值对象
         CloseableHttpResponse response = null;
@@ -73,17 +73,17 @@ public class HttpUtil {
             HttpEntity entity = response.getEntity();
             entityString = EntityUtils.toString(entity, "utf-8");
         } catch (URISyntaxException | IOException e) {
-            log.error("httpsget方法异常:",e);
+            log.error("httpsget方法异常:", e);
         } finally {
             try {
                 if (response != null) {
                     response.close();
                 }
-                if(httpClient!=null){
+                if (httpClient != null) {
                     httpClient.close();
                 }
             } catch (IOException e) {
-                log.error("httpsget方法异常:",e);
+                log.error("httpsget方法异常:", e);
             }
         }
         return entityString;
@@ -96,7 +96,7 @@ public class HttpUtil {
      * @param headers    传入header的map, 例如cookies等，当无值时，传入null即可
      * @param parameters 传入参数的map;当无参数时，传入的map=null即可
      */
-    public static String httpget(String baseUrl,Map<String, String> parameters, Map<String, String> headers) {
+    public static String httpget(String baseUrl, Map<String, String> parameters, Map<String, String> headers) {
 
         //创建一个返回值对象
         CloseableHttpResponse response = null;
@@ -124,17 +124,17 @@ public class HttpUtil {
             HttpEntity entity = response.getEntity();
             entityString = EntityUtils.toString(entity, "utf-8");
         } catch (URISyntaxException | IOException e) {
-            log.error("httpget方法异常:",e);
+            log.error("httpget方法异常:", e);
         } finally {
             try {
                 if (response != null) {
                     response.close();
                 }
-                if(httpClient!=null){
+                if (httpClient != null) {
                     httpClient.close();
                 }
             } catch (IOException e) {
-                log.error("httpget方法异常:",e);
+                log.error("httpget方法异常:", e);
             }
         }
         return entityString;
@@ -148,7 +148,7 @@ public class HttpUtil {
      * @param parameters 传入参数的map;当无参数时，传入的map=null即可
      * @return response
      */
-    public static CloseableHttpResponse httpgetResponse(String baseUrl,Map<String, String> parameters, Map<String, String> headers) {
+    public static CloseableHttpResponse httpgetResponse(String baseUrl, Map<String, String> parameters, Map<String, String> headers) {
 
         //创建一个返回值对象
         CloseableHttpResponse response = null;
@@ -172,22 +172,22 @@ public class HttpUtil {
             }
             //执行请求
             response = httpClient.execute(get);
-            return  response;
+            return response;
         } catch (URISyntaxException | IOException e) {
-            log.error("httpget方法异常:",e);
+            log.error("httpget方法异常:", e);
         } finally {
             try {
                 if (response != null) {
                     response.close();
                 }
-                if(httpClient!=null){
+                if (httpClient != null) {
                     httpClient.close();
                 }
             } catch (IOException e) {
-                log.error("httpget方法异常:",e);
+                log.error("httpget方法异常:", e);
             }
         }
-        return  response;
+        return response;
     }
 
     /**
@@ -197,7 +197,7 @@ public class HttpUtil {
      * @param headers    传入header的map, 例如cookies等，当无值时，传入null即可
      * @param parameters 传入参数的map;当无参数时，传入的map=null即可
      */
-    public static String httpPost(String baseUrl,String parameters, Map<String, String> headers) {
+    public static String httpPost(String baseUrl, String parameters, Map<String, String> headers) {
 
         //创建一个返回值对象
         CloseableHttpResponse response = null;
@@ -213,7 +213,7 @@ public class HttpUtil {
                     post.setHeader(temp.getKey(), temp.getValue());
                 }
             }
-            StringEntity myEntity=new StringEntity(parameters);
+            StringEntity myEntity = new StringEntity(parameters);
             post.setEntity(myEntity);
             //执行请求
             response = httpClient.execute(post);
@@ -221,17 +221,17 @@ public class HttpUtil {
             HttpEntity entity = response.getEntity();
             entityString = EntityUtils.toString(entity, "utf-8");
         } catch (URISyntaxException | IOException e) {
-            log.error("httpPost方法异常:",e);
+            log.error("httpPost方法异常:", e);
         } finally {
             try {
                 if (response != null) {
                     response.close();
                 }
-                if(httpClient!=null){
+                if (httpClient != null) {
                     httpClient.close();
                 }
             } catch (IOException e) {
-                log.error("httpPost方法异常:",e);
+                log.error("httpPost方法异常:", e);
             }
         }
         return entityString;
@@ -240,16 +240,16 @@ public class HttpUtil {
     /**
      * 实现发送http的delete请求
      *
-     * @param url   发送地址
-     * @param param 传入参数的map;当无参数时，传入的map=null即可
+     * @param url     发送地址
+     * @param param   传入参数的map;当无参数时，传入的map=null即可
      * @param headers 传入header的map, 例如cookies等，当无值时，传入null即可
      */
-    public static String httpDelete(String url, Map<String, String> param,Map<String, String> headers) {
+    public static String httpDelete(String url, Map<String, String> param, Map<String, String> headers) {
         // 创建Httpclient对象
         CloseableHttpResponse response = null;
         String resultString = "";
         try {
-            CloseableHttpClient httpClient=HttpClients.createDefault();
+            CloseableHttpClient httpClient = HttpClients.createDefault();
             // 创建uri
             URIBuilder builder = new URIBuilder(url);
             if (param != null) {
@@ -275,7 +275,7 @@ public class HttpUtil {
                 if (response != null) {
                     response.close();
                 }
-                if(httpClient!=null){
+                if (httpClient != null) {
                     httpClient.close();
                 }
             } catch (IOException e) {
@@ -289,11 +289,11 @@ public class HttpUtil {
     /**
      * 实现发送https的delete请求
      *
-     * @param url   发送地址
-     * @param param 传入参数的map;当无参数时，传入的map=null即可
+     * @param url     发送地址
+     * @param param   传入参数的map;当无参数时，传入的map=null即可
      * @param headers 传入header的map, 例如cookies等，当无值时，传入null即可
      */
-    public static String httpsDelete(String url, Map<String, String> param,Map<String, String> headers) {
+    public static String httpsDelete(String url, Map<String, String> param, Map<String, String> headers) {
         // 创建Httpclient对象
         CloseableHttpResponse response = null;
         String resultString = "";
@@ -324,7 +324,7 @@ public class HttpUtil {
                 if (response != null) {
                     response.close();
                 }
-                if(httpClient!=null){
+                if (httpClient != null) {
                     httpClient.close();
                 }
             } catch (IOException e) {
@@ -338,9 +338,9 @@ public class HttpUtil {
     /**
      * 发送http-post请求
      *
-     * @param url   发送地址
+     * @param url         发送地址
      * @param requestJson 消息体
-     * @param headers 传入header的map, 例如cookies等，当无值时，传入null即可
+     * @param headers     传入header的map, 例如cookies等，当无值时，传入null即可
      */
     public static String httpPostJson(String url, Map<String, String> headers, String requestJson) {
         HttpPost httpPost = new HttpPost(url);
@@ -359,19 +359,19 @@ public class HttpUtil {
         }
         CloseableHttpClient hc = HttpClients.createDefault();
         CloseableHttpResponse response = null;
-        try{
+        try {
             response = hc.execute(httpPost);
             HttpEntity entity = response.getEntity();
             return parseEntity(entity);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
-        }finally {
+        } finally {
             try {
-                if(hc != null) {
+                if (hc != null) {
                     hc.close();
                 }
 
-                if(response != null) {
+                if (response != null) {
                     response.close();
                 }
 

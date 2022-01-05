@@ -48,7 +48,7 @@ public class MyClassLoader extends ClassLoader {
         this.root = root;
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         MyClassLoader classLoader = new MyClassLoader();
         classLoader.setRoot("/Users/zhangyu/Desktop/");

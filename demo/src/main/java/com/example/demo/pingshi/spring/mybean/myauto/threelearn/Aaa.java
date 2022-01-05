@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class Aaa implements All{
+public class Aaa implements All {
 
-    public int a=23;
+    public int a = 23;
 
     @Override
     public void show() {

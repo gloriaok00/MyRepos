@@ -9,7 +9,7 @@ import java.util.Properties;
 
 /**
  * @author zhangyu
- * @description  临时测试消费者
+ * @description 临时测试消费者
  * @date 2020-09-02 22:36
  */
 public class TestConsumer {
@@ -27,7 +27,7 @@ public class TestConsumer {
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records) {
-                System.out.println("救命:"+record.topic());
+                System.out.println("救命:" + record.topic());
                 System.out.println("消费数据:" + "\n" + record.value());
             }
         }

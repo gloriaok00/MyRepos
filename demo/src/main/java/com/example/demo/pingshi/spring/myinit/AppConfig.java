@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ComponentScan(basePackages="com.example.demo.pingshi.spring.springinit")
+@ComponentScan(basePackages = "com.example.demo.pingshi.spring.springinit")
 public class AppConfig {
 }

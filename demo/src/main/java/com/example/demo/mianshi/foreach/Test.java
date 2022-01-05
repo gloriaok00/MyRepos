@@ -7,6 +7,6 @@ package com.example.demo.mianshi.foreach;
 public class Test {
 
     public static void main(String[] args) {
-        Demo dd=Demo.getInstance();
+        Demo dd = Demo.getInstance();
     }
 }

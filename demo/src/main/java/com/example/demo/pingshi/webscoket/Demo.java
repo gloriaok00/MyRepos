@@ -8,12 +8,12 @@ import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
 /**
- *  Deepglint实时抓拍
+ * Deepglint实时抓拍
  */
 @Slf4j
 public class Demo extends WebSocketClient {
 
-    private static Demo instance=null;
+    private static Demo instance = null;
 
     public Demo(URI serverUri) {
         super(serverUri);
@@ -34,7 +34,7 @@ public class Demo extends WebSocketClient {
     @Override
     public void onClose(int code, String reason, boolean remote) {
         log.info("Test Test Connection closed by " + (remote ? "remote peer" : "us") + " Code: " + code + " Reason: " + reason);
-        log.info("remote:"+remote);
+        log.info("remote:" + remote);
         log.info("格林web socket连接中断,尝试重连....");
         if (remote) {
             onReconnect();
@@ -75,7 +75,7 @@ public class Demo extends WebSocketClient {
         ex.printStackTrace();
     }
 
-    public static Demo init () {
+    public static Demo init() {
 
         String host = "webscoket://10.232.3.150:8088";
         String url = host;
@@ -88,14 +88,15 @@ public class Demo extends WebSocketClient {
         return instance;
     }
 
-    public void toConnect(){
+    public void toConnect() {
         if (instance == null) {
-            instance=init();
+            instance = init();
             instance.connect();
-        }else{
+        } else {
             instance.connect();
         }
     }
+
     public static void main(String[] args) {
         Demo.init().toConnect();
     }
