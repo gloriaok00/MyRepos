@@ -18,7 +18,7 @@ import javax.validation.constraints.NotBlank;
  */
 
 @RestController
-//@Validated
+@Validated
 public class MyValid {
 
     //嵌套(需要被嵌套的类上一定要有@valid)
