@@ -1,12 +1,11 @@
 package com.example.demo.pingshi.spring.myvalid;
 
+import com.example.demo.pingshi.spring.myvalid.fenzu.UpdateGroup;
+import com.example.demo.pingshi.spring.myvalid.fenzu.ValidItem;
+import com.example.demo.pingshi.spring.myvalid.qiantao.MyParam;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -19,23 +18,36 @@ import javax.validation.constraints.NotBlank;
  */
 
 @RestController
-@Validated
+//@Validated
 public class MyValid {
 
-    @GetMapping("/valid")
-    public void show(@Valid @RequestBody MyParam param) {
-        System.out.println("valid:" + param.id);
+    //嵌套(需要被嵌套的类上一定要有@valid)
+    @PostMapping("/valid")
+    public void show(@Validated @RequestBody MyParam param) {
+        System.out.println("valid:" + param.paramId);
     }
 
+    //复习:@Validated加在类名上，在方法参数旁边的这些校验才好使
     @GetMapping("/valid2")
-    public void show2(@RequestParam @Min(1) @Max(10) int id) {
-        System.out.println("valid2:" + id);
+    public int show2(@RequestParam @Min(1) @Max(10) int id) {
+        return id;
     }
 
+    //@NotBlank只能用于String上
     @GetMapping("/valid3")
-    public void show3(@RequestParam @NotBlank String id) {
-        System.out.println("valid3:" + id);
+    public String show3(@RequestParam @NotBlank String id) {
+        return id;
     }
 
+    //分组
+    @GetMapping("/valid4")
+    public String show4(@Validated(UpdateGroup.class) @RequestBody ValidItem item) {
+        return item.getName();
+    }
 
+    //分组
+    @GetMapping("/valid5")
+    public String show5(@Validated @RequestBody ValidItem item) {
+        return item.getName();
+    }
 }
