@@ -24,10 +24,15 @@ public class CupDemo {
     @Resource(name = "b22")
     public Cup cup2;
 
+    //只有myDog这一类实现了dog，@resource按名字没匹配上就自动按类型了
+    @Resource
+    public Dog dog;
+
     @Test
     public void show() {
         System.out.println(cup.havingWater());
         System.out.println(cup2.havingWater());
+        System.out.println(dog.wangwang());
     }
 
 }
