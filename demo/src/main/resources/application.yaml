@@ -30,3 +30,5 @@ remote:
     password: aaa
     enabled: true
 
+iot:
+  types: 10002,10003,10004

@@ -1,5 +1,9 @@
 package com.example.demo.pingshi.datatype;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +14,15 @@ import java.util.List;
  * @date 2020-10-12 15:26
  */
 
+@RestController
 public class ListDemo {
+
+
+    @Value("#{'${iot.types}'.split(',')}")
+    private List<Long> typeIds;
+
+    @Value("${server.port}")
+    private int port;
 
     public static void main(String[] args) {
         List<String> deviceList = new ArrayList<>();
@@ -34,5 +46,11 @@ public class ListDemo {
         });
 
         System.out.println(sb.substring(0, sb.length() - 1));
+    }
+
+    @GetMapping("/value/list")
+    public void show(){
+        System.out.println(port);
+        typeIds.forEach(e-> System.out.println(e.longValue()));
     }
 }
