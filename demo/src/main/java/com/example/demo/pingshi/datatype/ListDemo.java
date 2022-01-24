@@ -17,9 +17,12 @@ import java.util.List;
 @RestController
 public class ListDemo {
 
+    public static List<Long> typeIds;
 
     @Value("#{'${iot.types}'.split(',')}")
-    private List<Long> typeIds;
+    public void setTypeIds(List<Long> typeIds) {
+        ListDemo.typeIds = typeIds;
+    }
 
     @Value("${server.port}")
     private int port;
