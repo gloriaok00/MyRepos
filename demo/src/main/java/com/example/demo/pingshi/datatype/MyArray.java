@@ -1,8 +1,6 @@
 package com.example.demo.pingshi.datatype;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @description 删除数组 隐喻:数组删除不允许有洞存在
@@ -69,16 +67,6 @@ public class MyArray {
         zz.remove(delI);
         System.out.println("新数组:");
         zz.forEach(e-> System.out.println(e));
-    }
-
-    public void keng(){
-        List zz= Arrays.asList("dfdsf","fdsfdsf","asdasdas");
-        System.out.println(zz.size());
-        System.out.println(zz.get(2));
-
-        int[] mm=new int[3];
-        List<int[]> xx=new ArrayList<>();
-        xx.add(mm);
     }
 
 }
