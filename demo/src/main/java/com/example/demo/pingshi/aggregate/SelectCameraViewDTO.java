@@ -3,7 +3,6 @@ package com.example.demo.pingshi.aggregate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(callSuper = true)
 public class SelectCameraViewDTO {
 
     /**

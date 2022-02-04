@@ -1,7 +1,6 @@
 package com.example.demo.pingshi.aggregate;
 
 import lombok.Data;
-import lombok.ToString;
 
 /**
  * 分期信息
@@ -11,7 +10,6 @@ import lombok.ToString;
  * @version 2019/11/06 16:17
  */
 @Data
-@ToString(callSuper = true)
 public class StageInfoDTO {
 
     /**
