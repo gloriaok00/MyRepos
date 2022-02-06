@@ -18,5 +18,9 @@ public class SDemo {
         }else{
             System.out.println(false);
         }
+        //循环字符串
+        for (int i = 0; i < s1.length(); i++) {
+            System.out.println(s1.charAt(i));
+        }
     }
 }
