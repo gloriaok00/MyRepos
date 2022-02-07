@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype;
+package com.example.demo.pingshi.datatype.fanxing;
 
 import com.example.demo.pingshi.java8stream.Person;
 
