@@ -7,6 +7,6 @@ package com.example.demo.pingshi.jwt;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println("test git1");
+        System.out.println("test git12");
     }
 }
