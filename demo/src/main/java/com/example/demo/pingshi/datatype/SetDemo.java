@@ -1,6 +1,8 @@
 package com.example.demo.pingshi.datatype;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -26,5 +28,19 @@ public class SetDemo {
         l2.add(33L);
         l1.removeAll(l2);
         l1.forEach(System.out::println);
+
+        List<String> xx=Collections.singletonList("sdsa");
+        System.out.println(xx.size());
+
+        Set<String> xx1=Collections.singleton("sdsa");
+        System.out.println(xx1.size());
+
+        Long l3=3L;
+        Long l4=3L;
+        if(l3.equals(l4)){
+            System.out.println(true);
+        }else{
+            System.out.println(false);
+        }
     }
 }
