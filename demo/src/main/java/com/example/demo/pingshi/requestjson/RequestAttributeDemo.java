@@ -17,9 +17,8 @@ public class RequestAttributeDemo {
         request.setAttribute("foo", "hello world");
     }
 
-    @RequestMapping(value = "/data/custom", method = RequestMethod.GET)
-    public @ResponseBody
-    String custom(@RequestAttribute("foo") String foo, String tt) {
+    @RequestMapping(value = "/data/custom", method = RequestMethod.HEAD)
+    public String custom(@RequestAttribute("foo") String foo, String tt) {
         return "Got 'foo' request attribute value '" + foo + "'" + "and param is " + tt;
     }
 }

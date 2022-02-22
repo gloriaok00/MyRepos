@@ -20,9 +20,11 @@ public class RRCtrl {
 
     //form-data
     @PostMapping("/getPerson")
-    public void getPerson(int id, MultipartFile file) {
+    public void getPerson(int id, MultipartFile file,String name) {
         System.out.println(id);
+        System.out.println(file.getSize());
         System.out.println(file.getName());
+        System.out.println(name);
     }
 
     //x-www-form-urlencoded
@@ -35,7 +37,6 @@ public class RRCtrl {
     //json
     @PostMapping("/getPerson22")
     public String getPerson11(@RequestBody Person person) {
-        log.info(person.toString());
         return person.toString();
     }
 
