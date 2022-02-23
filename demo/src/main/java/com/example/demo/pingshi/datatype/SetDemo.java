@@ -22,12 +22,12 @@ public class SetDemo {
         l1.add(33L);
         l1.add(33L);
         l1.forEach(System.out::println);
-        System.out.println("size:"+l1.size());
+        System.out.println("没remove之前的size:"+l1.size());
         Set<Long> l2=new HashSet<>();
         l2.add(3L);
         l2.add(33L);
         l1.removeAll(l2);
-        l1.forEach(System.out::println);
+        System.out.println("remove之后的size:" + l1.size());
 
         List<String> xx=Collections.singletonList("sdsa");
         System.out.println(xx.size());
