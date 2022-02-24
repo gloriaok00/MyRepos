@@ -3,9 +3,7 @@ package com.example.demo.pingshi.rest;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -20,7 +18,7 @@ public class RRCtrl {
 
     //form-data
     @PostMapping("/getPerson")
-    public void getPerson(int id, MultipartFile file,String name) {
+    public void getPerson(int id, MultipartFile file, String name) {
         System.out.println(id);
         System.out.println(file.getSize());
         System.out.println(file.getName());
@@ -34,11 +32,39 @@ public class RRCtrl {
         System.out.println(values.get("b"));
     }
 
-    //json
+    //json @RequestBody Person person
     @PostMapping("/getPerson22")
     public String getPerson11(@RequestBody Person person) {
         return person.toString();
     }
+
+    @GetMapping(value = "/get/get2")
+    public String getMM(@RequestBody Person person){
+        return person.toString();
+    }
+
+    //form-data
+    @GetMapping(value = "/get/get")
+    public String getMM(int id,String name){
+        return id+name;
+    }
+
+    @PostMapping(value = "/post/post11")
+    public String getMM22(int id,String name){
+        return "xxx88";
+    }
+
+    //url
+    @GetMapping(value = "/get/get/url")
+    public String getMMURL(@RequestParam int id,@RequestParam String name){
+        return "xxx11";
+    }
+
+    @PostMapping(value = "/post/post22")
+    public String getMM22URL(@RequestParam int id,@RequestParam String name){
+        return "xxx22";
+    }
+
 
     @Data
     class Person1 {
