@@ -2,16 +2,20 @@ package com.example.demo.pingshi.enumpractise;
 
 /**
  * @author zhangyu
- * @date 2019-10-26 21:53
+ * @description 翻译优化
+ * @date 2022-02-25 11:02
  */
-public class EnumDemo {
 
+public class TTT {
     public static void main(String[] args) {
-        //System.out.println(EnumWeek.Monday.name());
         for (EnumWeek value : EnumWeek.values()) {
-            //System.out.println(value);
             System.out.println(value.getName());
-            System.out.println(value.getCode());
+          /*  String gt = HttpUtil.get("http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i="+ value.getName(),null,1000);
+            JSONObject obj = JSONObject.parseObject(gt);
+            JSONObject sss = obj.getJSONArray("translateResult").getJSONArray(0).getObject(0, JSONObject.class);
+            System.out.println(sss.getString("tgt"));
+            String tgt = sss.getString("tgt");*/
         }
+        System.out.println(EnumWeek.valueOf("Monday"));
     }
 }
