@@ -6,7 +6,7 @@ package com.example.demo.pingshi.enumpractise;
  * @date 2022-02-25 11:02
  */
 
-public class TTT {
+public class EnumDemo {
     public static void main(String[] args) {
         for (EnumWeek value : EnumWeek.values()) {
             System.out.println(value.getName());
