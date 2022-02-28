@@ -1,18 +1,14 @@
-package com.example.demo.pingshi.serializable;
+package com.example.demo.pingshi.serializable.s2;
 
 import java.io.*;
 
 /**
- * @author zhangyu
- * @date 2019-10-26 14:39
+ * @description java对象序列化
+ * @date 2022-02-28 19:42
  */
-public class Demo {
+public class SerialDemo {
     public static void main(String[] args) {
-        User u1 = new User(1, "kui");
-        //String u1="yukewei,woaini";
-        //char[] u1=new char[20];
-        //u1=new String("kuikuikui").toCharArray();
-
+        User u1 = new User(1, "kk");
         try {
             ObjectOutputStream outfile = new ObjectOutputStream(new FileOutputStream("SerializableDemo"));
             outfile.writeObject(u1);
@@ -21,9 +17,8 @@ public class Demo {
         }
 
         try {
-            //User u2=new User();
-            ObjectInputStream inoss = new ObjectInputStream(new FileInputStream("SerializableDemo"));
-            User u2 = (User) inoss.readObject();
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("SerializableDemo"));
+            User u2 = (User) ois.readObject();
             System.out.println(u2.getName());
             System.out.println(u2.getId());
         } catch (IOException | ClassNotFoundException e) {
