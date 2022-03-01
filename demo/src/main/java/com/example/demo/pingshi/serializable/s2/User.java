@@ -13,8 +13,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 12121L;
-
     private int id;
     private String name;
 
