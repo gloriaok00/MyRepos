@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.netty;
+package com.example.demo.pingshi.protocol.p1;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
