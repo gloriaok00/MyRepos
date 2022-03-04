@@ -13,7 +13,7 @@ import java.net.Socket;
 public class ClientUpdate {
     public static void main(String[] args) throws IOException {
 
-        Socket socket = new Socket("192.168.8.145", 10002);
+        Socket socket = new Socket("127.0.0.1", 10002);
 
         OutputStream out = socket.getOutputStream();
 
