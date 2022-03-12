@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @description
+ * @description stream Comparator
  * @date 2022-03-09 16:52
  */
 
@@ -27,8 +27,8 @@ public class SSMain {
         });
 
         //按身高排序(身高并没有实现Comparable接口)
-        //List<StudentInfo> studentsSort = studentList.stream().sorted(Comparator.comparing(StudentInfo::getHeight)).collect(Collectors.toList());
-        List<StudentInfo> studentsSort = studentList.stream().sorted(Comparator.comparingDouble(StudentInfo::getHeight)).collect(Collectors.toList());
+        List<StudentInfo> studentsSort = studentList.stream().sorted(Comparator.comparing(StudentInfo::getHeight)).collect(Collectors.toList());
+        //List<StudentInfo> studentsSort = studentList.stream().sorted(Comparator.comparingDouble(StudentInfo::getHeight)).collect(Collectors.toList());
         //按年龄排序(年龄实现了Comparable接口)
         //List<StudentInfo> studentsSort = studentList.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
         //排序后输出
