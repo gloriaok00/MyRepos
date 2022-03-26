@@ -18,10 +18,10 @@ public class MyClassPath {
         System.out.println("==============");
         System.out.println("appPath:"+appPath);
 
-        System.out.println("ClassLodarDemo's ClasdsLoader is " + MyClassPath.class.getClassLoader());
-        System.out.println("ClassLodarDemo's ClasdsLoader ppp is " + MyClassPath.class.getClassLoader().getParent());
+        System.out.println("ClassLodarDemo's ClassLoader is " + MyClassPath.class.getClassLoader());
+        System.out.println("ClassLodarDemo's ClassLoader parent is " + MyClassPath.class.getClassLoader().getParent());
         System.out.println("DNSNameService's ClassLoader is " + DNSNameService.class.getClassLoader());
-        System.out.println("DNSNameService's ClassLoader is " + DNSNameService.class.getClassLoader());
+        System.out.println("DNSNameService's ClassLoader Parent is " + DNSNameService.class.getClassLoader().getParent());
         System.out.println("String's ClassLoader is " + String.class.getClassLoader());
 
     }
