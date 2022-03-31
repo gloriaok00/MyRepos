@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype.fanxing;
+package com.example.demo.pingshi.datatype.fanxing.fx1;
 
 import com.example.demo.pingshi.java8stream.Person;
 
@@ -18,5 +18,9 @@ public class GMain {
 
         Generic g3=new Generic("ccc");
         System.out.println(g3.getKey());
+
+        Generic g4=new Generic();
+        g4.setKey("defaultKey");
+        System.out.println(g4.getKey());
     }
 }

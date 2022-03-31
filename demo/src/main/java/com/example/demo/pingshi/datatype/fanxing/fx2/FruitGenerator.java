@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype.fanxing;
+package com.example.demo.pingshi.datatype.fanxing.fx2;
 
 /**
  * @description 泛型接口类学习 非实参，类上必须要有泛型
@@ -8,7 +8,7 @@ package com.example.demo.pingshi.datatype.fanxing;
 public class FruitGenerator<TT> implements Generator<TT> {
 
     @Override
-    public TT next() {
-        return null;
+    public void next(TT ttt) {
+        System.out.println(ttt.toString());
     }
 }
