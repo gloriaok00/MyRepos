@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype.mymap;
+package com.example.demo.pingshi.datatype.mymap.sort.ms1;
 
 import java.util.*;
 
@@ -7,13 +7,13 @@ import java.util.*;
  * @date 2022-04-01 09:58
  */
 
-public class MapSort {
+public class MS1 {
 
     public static void main(String[] args) {
 
         //HashMap
         System.out.println("------HashMap无序输出------");
-        HashMap hsMap = new HashMap();
+        HashMap<String,String> hsMap = new HashMap<>();
         hsMap.put("3", "Value3");
         hsMap.put("1", "Value1");
         hsMap.put("5", "Value5");
@@ -24,7 +24,7 @@ public class MapSort {
 
         //TreeMap
         System.out.println("------TreeMap按Key排序输出------");
-        TreeMap teMap = new TreeMap();
+        TreeMap<String,String> teMap = new TreeMap<>();
         teMap.put("3", "Value3");
         teMap.put("1", "Value1");
         teMap.put("2", "Value2");
@@ -35,7 +35,7 @@ public class MapSort {
 
         //LinkedHashMap
         System.out.println("--LinkedHashMap根据输入的顺序输出--");
-        LinkedHashMap lhsMap = new LinkedHashMap();
+        LinkedHashMap<String,String> lhsMap = new LinkedHashMap<>();
         lhsMap.put("3", "Value3");
         lhsMap.put("1", "Value1");
         lhsMap.put("2", "Value2");
