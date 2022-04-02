@@ -25,16 +25,10 @@ public class SCMain {
         ll.add(s3);
         ll.add(s4);
 
-        Map<Integer,SS> mm=new HashMap<>();
-        mm.put(s1.getA(),s1);
-        mm.put(s2.getA(),s2);
-        mm.put(s3.getA(),s3);
-        mm.put(s4.getA(),s4);
+        //内部比较器
         //Collections.sort(ll);
         //ll.forEach(System.out::println);
 
-        //SComptor sc=new SComptor();
-        //System.out.println(sc.compare(s1, s2));
         List<SS> st=ll.stream().sorted(Comparator.comparingInt(SS::getA)).collect(Collectors.toList());
         st.forEach(e->{
             System.out.println(e.toString());
@@ -46,6 +40,11 @@ public class SCMain {
             System.out.println(e.toString());
         });
 
+        Map<Integer,SS> mm=new HashMap<>();
+        mm.put(s1.getA(),s1);
+        mm.put(s2.getA(),s2);
+        mm.put(s3.getA(),s3);
+        mm.put(s4.getA(),s4);
         System.out.println("========");
         System.out.println("排序前:");
         mm.forEach((k,v)->{
@@ -53,11 +52,26 @@ public class SCMain {
         });
         System.out.println("排序后:");
         mm.entrySet().stream()
-                .sorted(Map.Entry.<Integer,SS>comparingByValue().reversed())
+                .sorted(Map.Entry.<Integer,SS>comparingByKey().reversed())
                 .forEach(System.out::println);
-        //Map<Integer,SS> ll1=mm.entrySet().stream().sorted(Map.Entry.<Integer,SS>comparingByValue().reversed()).collect(Collectors.toMap(SS::getA,SS));
-       /* ll1.forEach((k,v)->{
-            System.out.println(v.toString());
-        });*/
+        System.out.println("========");
+        List<SSS> ll2=new ArrayList<>();
+        SSS sss1 = new SSS(23, "1号");
+        SSS sss2 = new SSS(123, "2号");
+        SSS sss3 = new SSS(3, "3号");
+        SSS sss4 = new SSS(9, "4号");
+
+        ll2.add(sss1);
+        ll2.add(sss2);
+        ll2.add(sss3);
+        ll2.add(sss4);
+
+        //外部比较器
+        Collections.sort(ll2, new Comparator<SSS>() {
+            public int compare(SSS o1, SSS o2) {
+                return Integer.compare(o1.getA(),o2.getA());
+            }
+        });
+        ll2.forEach(System.out::println);
     }
 }
