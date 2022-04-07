@@ -10,6 +10,8 @@ public interface MyInterf {
 
     void test(int i);
 
+    //函数式接口里是可以包含Object里的public方法的
+    //https://blog.csdn.net/sl1992/article/details/81750599
     @Override
     String toString();
 
