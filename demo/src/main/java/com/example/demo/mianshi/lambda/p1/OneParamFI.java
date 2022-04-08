@@ -6,6 +6,6 @@ package com.example.demo.mianshi.lambda.p1;
  */
 
 @FunctionalInterface
-public interface NoParamFI<TTG> {
+public interface OneParamFI<TTG> {
     void showAnything(TTG ttg);
 }
