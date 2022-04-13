@@ -40,11 +40,14 @@ public class MM {
     MinioClient minioClient=null;
 
     public void upload() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+        String property =System.getProperty("user.dir");
+        String ss=property+"/src/main/resources/defaultImage/default_area.jpg";
+
         minioClient.uploadObject(
                 UploadObjectArgs.builder()
                         .bucket("iot2")
-                        .object("default/areaType/default_areaType.jpg")
-                        .filename("/Users/zhangyu/Downloads/default_areaType.jpg")
+                        .object("default/area/default_area.jpg")
+                        .filename(ss)
                         .build());
         System.out.println("done");
     }
@@ -76,8 +79,6 @@ public class MM {
             String ss="{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:GetBucketLocation\",\"s3:ListBucket\",\"s3:ListBucketMultipartUploads\"],\"Resource\":[\"arn:aws:s3:::iot2\"]},{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:DeleteObject\",\"s3:GetObject\",\"s3:ListMultipartUploadParts\",\"s3:PutObject\",\"s3:AbortMultipartUpload\"],\"Resource\":[\"arn:aws:s3:::iot2/*\"]}]}";
             minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket("iot2").config(ss).build());
             this.upload();
-        }else{
-            this.uploadOthers();
         }
     }
 
