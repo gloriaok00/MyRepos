@@ -39,6 +39,9 @@ public class MM {
     @Value("${minio.prefixPath}")
     private String prefixPath;
 
+    @Value("${minio.bucketPolicy}")
+    private String bucketPolicy;
+
 
     MinioClient minioClient=null;
 
@@ -53,8 +56,7 @@ public class MM {
             minioClient.makeBucket(MakeBucketArgs.builder()
                     .bucket(bucketName)
                     .build());
-            String ss = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:GetBucketLocation\",\"s3:ListBucket\",\"s3:ListBucketMultipartUploads\"],\"Resource\":[\"arn:aws:s3:::iot2\"]},{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:DeleteObject\",\"s3:GetObject\",\"s3:ListMultipartUploadParts\",\"s3:PutObject\",\"s3:AbortMultipartUpload\"],\"Resource\":[\"arn:aws:s3:::iot2/*\"]}]}";
-            minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(bucketName).config(ss).build());
+            minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(bucketName).config(bucketPolicy).build());
             String property = System.getProperty("user.dir");
             defaultImages.forEach(e -> {
                 try {
@@ -71,5 +73,5 @@ public class MM {
             });
         }
     }
-    
+
 }
