@@ -12,6 +12,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 minio:
+  bucketName: iot2
   accessKey: OKw3bxT5me
   secretKey: AnI22zu!vu89FaJ
   endpoint: http://223.223.176.32:30711
