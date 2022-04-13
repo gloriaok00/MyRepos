@@ -36,17 +36,22 @@ public class MM {
 
     MinioClient minioClient=null;
 
-    public void upload() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+    public void upload() {
         String property =System.getProperty("user.dir");
-        String ss=property+"/src/main/resources/defaultImage/default_area.jpg";
-
-        minioClient.uploadObject(
-                UploadObjectArgs.builder()
-                        .bucket("iot2")
-                        .object("default/area/default_area.jpg")
-                        .filename(ss)
-                        .build());
-        System.out.println("done");
+        String ss=property+"/src/main/resources/defaultImage";
+        defaultImages.forEach(e->{
+            try {
+                minioClient.uploadObject(
+                        UploadObjectArgs.builder()
+                                .bucket("iot2")
+                                .object("default"+e)
+                                .filename(ss+e)
+                                .build());
+            } catch (ErrorResponseException | InsufficientDataException | InternalException | InvalidKeyException | InvalidResponseException | IOException | NoSuchAlgorithmException | ServerException | XmlParserException ex) {
+                ex.printStackTrace();
+            }
+            log.info(e+" 已上传至miniO");
+        });
     }
 
     public void uploadOthers() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
