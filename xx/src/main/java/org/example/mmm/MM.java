@@ -30,7 +30,7 @@ public class MM {
     @Value("${minio.secretKey}")
     private String secretKey;
 
-    @Value("#{'${minio.defaultImages}'.split(',')}")
+    @Value("#{'${minio.defaultImages}'.split('-')}")
     private List<String> defaultImages;
 
 
@@ -44,8 +44,8 @@ public class MM {
                 minioClient.uploadObject(
                         UploadObjectArgs.builder()
                                 .bucket("iot2")
-                                .object("default"+e)
-                                .filename(ss+e)
+                                .object("default"+e.trim())
+                                .filename(ss+e.trim())
                                 .build());
             } catch (ErrorResponseException | InsufficientDataException | InternalException | InvalidKeyException | InvalidResponseException | IOException | NoSuchAlgorithmException | ServerException | XmlParserException ex) {
                 ex.printStackTrace();

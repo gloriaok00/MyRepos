@@ -15,4 +15,11 @@ minio:
   accessKey: OKw3bxT5me
   secretKey: AnI22zu!vu89FaJ
   endpoint: http://223.223.176.32:30711
-  defaultImages: /area/default_area.jpg,/areaType/default_areaType.jpg,/asset/default_asset_G001.jpg,/asset/default_asset_G002.jpg,/assetType/default_assetType.jpg,/deviceType/default_dt_guan05.jpg,/deviceType/default_dt_guan10.jpg
+  defaultImages:
+   /area/default_area.jpg
+   - /areaType/default_areaType.jpg
+   - /asset/default_asset_G001.jpg
+   - /asset/default_asset_G002.jpg
+   - /assetType/default_assetType.jpg
+   - /deviceType/default_dt_guan05.jpg
+   - /deviceType/default_dt_guan10.jpg
