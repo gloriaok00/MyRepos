@@ -12,6 +12,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 minio:
+  prefixPath: /src/main/resources/defaultImage
   bucketName: iot2
   accessKey: OKw3bxT5me
   secretKey: AnI22zu!vu89FaJ

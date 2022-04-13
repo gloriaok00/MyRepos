@@ -36,40 +36,11 @@ public class MM {
     @Value("${minio.bucketName}")
     private String bucketName;
 
+    @Value("${minio.prefixPath}")
+    private String prefixPath;
+
 
     MinioClient minioClient=null;
-
-    public void upload() {
-        String property =System.getProperty("user.dir");
-        String ss=property+"/src/main/resources/defaultImage";
-        defaultImages.forEach(e->{
-            try {
-                minioClient.uploadObject(
-                        UploadObjectArgs.builder()
-                                .bucket(bucketName)
-                                .object("default"+e.trim())
-                                .filename(ss+e.trim())
-                                .build());
-            } catch (ErrorResponseException | InsufficientDataException | InternalException | InvalidKeyException | InvalidResponseException | IOException | NoSuchAlgorithmException | ServerException | XmlParserException ex) {
-                ex.printStackTrace();
-            }
-            log.info(e+" 已上传至miniO");
-        });
-    }
-
-    public void uploadOthers() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
-        // Upload '/home/user/Photos/asiaphotos.zip' as object name 'asiaphotos-2015.zip' to bucket
-        // 'asiatrip'.
-      /*  minioClient.uploadObject(
-                UploadObjectArgs.builder()
-                        .bucket("iot2")
-                        .object("default/areaType/桌面.jpg")
-                        .filename("/Users/zhangyu/Downloads/桌面.jpg")
-                        .build());
-        System.out.println("done");*/
-        System.out.println(defaultImages.get(0));
-        System.out.println(defaultImages.size());
-    }
 
     @PostConstruct
     public void initDefaultData() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
@@ -78,17 +49,27 @@ public class MM {
                         .endpoint(endpoint)
                         .credentials(accessKey, secretKey)
                         .build();
-        if(!minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build())){
+        if(!minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build())) {
             minioClient.makeBucket(MakeBucketArgs.builder()
                     .bucket(bucketName)
                     .build());
-            String ss="{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:GetBucketLocation\",\"s3:ListBucket\",\"s3:ListBucketMultipartUploads\"],\"Resource\":[\"arn:aws:s3:::iot2\"]},{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:DeleteObject\",\"s3:GetObject\",\"s3:ListMultipartUploadParts\",\"s3:PutObject\",\"s3:AbortMultipartUpload\"],\"Resource\":[\"arn:aws:s3:::iot2/*\"]}]}";
+            String ss = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:GetBucketLocation\",\"s3:ListBucket\",\"s3:ListBucketMultipartUploads\"],\"Resource\":[\"arn:aws:s3:::iot2\"]},{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"*\"]},\"Action\":[\"s3:DeleteObject\",\"s3:GetObject\",\"s3:ListMultipartUploadParts\",\"s3:PutObject\",\"s3:AbortMultipartUpload\"],\"Resource\":[\"arn:aws:s3:::iot2/*\"]}]}";
             minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(bucketName).config(ss).build());
-            this.upload();
-        }else {
-            this.uploadOthers();
+            String property = System.getProperty("user.dir");
+            defaultImages.forEach(e -> {
+                try {
+                    minioClient.uploadObject(
+                            UploadObjectArgs.builder()
+                                    .bucket(bucketName)
+                                    .object("default" + e.trim())
+                                    .filename(property + prefixPath + e.trim())
+                                    .build());
+                } catch (ErrorResponseException | InsufficientDataException | InternalException | InvalidKeyException | InvalidResponseException | IOException | NoSuchAlgorithmException | ServerException | XmlParserException ex) {
+                    ex.printStackTrace();
+                }
+                log.info(e + " 已上传至miniO");
+            });
         }
     }
-
-
+    
 }
