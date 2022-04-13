@@ -10,3 +10,8 @@ spring:
     password: '!Qazxsw2'
     url: jdbc:mysql://localhost:3306/employees
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+minio:
+  accessKey: OKw3bxT5me
+  secretKey: AnI22zu!vu89FaJ
+  endpoint: http://223.223.176.32:30711
