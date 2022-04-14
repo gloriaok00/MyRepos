@@ -1,19 +1,14 @@
 package org.example.mmm;
 
-import io.minio.*;
-import io.minio.errors.*;
+import io.minio.MinioClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
- * @description
+ * @description 8点多的版本保留
  * @date 2022-04-12 16:13
  */
 
@@ -44,7 +39,7 @@ public class MM {
 
 
     MinioClient minioClient=null;
-
+    /*
     @PostConstruct
     public void initDefaultData() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         minioClient =
@@ -73,5 +68,7 @@ public class MM {
             });
         }
     }
+
+     */
 
 }
