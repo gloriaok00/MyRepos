@@ -3,12 +3,15 @@ package org.example.mmm;
 import com.spire.xls.FileFormat;
 import com.spire.xls.Workbook;
 import io.minio.MinioClient;
-import io.minio.ObjectStat;
 import io.minio.PutObjectOptions;
+import io.minio.errors.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 
 /**
@@ -18,35 +21,38 @@ import java.io.InputStream;
 
 public class SSS {
 
-    public static String save2pdf(String accessKey, String secretKey, String url) throws Exception {
-        String[] split = url.split("/");
-        String endPoint = "http://" + split[2];
-        String bucketName = split[3];
-        String objectName = split[4] + "/" + split[5] + "/" + split[6];
-
+    public static void save2pdf(String url,String bucketName,MinioClient minioClient) throws Exception {
         Workbook workbook = new Workbook();
-        MinioClient minioClient = new MinioClient(endPoint, accessKey, secretKey);
         boolean flag = minioClient.bucketExists(bucketName);
         if (flag) {
-            ObjectStat statObject = minioClient.statObject(bucketName, objectName);
-            if (statObject != null && statObject.length() > 0) {
-                InputStream stream = minioClient.getObject(bucketName, objectName);
-                workbook.loadFromStream(stream);
-                workbook.getConverterSetting().setSheetFitToPage(true);
-            }
+            InputStream stream = minioClient.getObject(bucketName, url);
+            workbook.loadFromStream(stream);
+            workbook.getConverterSetting().setSheetFitToPage(true);
+        }else{
+            System.out.println("不存在相应的工艺数据:"+bucketName+url);
         }
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         workbook.saveToStream(baos, FileFormat.PDF);
         InputStream in = new ByteArrayInputStream(baos.toByteArray());
 
-        PutObjectOptions putObjectOptions = new PutObjectOptions(baos.size(), baos.size() >= 5242880L ? baos.size() : 0L);
-        String newObjectName = objectName.replaceAll(".xlsx", ".pdf");
-        minioClient.putObject(bucketName, newObjectName, in, putObjectOptions);
-        return newObjectName;
+        PutObjectOptions putObjectOptions = new PutObjectOptions(baos.size(), 5242880L);
+        String newObjectName = url.replaceAll(".xlsx", ".pdf");
+        String finalNewObjectName=newObjectName.replace("xls","pdf");
+        //TODO 命名替换 子线程
+        new Thread(() -> {
+            try {
+                minioClient.putObject(bucketName, finalNewObjectName, in, putObjectOptions);
+                System.out.println(finalNewObjectName + "成功上传至minio");
+            } catch (ErrorResponseException | InsufficientDataException | InternalException | InvalidBucketNameException | InvalidKeyException | InvalidResponseException | IOException | NoSuchAlgorithmException | XmlParserException e) {
+                e.printStackTrace();
+                System.out.println("工艺转换pdf出错"+finalNewObjectName);
+            }
+        }).start();
     }
 
     public static void main(String[] args) throws Exception{
-        save2pdf("OKw3bxT5me","AnI22zu!vu89FaJ","");
+        MinioClient client=new MinioClient("http://223.223.176.32:30711","OKw3bxT5me","AnI22zu!vu89FaJ");
+        save2pdf("default/template/xls/zy.xlsx","iot",client);
     }
 }
