@@ -10,6 +10,16 @@ import java.nio.charset.StandardCharsets;
 public class ByteDemo {
 
     public static void main(String[] args) {
-        System.out.println("te12我中".getBytes(StandardCharsets.UTF_8).length);
+        byte[] bytes="123".getBytes(StandardCharsets.UTF_8);
+        System.out.println(bytes.length);
+        for (byte b : bytes) {
+            System.out.println(b);
+        }
+        int i=1;
+        byte[] bs=String.valueOf(i).getBytes();
+        for (byte b : bs) {
+            System.out.println(b);
+        }
+        //System.out.println(Arrays.toString("a".getBytes(StandardCharsets.UTF_8)));
     }
 }
