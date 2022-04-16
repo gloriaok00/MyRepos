@@ -21,5 +21,11 @@ public class ByteDemo {
             System.out.println(b);
         }
         //System.out.println(Arrays.toString("a".getBytes(StandardCharsets.UTF_8)));
+
+        //byte只占一个字节，从0-127
+        //byte bb=129;
+        byte bb1=127;
+        byte bb2=0;
+        byte bb3=-127;
     }
 }
