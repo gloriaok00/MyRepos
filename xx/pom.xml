@@ -58,6 +58,18 @@
             <artifactId>hutool-all</artifactId>
             <version>5.7.15</version>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.12.10</version>
+        </dependency>
+        <dependency>
+            <groupId>e-iceblue</groupId>
+            <artifactId>spire.xls.free</artifactId>
+            <version>5.1.0</version>
+             <scope>system</scope>
+             <systemPath>${basedir}/src/main/resources/lib/spire.xls.free-5.1.0.jar</systemPath>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
