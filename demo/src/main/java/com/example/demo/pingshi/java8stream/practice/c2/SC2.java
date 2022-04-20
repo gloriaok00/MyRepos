@@ -133,7 +133,7 @@ public class SC2 {
         List<Person> distinctedList = javaProgrammers.stream().distinct().collect(Collectors.toList());
         distinctedList.forEach(System.out::println);
         //reduce
-        System.out.println(distinctedList.stream().map(Person::getAge).reduce(0, Integer::sum));
+        System.out.println(distinctedList.stream().map(Person::getAge).reduce(Integer::sum));
 
     }
 
