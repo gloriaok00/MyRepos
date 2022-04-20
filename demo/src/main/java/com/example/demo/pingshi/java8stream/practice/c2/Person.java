@@ -11,7 +11,7 @@ public class Person {
     private String lastName;
     private String job;
     private String gender;
-    private int salary;
     private int age;
+    private int salary;
 
 }

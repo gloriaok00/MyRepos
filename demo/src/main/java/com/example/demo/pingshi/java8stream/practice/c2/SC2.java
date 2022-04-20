@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @description 随机练习
@@ -75,9 +78,9 @@ public class SC2 {
 
     @Test
     public void show2(){
-        System.out.println("下面是月薪超过30的PHP程序员:");
+        System.out.println("下面是月薪超过1400的PHP程序员:");
         phpProgrammers.stream()
-                .filter((e)->e.getSalary()>30)
+                .filter((e)->e.getSalary()>1400)
                 .limit(3)
                 .forEach((e) -> System.out.println(e.getFirstName()+" "+e.getLastName()));
     }
@@ -106,5 +109,28 @@ public class SC2 {
         System.out.println("所有数字的总和   : " + stats.getSum());
         System.out.println("所有数字的平均值 : " + stats.getAverage());
     }
+
+    //flatMap
+    @Test
+    public void show5(){
+        List<String> list = new ArrayList<>();
+        list.add("aaa bbb ccc");
+        list.add("ddd eee fff");
+        list.add("ggg hhh iii");
+
+        list = list.stream().map(s -> s.split(" ")).flatMap(Arrays::stream).collect(toList());
+        list.forEach(System.out::println);
+    }
+
+    //anyMatch
+    @Test
+    public void show6(){
+        //System.out.println(javaProgrammers.stream().anyMatch(person -> person.getAge() == 30));
+        //System.out.println(javaProgrammers.stream().findFirst());
+        javaProgrammers.add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 43, 2000));
+        List<Person> distinctedList=javaProgrammers.stream().distinct().collect(Collectors.toList());
+        distinctedList.forEach(System.out::println);
+    }
+
 
 }
