@@ -3,11 +3,10 @@ package com.example.demo.pingshi.java8stream.practice.c2;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.IntSummaryStatistics;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -137,5 +136,19 @@ public class SC2 {
         System.out.println(distinctedList.stream().map(Person::getAge).reduce(0, Integer::sum));
 
     }
+
+    @Test
+    public void shoow7() {
+        IntStream.of(new int[]{1, 2, 3}).forEach(System.out::println);
+        IntStream.range(1, 3).forEach(System.out::println);
+        IntStream.rangeClosed(1, 3).forEach(System.out::println);
+    }
+
+    @Test
+    public void sortStream() {
+        Stream<Integer> sortedStream = Stream.of(1, 3, 7, 4, 5, 8, 6, 2).sorted();
+        sortedStream.collect(Collectors.toList()).forEach(x -> System.out.print(x + " "));
+    }
+
 
 }
