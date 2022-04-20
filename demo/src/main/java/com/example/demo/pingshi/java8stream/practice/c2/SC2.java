@@ -90,7 +90,7 @@ public class SC2 {
         System.out.println("计算付给 Java programmers 的所有money:");
         int totalSalary = javaProgrammers
                 .parallelStream()
-                .mapToInt(Person::getSalary)
+                .mapToInt(Person::getAge)
                 .sum(); //sum
         System.out.println(totalSalary);
     }
@@ -122,14 +122,20 @@ public class SC2 {
         list.forEach(System.out::println);
     }
 
-    //anyMatch
+
     @Test
     public void show6(){
-        //System.out.println(javaProgrammers.stream().anyMatch(person -> person.getAge() == 30));
-        //System.out.println(javaProgrammers.stream().findFirst());
+        //anyMatch
+        System.out.println(javaProgrammers.stream().anyMatch(person -> person.getAge() == 30));
+        //findFirst
+        System.out.println(javaProgrammers.stream().findFirst());
+        //distinct
         javaProgrammers.add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 43, 2000));
         List<Person> distinctedList=javaProgrammers.stream().distinct().collect(Collectors.toList());
         distinctedList.forEach(System.out::println);
+        //reduce
+        System.out.println(distinctedList.stream().map(Person::getAge).reduce(0, Integer::sum));
+
     }
 
 
