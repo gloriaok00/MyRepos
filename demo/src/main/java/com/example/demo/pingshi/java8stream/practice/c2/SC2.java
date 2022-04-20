@@ -50,6 +50,7 @@ public class SC2 {
         };
     }
 
+    //遍历
     @Test
     public void show() {
         System.out.println("javaProgrammers starts:");
@@ -58,5 +59,23 @@ public class SC2 {
         System.out.println("phpProgrammers starts:");
         phpProgrammers.forEach(System.out::println);
         System.out.println("phpProgrammers ends:");
+    }
+
+    //add 5% percent
+    @Test
+    public void addSalary() {
+        System.out.println("add salary javaProgrammers starts:");
+        javaProgrammers.forEach(e->{
+            System.out.println((e.getSalary() * 1.05));
+        });
+        System.out.println("add salary javaProgrammers ends:");
+    }
+
+    @Test
+    public void show2(){
+        System.out.println("下面是月薪超过30的PHP程序员:");
+        phpProgrammers.stream()
+                .filter((e)->e.getSalary()>30)
+                .forEach((e) -> System.out.println(e.getFirstName()+" "+e.getLastName()));
     }
 }
