@@ -70,23 +70,23 @@ public class SC2 {
     @Test
     public void addSalary() {
         System.out.println("add salary javaProgrammers starts:");
-        javaProgrammers.forEach(e->{
+        javaProgrammers.forEach(e -> {
             System.out.println((e.getSalary() * 1.05));
         });
         System.out.println("add salary javaProgrammers ends:");
     }
 
     @Test
-    public void show2(){
+    public void show2() {
         System.out.println("下面是月薪超过1400的PHP程序员:");
         phpProgrammers.stream()
-                .filter((e)->e.getSalary()>1400)
+                .filter((e) -> e.getSalary() > 1400)
                 .limit(3)
-                .forEach((e) -> System.out.println(e.getFirstName()+" "+e.getLastName()));
+                .forEach((e) -> System.out.println(e.getFirstName() + " " + e.getLastName()));
     }
 
     @Test
-    public void show3(){
+    public void show3() {
         System.out.println("计算付给 Java programmers 的所有money:");
         int totalSalary = javaProgrammers
                 .parallelStream()
@@ -96,7 +96,7 @@ public class SC2 {
     }
 
     @Test
-    public void show4(){
+    public void show4() {
         //计算 count, min, max, sum, and average for numbers
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         IntSummaryStatistics stats = numbers
@@ -112,7 +112,7 @@ public class SC2 {
 
     //flatMap
     @Test
-    public void show5(){
+    public void show5() {
         List<String> list = new ArrayList<>();
         list.add("aaa bbb ccc");
         list.add("ddd eee fff");
@@ -124,19 +124,18 @@ public class SC2 {
 
 
     @Test
-    public void show6(){
+    public void show6() {
         //anyMatch
         System.out.println(javaProgrammers.stream().anyMatch(person -> person.getAge() == 30));
         //findFirst
         System.out.println(javaProgrammers.stream().findFirst());
         //distinct
         javaProgrammers.add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 43, 2000));
-        List<Person> distinctedList=javaProgrammers.stream().distinct().collect(Collectors.toList());
+        List<Person> distinctedList = javaProgrammers.stream().distinct().collect(Collectors.toList());
         distinctedList.forEach(System.out::println);
         //reduce
         System.out.println(distinctedList.stream().map(Person::getAge).reduce(0, Integer::sum));
 
     }
-
 
 }
