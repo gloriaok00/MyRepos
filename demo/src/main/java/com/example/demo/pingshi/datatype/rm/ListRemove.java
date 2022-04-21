@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype;
+package com.example.demo.pingshi.datatype.rm;
 
 import com.google.common.collect.Lists;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @description list remove学习
+ * @description list remove学习 arrays.asList
  * @date 2022-04-20 18:03
  */
 
@@ -21,7 +21,7 @@ public class ListRemove {
         List<String> natureList = Arrays.asList(patternSplit);
         List<String> newCopylist=Lists.newCopyOnWriteArrayList(natureList);
         //natureList.forEach(System.out::println);
-        newCopylist.remove(0);
+        newCopylist.add("add和remove都行了");
         //System.out.println();
         newCopylist.forEach(System.out::println);
 
