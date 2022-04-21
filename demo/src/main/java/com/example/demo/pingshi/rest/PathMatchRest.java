@@ -46,10 +46,8 @@ public class PathMatchRest {
         System.out.println("paths:"+paths[1]);
         PathMatcher pathMatcher = new AntPathMatcher();
         if (pathMatcher.match("/devices/v2/devices", paths[1])) {
-            //Assert.assertTrue("我爱你",true);
             System.out.println("我爱你");
         }else{
-           //Assert.assertFalse("cy,ilu",false);
             System.out.println("cy,ilu");
         }
     }
