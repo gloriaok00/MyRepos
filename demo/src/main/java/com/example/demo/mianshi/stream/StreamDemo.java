@@ -2,6 +2,8 @@ package com.example.demo.mianshi.stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -13,8 +15,17 @@ import java.util.stream.Stream;
 public class StreamDemo {
     public static void main(String[] args) {
         Stream s1 = Stream.of("herew", "kui", "laopo");
+        Map<String,String> xx11=(Map<String,String>)s1.collect(Collectors.toMap(e->e, k->k));
+        xx11.entrySet().forEach(e->{
+            System.out.println(e.getKey()+":"+e.getValue());
+        });
         List<String> myList = Arrays.asList("a", "hbb", "sdad");
-        Stream s2 = myList.stream();
+        Map<String,String> xx= myList.stream().collect(Collectors.toMap(k->k, k->k));
+        System.out.println();
+        xx.entrySet().forEach(e->{
+            System.out.println(e.getKey()+":"+e.getValue());
+        });
+        System.out.println();
         IntStream.of(new int[]{2,3,4}).forEach(System.out::println);
         System.out.println();
         IntStream.range(3,8).forEach(System.out::println);
