@@ -8,14 +8,16 @@ import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Deepglint实时抓拍
+ * @description websocket 发送
+ * @date 2022-04-28 16:23
  */
+
 @Slf4j
-public class Demo extends WebSocketClient {
+public class WSPractice extends WebSocketClient {
 
-    private static Demo instance = null;
+    private static WSPractice instance = null;
 
-    public Demo(URI serverUri) {
+    public WSPractice(URI serverUri) {
         super(serverUri);
         this.setConnectionLostTimeout(0);
     }
@@ -75,13 +77,12 @@ public class Demo extends WebSocketClient {
         ex.printStackTrace();
     }
 
-    public static Demo init() {
+    public static WSPractice init() {
 
-        String host = "webscoket://10.232.3.150:8088";
-        String url = host;
+        String host = "ws://101.200.135.56:8181";
 
         try {
-            instance = new Demo(new URI(url));
+            instance = new WSPractice(new URI(host));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -98,6 +99,6 @@ public class Demo extends WebSocketClient {
     }
 
     public static void main(String[] args) {
-        Demo.init().toConnect();
+        WSPractice.init().toConnect();
     }
 }
