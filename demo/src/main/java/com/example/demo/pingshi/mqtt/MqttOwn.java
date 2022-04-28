@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.webscoket;
+package com.example.demo.pingshi.mqtt;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -8,17 +8,16 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import java.util.Random;
 
 /**
- * @description MQTT 发送 mqtt over websocket
- * @date 2020-05-28 14:43
- * @date 2022-04-28 15:49
+ * @description MQTT 发送
+ * @date 2022-04-28 21:04
  */
 
-public class MqttServerZY {
+public class MqttOwn {
 
     /**
      * 代理服务器ip地址
      */
-    public static final String MQTT_BROKER_HOST = "ws://101.200.135.56:8181";
+    public static final String MQTT_BROKER_HOST = "tcp://localhost:1883";
 
     /**
      * 订阅标识
@@ -29,7 +28,7 @@ public class MqttServerZY {
     /**
      * 客户端唯一标识
      */
-    public static final String MQTT_CLIENT_ID = "xczxqwewqe";
+    public static final String MQTT_CLIENT_ID = "xczxcdwdq";
 
 
     /**
@@ -49,7 +48,7 @@ public class MqttServerZY {
             message.setRetained(false);
 
             //调用各性化message
-            MqttServerZY instance = new MqttServerZY();
+            MqttOwn instance = new MqttOwn();
 
             //选择event类型
             instance.pureMessageMqtt(message);
