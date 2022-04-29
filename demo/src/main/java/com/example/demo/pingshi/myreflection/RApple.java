@@ -27,11 +27,11 @@ public class RApple {
         System.out.println("Apple Price:" + apple.getPrice());
         //反射
         Class clz = Class.forName("com.example.demo.pingshi.myreflection.RApple");
-        Method setPriceMethod = clz.getMethod("setPrice", int.class);
-        Constructor appleConstructor = clz.getConstructor();
-        Object appleObj = appleConstructor.newInstance();
-        setPriceMethod.invoke(appleObj, 14);
-        Method getPriceMethod = clz.getMethod("getPrice");
-        System.out.println("Apple Price:" + getPriceMethod.invoke(appleObj));
+        Method setPriceMethod=clz.getMethod("setPrice",int.class);
+        Constructor<RApple> appleConstructor=clz.getConstructor();
+        Object appleObj=appleConstructor.newInstance();
+        setPriceMethod.invoke(appleObj,14);
+        RApple xx=(RApple)appleObj;
+        System.out.println("result:"+xx.getPrice());
     }
 }
