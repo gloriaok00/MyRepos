@@ -1,6 +1,7 @@
 package com.example.demo.pingshi.myreflection;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -11,6 +12,16 @@ import java.lang.reflect.Method;
 public class RApple {
 
     private int price;
+
+    public int weight;
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
     public int getPrice() {
         return price;
@@ -33,5 +44,17 @@ public class RApple {
         setPriceMethod.invoke(obj,14);
         RApple rApple=(RApple)obj;
         System.out.println("反射:"+rApple.getPrice());
+        //获取属性
+        Field[] fields=clz.getFields();
+        System.out.println("公共属性:");
+        for (Field field : fields) {
+            System.out.println(field);
+        }
+        System.out.println();
+        Field[] pFields=clz.getDeclaredFields();
+        System.out.println("所有属性:");
+        for (Field field : pFields) {
+            System.out.println(field);
+        }
     }
 }
