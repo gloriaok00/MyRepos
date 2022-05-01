@@ -1,7 +1,7 @@
 package com.example.demo.pingshi.myreflection.lc;
 
-public class lC {
+public class LC {
     static {
-        System.out.println("初始化类lC");
+        System.out.println("初始化类LC");
     }
 }
