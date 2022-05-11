@@ -12,6 +12,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class SchoolClass {
-    private Integer id;
+
+    private int id;
     private String name;
+
 }
