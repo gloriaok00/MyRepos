@@ -1,7 +1,7 @@
 package com.example.demo.pingshi.initorder;
 
 /**
- *  @description 静态代码块每当实例化对象时就会被调用
+ *  @description 非常好的例子
  *  @date  2022/5/12 14:34
  */
 
