@@ -1,6 +1,11 @@
-package com.example.demo.pingshi.initorder;
+package com.example.demo.pingshi.initorder.i2;
 
-public class InitialOrderWithExtend {
+/**
+ * @description 终于整明白了这些顺序了
+ * @date 2022-05-12 14:15
+ */
+
+public class I2 {
     public static void main(String[] args) {
         Father ts = new Son();
     }
