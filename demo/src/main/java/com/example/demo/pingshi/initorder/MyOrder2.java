@@ -1,7 +1,8 @@
 package com.example.demo.pingshi.initorder;
 
 /**
- * 父类的构造函数执行要早于子类的实例变量初始化
+ *  @description 随机练习
+ *  @date  2022/5/12 16:14
  */
 public class MyOrder2 {
     public static void main(String[] args) {
