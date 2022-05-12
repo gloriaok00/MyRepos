@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype.fanxing.fx2;
+package com.example.demo.pingshi.datatype.mygeneric.g2;
 
 /**
  * @description 泛型接口类学习 非实参，类上必须要有泛型

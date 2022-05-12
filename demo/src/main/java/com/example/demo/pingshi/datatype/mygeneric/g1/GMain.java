@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype.fanxing.fx1;
+package com.example.demo.pingshi.datatype.mygeneric.g1;
 
 import com.example.demo.pingshi.java8stream.Person;
 

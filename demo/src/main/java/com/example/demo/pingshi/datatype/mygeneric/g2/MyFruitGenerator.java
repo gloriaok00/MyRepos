@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype.fanxing.fx2;
+package com.example.demo.pingshi.datatype.mygeneric.g2;
 
 /**
  * @description Generator是实参了，MyFruitGenerator就可以不加泛型了

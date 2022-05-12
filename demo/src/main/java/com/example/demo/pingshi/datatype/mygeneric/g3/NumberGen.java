@@ -1,6 +1,6 @@
-package com.example.demo.pingshi.datatype.fanxing.fx3;
+package com.example.demo.pingshi.datatype.mygeneric.g3;
 
-import com.example.demo.pingshi.datatype.fanxing.fx2.Generator;
+import com.example.demo.pingshi.datatype.mygeneric.g2.Generator;
 import lombok.extern.slf4j.Slf4j;
 
 /**

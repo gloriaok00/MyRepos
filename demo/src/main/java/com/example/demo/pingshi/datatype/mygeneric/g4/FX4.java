@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.datatype.fanxing.fx4;
+package com.example.demo.pingshi.datatype.mygeneric.g4;
 
 /**
  * @description 泛型定义在方法中
