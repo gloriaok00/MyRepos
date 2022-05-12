@@ -1,7 +1,8 @@
 package com.example.demo.pingshi.initorder;
 
 /**
- * 静态代码块每当实例化对象时就会被调用
+ *  @description 静态代码块每当实例化对象时就会被调用
+ *  @date  2022/5/12 14:34
  */
 
 public class CodeBlock {
