@@ -23,10 +23,8 @@ public class JwtMaker {
             SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
             sha256_HMAC.init(secret_key);
             byte[] bytes = sha256_HMAC.doFinal(message.getBytes());
+            //看这里的源码，就是把base64url最后的结果里的=去掉就行了。用Base64.getUrlEncoder().encodeToString()也是行的，最后把=去了就行了
             return TextCodec.BASE64URL.encode(bytes);
-          /*  hash = byteArrayToHexString(bytes);
-            System.out.println("x1:"+new String(bytes));*/
-            //System.out.println(hash);
         } catch (Exception e) {
             e.printStackTrace();
         }
