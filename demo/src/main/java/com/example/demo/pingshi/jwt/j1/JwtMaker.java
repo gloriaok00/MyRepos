@@ -1,10 +1,5 @@
 package com.example.demo.pingshi.jwt.j1;
 
-/**
- *  @description 自制jwt
- *  @date  2022/5/14 01:20
- */
-
 import io.jsonwebtoken.impl.TextCodec;
 
 import javax.crypto.Mac;
@@ -12,23 +7,27 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
+/**
+ *  @description 自制jwt
+ *  @date  2022/5/14 01:20
+ */
+
 public class JwtMaker {
     //   SECRET KEY
     private final static String secret_key = "iotKey";
 
     private static String sha256_HMAC(String message, String secret) {
-        String hash = "";
         try {
             Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
             SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
             sha256_HMAC.init(secret_key);
-            byte[] bytes = sha256_HMAC.doFinal(message.getBytes());
-            //看这里的源码，就是把base64url最后的结果里的=去掉就行了。用Base64.getUrlEncoder().encodeToString()也是行的，最后把=去了就行了
-            return TextCodec.BASE64URL.encode(bytes);
+            byte[] bs = sha256_HMAC.doFinal(message.getBytes());
+            //这里用的是去除掉后面的=号后的形式
+            return TextCodec.BASE64URL.encode(bs);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return hash;
+        return null;
     }
 
     public static void main(String[] args) throws Exception{
@@ -37,10 +36,10 @@ public class JwtMaker {
         String header = Base64.getUrlEncoder().encodeToString(s.getBytes(StandardCharsets.US_ASCII));
         System.out.println("header:"+header);
 
-        String payload="eyJwYXNzd29yZCI6InN1cGVyX2FkbWluIiwiYXV0aCI6WyJWSUVXX1NFUlZFUl9JTkZPIiwiUkVTVCIsIkFETUlOX0NPTlNPTEUiLCJBRE1JTklTVEVSX1VTRVJTIiwiQURNSU5JU1RFUl9VU0VSX1NFTEYiLCJBRE1JTklTVEVSX1RFTkFOVFMiLCJBRE1JTklTVEVSX1RFTkFOVF9TRUxGIiwiQURNSU5JU1RFUl9TQ0hFRFVMRVMiLCJTQ0hFRFVMRV9DT01NQU5EUyJdLCJ1c2VyX25hbWUiOiJzdXBlcl9hZG1pbiIsInNjb3BlIjpbImFwcCJdLCJ0ZW5hbnRJZCI6MSwiZXhwIjoxNjUyNDk2MTIxLCJhdXRob3JpdGllcyI6WyI4NjovYXJlYXR5cGVzL2RlbGV0ZS8qIiwiNDE6L3RlY2hub2xvZ3kvdGVjaG5vbG9neS9kZWxldGUvKiIsIjM5Oi90ZWNobm9sb2d5L3RlY2hub2xvZ3kvY3JlYXRlIiwiMjc6L2RldmljZXMvdjIvZGV2aWNlcyIsIjQwOi90ZWNobm9sb2d5L3RlY2hub2xvZ3kvdXBkYXRlLyoiLCIxMDc6L2RlcHQvdXBkYXRlIiwiOTU6L3Byb2R1Y3Rpb24vdXBkYXRlL3Rhc2svKiIsIjI5Oi9kZXZpY2VzL3VwZGF0ZS8qIiwiODM6L2FyZWF0eXBlcy9jcmVhdGUiLCI3MDovZGV2aWNldHlwZXMvdXBkYXRlLyovY29tbWFuZHMvKiIsIjE5Oi9yb2xlL2Fzc2lnbi9wZXJtaXNzaW9ucyIsIjM0Oi9hc3NldHMvY3JlYXRlIiwiNzY6L2RldmljZXR5cGVzL2RlbGV0ZS8qL3N0YXR1c2VzLyoiLCI1ODovZGV2aWNldHlwZXMvY3JlYXRlIiwiNTk6L2RldmljZXR5cGVzL3YyL2RldmljZXR5cGVzIiwiNzk6L3RlY2hub2xvZ3kvdGVtcGxhdGVzIiwiMTAyOi9wcm9kdWN0aW9uL2Zvcm11bGEvKi9zcGxpdCIsIjIxOi9yb2xlL2RlbGV0ZSIsIjE2Oi91c2VyL2RlbGV0ZSIsIjYzOi9kZXZpY2V0eXBlcy9jcmVhdGUvKi9hdHRyaWJ1dGVzIiwiOTg6L3Byb2R1Y3Rpb24vdGFza3MyZm9ybXVsYS9tZXJnZSIsIjI4Oi9kZXZpY2VzL2NyZWF0ZSIsIjc0Oi9zdGF0dXNlcyIsIjExOi9yb2xlL2xpc3QiLCIxODovcm9sZS9hc3NpZ24vbWVudXMiLCIxMzovdXNlci9hc3NpZ24vcm9sZXMiLCIzMjovc2wvZ2F0ZXdheWxpc3QiLCI3NTovZGV2aWNldHlwZXMvdXBkYXRlLyovc3RhdHVzZXMvKiIsIjQ0Oi90ZWNobm9sb2d5L2Zvcm11bGEvY3JlYXRlIiwiNzM6L2RldmljZXR5cGVzL2NyZWF0ZS8qL3N0YXR1c2VzIiwiOTY6L3Byb2R1Y3Rpb24vZGVsZXRlL3Rhc2svKiIsIjU2Oi9hc3NldHR5cGVzL2RlbGV0ZS8qIiwiNjQ6L2RldmljZXR5cGVzLyovYXR0cmlidXRlcyIsIjQ2Oi90ZWNobm9sb2d5L2Zvcm11bGEvZGVsZXRlLyoiLCI2NjovZGV2aWNldHlwZXMvZGVsZXRlLyovYXR0cmlidXRlLyoiLCI5MzovcHJvZHVjdGlvbi9jcmVhdGUvdGFzayIsIjk5Oi9kZXZpY2VzLyovaW52b2NhdGlvbnMiLCIxNDovdXNlci9saXN0IiwiNTU6L2Fzc2V0dHlwZXMvdXBkYXRlLyoiLCIzMDovZGV2aWNlcy9kZWxldGUvKiIsIjEwNTovZGVwdC9jcmVhdGUiLCI4NTovYXJlYXR5cGVzL3VwZGF0ZS8qIiwiMzY6L2Fzc2V0cy9kZWxldGUvKiIsIjk0Oi9wcm9kdWN0aW9uL3Rhc2tzIiwiMjA6L3JvbGUvdXBkYXRlIiwiODg6L2FyZWFzL2NyZWF0ZSIsIjg0Oi9hcmVhdHlwZXMiLCIxMDovcm9sZS9jcmVhdGUiLCIxNTovdXNlci91cGRhdGUiLCI3ODovdGVjaG5vbG9neS9jcmVhdGUvdGVtcGxhdGUiLCIxMDE6L3Byb2R1Y3Rpb24vZm9ybXVsYXMiLCIxMDg6L2RlcHQvZGVsZXRlIiwiODk6L2FyZWFzIiwiODA6L3RlY2hub2xvZ3kvdXBkYXRlL3RlbXBsYXRlLyoiLCI2ODovZGV2aWNldHlwZXMvY3JlYXRlLyovY29tbWFuZHMiLCIzODovdGVjaG5vbG9neS90ZWNobm9sb2d5cyIsIjY1Oi9kZXZpY2V0eXBlcy91cGRhdGUvKi9hdHRyaWJ1dGUvKiIsIjgxOi90ZWNobm9sb2d5L2RlbGV0ZS90ZW1wbGF0ZS8qIiwiMzU6L2Fzc2V0cy91cGRhdGUvKiIsIjkxOi9hcmVhcy9kZWxldGUvKiIsIjQzOi90ZWNobm9sb2d5L2Zvcm11bGFzIiwiNjA6L2RldmljZXR5cGVzL3VwZGF0ZS8qIiwiNTM6L2Fzc2V0dHlwZXMvY3JlYXRlIiwiMjQ6L21lbnUvbGlzdCIsIjQ1Oi90ZWNobm9sb2d5L2Zvcm11bGEvdXBkYXRlLyoiLCI1MTovYXNzaWdubWVudHMvKi9lbmQiLCIxMDY6L2RlcHQvbGlzdCIsIjY5Oi9jb21tYW5kcyIsIjYxOi9kZXZpY2V0eXBlcy9kZWxldGUvKiIsIjIyOi9wZXJtaXNzaW9uL2xpc3QiLCI3MTovZGV2aWNldHlwZXMvZGVsZXRlLyovY29tbWFuZHMvKiIsIjkwOi9hcmVhcy91cGRhdGUvKiIsIjMxOi9hc3NpZ25tZW50cy9jcmVhdGUiLCIxMjovdXNlci9jcmVhdGUiLCIxNzovdXNlci9yZXNldC9wYXNzd29yZCIsIjU0Oi9hc3NldHR5cGVzIiwiMTAzOi9wcm9kdWN0aW9uL2Zvcm11bGEvZGV2aWNlQXNzaWdubWVudCJdLCJqdGkiOiI2MDk1YjMxYS0yYzk2LTRkZTktOTYxNy0yZWExMWRhNDc5MjciLCJjbGllbnRfaWQiOiJpb3Rfd2ViIn0";
-        //System.out.println("payload:"+payload);
-        String tt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6InN1cGVyX2FkbWluIiwiYXV0aCI6WyJWSUVXX1NFUlZFUl9JTkZPIiwiUkVTVCIsIkFETUlOX0NPTlNPTEUiLCJBRE1JTklTVEVSX1VTRVJTIiwiQURNSU5JU1RFUl9VU0VSX1NFTEYiLCJBRE1JTklTVEVSX1RFTkFOVFMiLCJBRE1JTklTVEVSX1RFTkFOVF9TRUxGIiwiQURNSU5JU1RFUl9TQ0hFRFVMRVMiLCJTQ0hFRFVMRV9DT01NQU5EUyJdLCJ1c2VyX25hbWUiOiJzdXBlcl9hZG1pbiIsInNjb3BlIjpbImFwcCJdLCJ0ZW5hbnRJZCI6MSwiZXhwIjoxNjUyNDk2MTIxLCJhdXRob3JpdGllcyI6WyI4NjovYXJlYXR5cGVzL2RlbGV0ZS8qIiwiNDE6L3RlY2hub2xvZ3kvdGVjaG5vbG9neS9kZWxldGUvKiIsIjM5Oi90ZWNobm9sb2d5L3RlY2hub2xvZ3kvY3JlYXRlIiwiMjc6L2RldmljZXMvdjIvZGV2aWNlcyIsIjQwOi90ZWNobm9sb2d5L3RlY2hub2xvZ3kvdXBkYXRlLyoiLCIxMDc6L2RlcHQvdXBkYXRlIiwiOTU6L3Byb2R1Y3Rpb24vdXBkYXRlL3Rhc2svKiIsIjI5Oi9kZXZpY2VzL3VwZGF0ZS8qIiwiODM6L2FyZWF0eXBlcy9jcmVhdGUiLCI3MDovZGV2aWNldHlwZXMvdXBkYXRlLyovY29tbWFuZHMvKiIsIjE5Oi9yb2xlL2Fzc2lnbi9wZXJtaXNzaW9ucyIsIjM0Oi9hc3NldHMvY3JlYXRlIiwiNzY6L2RldmljZXR5cGVzL2RlbGV0ZS8qL3N0YXR1c2VzLyoiLCI1ODovZGV2aWNldHlwZXMvY3JlYXRlIiwiNTk6L2RldmljZXR5cGVzL3YyL2RldmljZXR5cGVzIiwiNzk6L3RlY2hub2xvZ3kvdGVtcGxhdGVzIiwiMTAyOi9wcm9kdWN0aW9uL2Zvcm11bGEvKi9zcGxpdCIsIjIxOi9yb2xlL2RlbGV0ZSIsIjE2Oi91c2VyL2RlbGV0ZSIsIjYzOi9kZXZpY2V0eXBlcy9jcmVhdGUvKi9hdHRyaWJ1dGVzIiwiOTg6L3Byb2R1Y3Rpb24vdGFza3MyZm9ybXVsYS9tZXJnZSIsIjI4Oi9kZXZpY2VzL2NyZWF0ZSIsIjc0Oi9zdGF0dXNlcyIsIjExOi9yb2xlL2xpc3QiLCIxODovcm9sZS9hc3NpZ24vbWVudXMiLCIxMzovdXNlci9hc3NpZ24vcm9sZXMiLCIzMjovc2wvZ2F0ZXdheWxpc3QiLCI3NTovZGV2aWNldHlwZXMvdXBkYXRlLyovc3RhdHVzZXMvKiIsIjQ0Oi90ZWNobm9sb2d5L2Zvcm11bGEvY3JlYXRlIiwiNzM6L2RldmljZXR5cGVzL2NyZWF0ZS8qL3N0YXR1c2VzIiwiOTY6L3Byb2R1Y3Rpb24vZGVsZXRlL3Rhc2svKiIsIjU2Oi9hc3NldHR5cGVzL2RlbGV0ZS8qIiwiNjQ6L2RldmljZXR5cGVzLyovYXR0cmlidXRlcyIsIjQ2Oi90ZWNobm9sb2d5L2Zvcm11bGEvZGVsZXRlLyoiLCI2NjovZGV2aWNldHlwZXMvZGVsZXRlLyovYXR0cmlidXRlLyoiLCI5MzovcHJvZHVjdGlvbi9jcmVhdGUvdGFzayIsIjk5Oi9kZXZpY2VzLyovaW52b2NhdGlvbnMiLCIxNDovdXNlci9saXN0IiwiNTU6L2Fzc2V0dHlwZXMvdXBkYXRlLyoiLCIzMDovZGV2aWNlcy9kZWxldGUvKiIsIjEwNTovZGVwdC9jcmVhdGUiLCI4NTovYXJlYXR5cGVzL3VwZGF0ZS8qIiwiMzY6L2Fzc2V0cy9kZWxldGUvKiIsIjk0Oi9wcm9kdWN0aW9uL3Rhc2tzIiwiMjA6L3JvbGUvdXBkYXRlIiwiODg6L2FyZWFzL2NyZWF0ZSIsIjg0Oi9hcmVhdHlwZXMiLCIxMDovcm9sZS9jcmVhdGUiLCIxNTovdXNlci91cGRhdGUiLCI3ODovdGVjaG5vbG9neS9jcmVhdGUvdGVtcGxhdGUiLCIxMDE6L3Byb2R1Y3Rpb24vZm9ybXVsYXMiLCIxMDg6L2RlcHQvZGVsZXRlIiwiODk6L2FyZWFzIiwiODA6L3RlY2hub2xvZ3kvdXBkYXRlL3RlbXBsYXRlLyoiLCI2ODovZGV2aWNldHlwZXMvY3JlYXRlLyovY29tbWFuZHMiLCIzODovdGVjaG5vbG9neS90ZWNobm9sb2d5cyIsIjY1Oi9kZXZpY2V0eXBlcy91cGRhdGUvKi9hdHRyaWJ1dGUvKiIsIjgxOi90ZWNobm9sb2d5L2RlbGV0ZS90ZW1wbGF0ZS8qIiwiMzU6L2Fzc2V0cy91cGRhdGUvKiIsIjkxOi9hcmVhcy9kZWxldGUvKiIsIjQzOi90ZWNobm9sb2d5L2Zvcm11bGFzIiwiNjA6L2RldmljZXR5cGVzL3VwZGF0ZS8qIiwiNTM6L2Fzc2V0dHlwZXMvY3JlYXRlIiwiMjQ6L21lbnUvbGlzdCIsIjQ1Oi90ZWNobm9sb2d5L2Zvcm11bGEvdXBkYXRlLyoiLCI1MTovYXNzaWdubWVudHMvKi9lbmQiLCIxMDY6L2RlcHQvbGlzdCIsIjY5Oi9jb21tYW5kcyIsIjYxOi9kZXZpY2V0eXBlcy9kZWxldGUvKiIsIjIyOi9wZXJtaXNzaW9uL2xpc3QiLCI3MTovZGV2aWNldHlwZXMvZGVsZXRlLyovY29tbWFuZHMvKiIsIjkwOi9hcmVhcy91cGRhdGUvKiIsIjMxOi9hc3NpZ25tZW50cy9jcmVhdGUiLCIxMjovdXNlci9jcmVhdGUiLCIxNzovdXNlci9yZXNldC9wYXNzd29yZCIsIjU0Oi9hc3NldHR5cGVzIiwiMTAzOi9wcm9kdWN0aW9uL2Zvcm11bGEvZGV2aWNlQXNzaWdubWVudCJdLCJqdGkiOiI2MDk1YjMxYS0yYzk2LTRkZTktOTYxNy0yZWExMWRhNDc5MjciLCJjbGllbnRfaWQiOiJpb3Rfd2ViIn0";
-        System.out.println("signature:"+sha256_HMAC(tt, secret_key));
+        String s2="{\"password\":\"super_admin\",\"auth\":[\"VIEW_SERVER_INFO\",\"REST\",\"ADMIN_CONSOLE\",\"ADMINISTER_USERS\",\"ADMINISTER_USER_SELF\",\"ADMINISTER_TENANTS\",\"ADMINISTER_TENANT_SELF\",\"ADMINISTER_SCHEDULES\",\"SCHEDULE_COMMANDS\"],\"user_name\":\"super_admin\",\"scope\":[\"app\"],\"tenantId\":1,\"exp\":1652585456,\"authorities\":[\"86:/areatypes/delete/*\",\"41:/technology/technology/delete/*\",\"39:/technology/technology/create\",\"27:/devices/v2/devices\",\"40:/technology/technology/update/*\",\"107:/dept/update\",\"95:/production/update/task/*\",\"29:/devices/update/*\",\"83:/areatypes/create\",\"70:/devicetypes/update/*/commands/*\",\"19:/role/assign/permissions\",\"34:/assets/create\",\"76:/devicetypes/delete/*/statuses/*\",\"58:/devicetypes/create\",\"59:/devicetypes/v2/devicetypes\",\"79:/technology/templates\",\"102:/production/formula/*/split\",\"21:/role/delete\",\"16:/user/delete\",\"63:/devicetypes/create/*/attributes\",\"98:/production/tasks2formula/merge\",\"28:/devices/create\",\"74:/statuses\",\"11:/role/list\",\"18:/role/assign/menus\",\"13:/user/assign/roles\",\"32:/sl/gatewaylist\",\"75:/devicetypes/update/*/statuses/*\",\"44:/technology/formula/create\",\"73:/devicetypes/create/*/statuses\",\"96:/production/delete/task/*\",\"56:/assettypes/delete/*\",\"64:/devicetypes/*/attributes\",\"46:/technology/formula/delete/*\",\"66:/devicetypes/delete/*/attribute/*\",\"93:/production/create/task\",\"99:/devices/*/invocations\",\"14:/user/list\",\"55:/assettypes/update/*\",\"30:/devices/delete/*\",\"105:/dept/create\",\"85:/areatypes/update/*\",\"36:/assets/delete/*\",\"94:/production/tasks\",\"20:/role/update\",\"88:/areas/create\",\"84:/areatypes\",\"10:/role/create\",\"15:/user/update\",\"78:/technology/create/template\",\"101:/production/formulas\",\"108:/dept/delete\",\"89:/areas\",\"80:/technology/update/template/*\",\"68:/devicetypes/create/*/commands\",\"38:/technology/technologys\",\"65:/devicetypes/update/*/attribute/*\",\"81:/technology/delete/template/*\",\"35:/assets/update/*\",\"91:/areas/delete/*\",\"43:/technology/formulas\",\"60:/devicetypes/update/*\",\"53:/assettypes/create\",\"24:/menu/list\",\"45:/technology/formula/update/*\",\"51:/assignments/*/end\",\"106:/dept/list\",\"69:/commands\",\"61:/devicetypes/delete/*\",\"22:/permission/list\",\"71:/devicetypes/delete/*/commands/*\",\"90:/areas/update/*\",\"31:/assignments/create\",\"12:/user/create\",\"17:/user/reset/password\",\"54:/assettypes\",\"103:/production/formula/deviceAssignment\"],\"jti\":\"6f117af5-24d1-414c-a527-7c843a1d90d2\",\"client_id\":\"iot_web\"}";
+        String payload=TextCodec.BASE64URL.encode(s2.getBytes(StandardCharsets.US_ASCII));
+        System.out.println("payload:"+payload);
+        System.out.println("signature:"+sha256_HMAC(header+"."+payload, secret_key));
 
     }
 }
