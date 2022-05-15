@@ -8,31 +8,22 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 
 /**
- * @description 研究为啥还得用base64后的key才能解析,这里generateToken那里加密的时候用的是啥，
- * 解密时用啥就行。加密时用的是base64的，解密时也用就行了。而oauth2的那个应该就是用的base64的，
- * 所以我才需要转成base64后才能解析出来
+ * @description jjwt的api key那里就是需要放base64加密后的字符串
  * @date 2022-01-16 23:41
+ * @date 2022-05-15 12:08
  */
 
 public class JWTKeyDemo {
 
     private SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
 
-    /**
-     * Secret used for encoding
-     */
-    private String secret = "iotKey";
 
-    public String getSecret() {
-        return secret;
-    }
 
     public Date getExpirationDate(int expirationInMinutes) {
         return new Date(System.currentTimeMillis() + (expirationInMinutes * 60 * 1000));
     }
 
     public Claims getClaimsForToken(String token) {
-        System.out.println("nn:" + getSecret());
         return Jwts.parser().setSigningKey("aW90S2V5").parseClaimsJws(token).getBody();
 
     }
@@ -40,7 +31,7 @@ public class JWTKeyDemo {
     public String generateToken(String name, int expirationInMinutes) {
 
         JwtBuilder builder = Jwts.builder().setSubject(name).setIssuedAt(new Date())
-                .setExpiration(getExpirationDate(expirationInMinutes)).signWith(SIGNATURE_ALGORITHM, "aW90S2V5");//getSecret()
+                .setExpiration(getExpirationDate(expirationInMinutes)).signWith(SIGNATURE_ALGORITHM, "aW90S2V5");
         String[] xx = {
                 "VIEW_SERVER_INFO",
                 "REST",
