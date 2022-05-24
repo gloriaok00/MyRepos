@@ -23,4 +23,9 @@
         from  u_user
     </select>
 
+    <select id="duplicateData" resultType="com.example.demo.mbs.cus.dto.DuplicateDataRsp">
+        SELECT urr.*,rtr.id as id1,rtr.role_id as roleId1,rtr.tenant_id as tenantId,rtr.create_time as createTime1
+        FROM u_user_role_rel urr
+        JOIN u_role_tenant_rel rtr ON rtr.role_id=urr.role_id
+    </select>
 </mapper>
