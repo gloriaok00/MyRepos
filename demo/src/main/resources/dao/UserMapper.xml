@@ -28,4 +28,10 @@
         FROM u_user_role_rel urr
         JOIN u_role_tenant_rel rtr ON rtr.role_id=urr.role_id
     </select>
+
+    <select id="paramLearn" resultType="com.example.demo.mbs.m1.model.UUser">
+        SELECT *
+        FROM u_user where id=#{id}
+    </select>
+
 </mapper>

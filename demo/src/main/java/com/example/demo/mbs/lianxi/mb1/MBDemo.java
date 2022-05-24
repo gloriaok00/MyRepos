@@ -6,6 +6,7 @@ import com.example.demo.mbs.m1.model.UUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,6 +34,12 @@ public class MBDemo {
     @GetMapping("/dup/data")
     public void duplicationData(){
         List<DuplicateDataRsp> rr= userDao.duplicateData();
+        rr.forEach(e-> System.out.println(e.toString()));
+    }
+
+    @GetMapping("/param/learn")
+    public void paramLearn(@RequestParam Long id){
+        List<UUser> rr= userDao.paramLearn(id);
         rr.forEach(e-> System.out.println(e.toString()));
     }
 }

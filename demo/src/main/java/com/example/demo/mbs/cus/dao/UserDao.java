@@ -2,6 +2,7 @@ package com.example.demo.mbs.cus.dao;
 
 import com.example.demo.mbs.cus.dto.DuplicateDataRsp;
 import com.example.demo.mbs.m1.model.UUser;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface UserDao {
 
     List<DuplicateDataRsp> duplicateData();
 
+    List<UUser> paramLearn(@Param("id") Long id);
 }
