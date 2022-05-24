@@ -1,5 +1,6 @@
 package com.example.demo.mbs.cus.dao;
 
+import com.example.demo.mbs.cus.dto.DuplicateDataRsp;
 import com.example.demo.mbs.m1.model.UUser;
 
 import java.util.List;
@@ -12,5 +13,7 @@ import java.util.List;
 public interface UserDao {
 
     List<UUser> sqlCusShow();
+
+    List<DuplicateDataRsp> duplicateData();
 
 }

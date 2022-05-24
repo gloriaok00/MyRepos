@@ -1,6 +1,7 @@
 package com.example.demo.mbs.lianxi.mb1;
 
 import com.example.demo.mbs.cus.dao.UserDao;
+import com.example.demo.mbs.cus.dto.DuplicateDataRsp;
 import com.example.demo.mbs.m1.model.UUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,5 +28,11 @@ public class MBDemo {
         users.forEach(e->{
             System.out.println(e.getUsername());
         });
+    }
+
+    @GetMapping("/dup/data")
+    public void duplicationData(){
+        List<DuplicateDataRsp> rr= userDao.duplicateData();
+        rr.forEach(e-> System.out.println(e.toString()));
     }
 }
