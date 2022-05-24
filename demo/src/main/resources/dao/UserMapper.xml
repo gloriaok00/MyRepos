@@ -31,7 +31,7 @@
 
     <select id="paramLearn" resultType="com.example.demo.mbs.m1.model.UUser">
         SELECT *
-        FROM u_user where id=#{id}
+        FROM u_user where id=#{idParam}
     </select>
 
 </mapper>

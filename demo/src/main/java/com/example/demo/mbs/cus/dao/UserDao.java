@@ -17,5 +17,6 @@ public interface UserDao {
 
     List<DuplicateDataRsp> duplicateData();
 
-    List<UUser> paramLearn(@Param("id") Long id);
+    List<UUser> paramLearn(@Param("idParam") Long id);
+    
 }
