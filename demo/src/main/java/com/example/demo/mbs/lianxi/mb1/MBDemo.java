@@ -42,4 +42,10 @@ public class MBDemo {
         List<UUser> rr= userDao.paramLearn(id);
         rr.forEach(e-> System.out.println(e.toString()));
     }
+
+    @GetMapping("/char/diff")
+    public void charDiff(@RequestParam String username,@RequestParam String tableName){
+        List<UUser> rr= userDao.charDiff(tableName,username);
+        rr.forEach(e-> System.out.println(e.toString()));
+    }
 }

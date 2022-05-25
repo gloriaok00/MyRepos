@@ -34,4 +34,9 @@
         FROM u_user where id=#{idParam}
     </select>
 
+    <select id="charDiff" resultType="com.example.demo.mbs.m1.model.UUser">
+        SELECT *
+        FROM ${tableName} where username=#{username}
+    </select>
+
 </mapper>
