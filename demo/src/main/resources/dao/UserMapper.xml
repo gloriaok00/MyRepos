@@ -12,6 +12,12 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <resultMap id="findUserOther" type="com.example.demo.mbs.m1.model.UUser">
+        <id column="id1" property="id"/>
+        <result column="username1" property="username"/>
+        <result column="url1" property="url"/>
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         create_time,
@@ -19,7 +25,8 @@
     </sql>
 
     <select id="sqlCusShow" resultType="com.example.demo.mbs.m1.model.UUser">
-        select <include refid="Base_Column_List"></include>
+        select
+        <include refid="Base_Column_List"/>
         from  u_user
     </select>
 
@@ -37,6 +44,11 @@
     <select id="charDiff" resultType="com.example.demo.mbs.m1.model.UUser">
         SELECT *
         FROM ${tableName} where username=#{username}
+    </select>
+
+    <select id="resultMapLearn" resultMap="findUserOther">
+        SELECT id as id1,username as username1,url as url1
+        FROM u_user
     </select>
 
 </mapper>

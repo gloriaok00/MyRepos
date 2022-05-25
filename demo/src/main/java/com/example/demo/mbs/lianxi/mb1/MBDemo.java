@@ -48,4 +48,10 @@ public class MBDemo {
         List<UUser> rr= userDao.charDiff(tableName,username);
         rr.forEach(e-> System.out.println(e.toString()));
     }
+
+    @GetMapping("/resultMap/learn")
+    public void resultMapLearn(){
+        List<UUser> rr= userDao.resultMapLearn();
+        rr.forEach(e-> System.out.println(e.getId()));
+    }
 }

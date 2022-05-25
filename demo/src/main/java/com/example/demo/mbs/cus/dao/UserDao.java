@@ -21,4 +21,6 @@ public interface UserDao {
 
     List<UUser> charDiff(@Param("tableName") String tableName,@Param("username") String name);
 
+    List<UUser> resultMapLearn();
+
 }
