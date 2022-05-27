@@ -38,8 +38,8 @@ public class MBDemo {
     }
 
     @GetMapping("/param/learn")
-    public void paramLearn(@RequestParam Long id){
-        List<UUser> rr= userDao.paramLearn(id);
+    public void paramLearn(@RequestParam Long id,@RequestParam String name){
+        List<UUser> rr= userDao.paramLearn(id,name);
         rr.forEach(e-> System.out.println(e.toString()));
     }
 

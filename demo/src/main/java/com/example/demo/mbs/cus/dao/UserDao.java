@@ -17,7 +17,7 @@ public interface UserDao {
 
     List<DuplicateDataRsp> duplicateData();
 
-    List<UUser> paramLearn(@Param("idParam") Long id);
+    List<UUser> paramLearn(@Param("id") Long idParam,String name);
 
     List<UUser> charDiff(@Param("tableName") String tableName,@Param("username") String name);
 

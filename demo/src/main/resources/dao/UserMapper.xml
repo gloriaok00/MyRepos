@@ -38,7 +38,7 @@
 
     <select id="paramLearn" resultType="com.example.demo.mbs.m1.model.UUser">
         SELECT *
-        FROM u_user where id=#{idParam}
+        FROM u_user where id=#{id} and username=#{name}
     </select>
 
     <select id="charDiff" resultType="com.example.demo.mbs.m1.model.UUser">
