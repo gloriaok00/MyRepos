@@ -43,6 +43,12 @@ public class MBDemo {
         rr.forEach(e-> System.out.println(e.toString()));
     }
 
+    @GetMapping("/param/learn/script")
+    public void paramLearnScript(@RequestParam Long id,@RequestParam String name){
+        List<UUser> rr= userDao.paramLearnScript(id,name);
+        rr.forEach(e-> System.out.println(e.toString()));
+    }
+
     @GetMapping("/char/diff")
     public void charDiff(@RequestParam String username,@RequestParam String tableName){
         List<UUser> rr= userDao.charDiff(tableName,username);

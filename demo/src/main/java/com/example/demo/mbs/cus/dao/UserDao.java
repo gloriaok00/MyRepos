@@ -3,6 +3,7 @@ package com.example.demo.mbs.cus.dao;
 import com.example.demo.mbs.cus.dto.DuplicateDataRsp;
 import com.example.demo.mbs.m1.model.UUser;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -18,6 +19,9 @@ public interface UserDao {
     List<DuplicateDataRsp> duplicateData();
 
     List<UUser> paramLearn(@Param("id") Long idParam,String name);
+
+    @Select("select * from u_user where id=#{id} and username=#{name}")
+    List<UUser> paramLearnScript(Long id,String name);
 
     List<UUser> charDiff(@Param("tableName") String tableName,@Param("username") String name);
 
