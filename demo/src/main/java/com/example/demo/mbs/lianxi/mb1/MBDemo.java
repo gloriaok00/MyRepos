@@ -2,7 +2,7 @@ package com.example.demo.mbs.lianxi.mb1;
 
 import com.example.demo.mbs.cus.dao.UserDao;
 import com.example.demo.mbs.cus.dto.DuplicateDataRsp;
-import com.example.demo.mbs.m1.model.UUser;
+import com.example.demo.mbs.cus.dto.UUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

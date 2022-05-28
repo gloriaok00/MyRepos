@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"org.example", "com.example.demo"})
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @ServletComponentScan
-@MapperScan(basePackages = {"com.example.demo.mbs.m1.dao","com.example.demo.mbs.cus.dao"})
+@MapperScan(basePackages = {"com.example.demo.mbs.cus.dao"})
 public class DemoApplication {
 
     public static void main(String[] args) {

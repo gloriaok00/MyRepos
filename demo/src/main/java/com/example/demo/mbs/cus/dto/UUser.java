@@ -1,9 +1,7 @@
-package com.example.demo.mbs.m1.model;
+package com.example.demo.mbs.cus.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
 import com.example.demo.mbs.BaseModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,17 +13,16 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author ${author}
- * @since 2022-05-24
+ * @since 2022-02-10
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value="UUser对象", description="用户表")
+@ApiModel(value = "UUser对象", description = "用户表")
 public class UUser extends BaseModel {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "用户主键ID")
-    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "用户名称")
@@ -47,7 +44,8 @@ public class UUser extends BaseModel {
     private Integer sex;
 
     @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updateTime;
+    @JsonIgnore
+    private String updateTime;
 
     @ApiModelProperty(value = "备注")
     private String remark;

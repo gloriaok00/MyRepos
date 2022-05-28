@@ -1,7 +1,7 @@
 package com.example.demo.mbs.cus.dao;
 
 import com.example.demo.mbs.cus.dto.DuplicateDataRsp;
-import com.example.demo.mbs.m1.model.UUser;
+import com.example.demo.mbs.cus.dto.UUser;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
