@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <mapper namespace="com.example.demo.mbs.cus.dao.StuTeacherDao">
+    <!-- 定义java Bean的属性与数据库的列之间的映射 -->
+    <resultMap type="com.example.demo.mbs.lianxi.mb2.Student" id="studentResultMap">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="gender" property="gender" />
+        <result column="major" property="major" />
+        <result column="grade" property="grade"/>
+        <!-- association处理has-a关系 -->
+        <!--注意：这种方式javaType必须指定，表示supervisor的类型是Teacher，否则会报错 -->
+        <association property="supervisor" javaType="com.example.demo.mbs.lianxi.mb2.Teacher">
+            <!-- 教师自身的属性与数据库字段的映射 -->
+            <id property="id" column="t_id"/>
+            <result property="name" column="t_name"/>
+            <result property="gender" column="t_gender"/>
+            <result property="researchArea" column="research_area"/>
+        </association>
+    </resultMap>
+
+    <!-- SQL语句中以"#{}"的形式引用参数 -->
+    <select id="getById" parameterType="int" resultMap="studentResultMap">
+        SELECT st.id,st.name,st.gender,st.major,st.grade,t.id t_id,t.name t_name,
+        t.gender t_gender,t.research_area
+        FROM student st, teacher t
+        WHERE st.supervisor_id = t.id
+        AND st.id=#{id}
+    </select> </mapper>
