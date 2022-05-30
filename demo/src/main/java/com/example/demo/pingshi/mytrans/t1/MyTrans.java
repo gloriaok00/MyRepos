@@ -23,11 +23,15 @@ public class MyTrans {
     @Autowired
     private TransM transM;
 
+    @Autowired
+    private TransMySql transMysql;
+
+
     @GetMapping("/roll")
     @Transactional
     public void transRoll(){
 
-        transM.transMongo();
+        transMysql.transMysql();
 
         //步骤2
         UUser user=uUserMapper.selectById(3L);

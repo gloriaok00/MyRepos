@@ -5,7 +5,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -18,7 +17,7 @@ import java.util.Date;
 @Component
 public class TransM {
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional
     public void transMongo(){
         //步骤1
         MongoClient mongoClient=new MongoClient("127.0.0.1");
