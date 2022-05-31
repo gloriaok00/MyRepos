@@ -1,5 +1,9 @@
 package com.example.demo.pingshi.bean;
 
+import com.example.demo.pingshi.spring.mybean.myauto.Human;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 /**
  * @description
  * @date 2022-01-23 23:43
@@ -8,18 +12,12 @@ package com.example.demo.pingshi.bean;
 
 public class BBean {
 
-  /*  @Autowired
+    @Autowired
     @Qualifier(value = "man")
     private Human h;
 
-    //@Test
-    //@GetMapping(value = "/nnn")
     public void show(){
         System.out.println(h.runMarathon());
-    };*/
-
-    public void show() {
-        System.out.println("我是BBean里的show方法");
-    }
+    };
 
 }
