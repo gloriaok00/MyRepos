@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @description
  * @date 2022-01-02 22:43
+ * @date 2022-05-31 14:24
  */
 
 @Configuration
@@ -14,9 +15,4 @@ public class CatConfig {
     public Cat cat() {
         return new Cat();
     }
-
-  /*  @Bean
-    public A1 a1() {
-        return new A1();
-    }*/
 }

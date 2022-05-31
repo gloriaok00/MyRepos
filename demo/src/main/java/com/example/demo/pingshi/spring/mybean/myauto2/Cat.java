@@ -4,9 +4,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * @author binghe
- * @version 1.0.0
  * @description 测试@PostConstruct注解和@PreDestroy注解
+ * @date 2022/5/31 14:24
  */
 public class Cat {
 
