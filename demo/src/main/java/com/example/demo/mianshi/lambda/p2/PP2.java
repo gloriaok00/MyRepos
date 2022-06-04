@@ -23,6 +23,7 @@ public class PP2 {
     }
 
     public static void main(String[] args) {
+        //Arrays.asList生成的list size是固定的
         List<String> fruit = Arrays.asList("香蕉", "哈密瓜", "榴莲", "火龙果", "水蜜桃");
         PP2 a=new PP2();
         List<String> ll=a.myFilter(fruit,(f)->f.length()==2);
