@@ -8,7 +8,6 @@ import com.sitewhere.rest.model.device.event.request.DeviceMeasurementCreateRequ
 import com.sitewhere.spi.SiteWhereException;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -35,12 +34,6 @@ public class MqttServerSWBJ {
 
 
     /**
-     * 客户端唯一标识
-     */
-    public static final String MQTT_CLIENT_ID = "zasadarfr";
-
-
-    /**
      * 客户端
      */
     public static MqttClient client;
@@ -49,7 +42,7 @@ public class MqttServerSWBJ {
     public static void main(String... args) {
         // 推送消息
         try {
-            client = new MqttClient(MQTT_BROKER_HOST, MQTT_CLIENT_ID, new MemoryPersistence());
+            client = new MqttClient(MQTT_BROKER_HOST, MqttClient.generateClientId());
             client.connect();
 
             MqttMessage message = new MqttMessage();

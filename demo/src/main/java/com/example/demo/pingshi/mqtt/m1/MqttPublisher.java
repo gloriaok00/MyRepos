@@ -1,35 +1,26 @@
-package com.example.demo.pingshi.mqtt;
+package com.example.demo.pingshi.mqtt.m1;
 
 import com.alibaba.fastjson.JSONObject;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 /**
- * @author zhangyu
- * @description MQTT 发布者
- * @date 2021-05-07 10:17
+ * @description mqtt retain随机练习
+ * @date 2022/6/18 17:14
  */
 
-public class MyMqttServer {
+public class MqttPublisher {
 
     /**
      * 代理服务器ip地址
      */
-    public static final String MQTT_BROKER_HOST = "tcp://127.0.0.1:1883";
+    public static final String MQTT_BROKER_HOST = "tcp://broker.emqx.io:1883";
 
     /**
      * 订阅标识
      */
-    public static final String MQTT_TOPIC = "t2";
-
-
-    /**
-     * 客户端唯一标识
-     */
-    public static final String MQTT_CLIENT_ID = "waaaqk09k09wew";
-
+    public static final String MQTT_TOPIC = "home/2F/201/temperature";
 
     /**
      * 客户端
@@ -40,19 +31,20 @@ public class MyMqttServer {
     public static void main(String... args) throws MqttException {
         // 推送消息
         try {
-            client = new MqttClient(MQTT_BROKER_HOST, MQTT_CLIENT_ID, new MemoryPersistence());
+            client = new MqttClient(MQTT_BROKER_HOST, MqttClient.generateClientId());
             client.connect();
 
             MqttMessage message = new MqttMessage();
-            message.setQos(1);
-            message.setRetained(false);
+            message.setQos(0);
+            //Retain为broker的设置,只保留最后一条信息
+            message.setRetained(true);
             JSONObject obj = new JSONObject();
-            Thread.sleep(1000);
-            for (int i = 0; i < 10000000; i++) {
+            for (int i = 0; i < 100; i++) {
                 obj.put("id", i);
                 message.setPayload(JSONObject.toJSONString(obj).getBytes());
                 client.publish(MQTT_TOPIC, message);
-                Thread.sleep(100);
+                System.out.println("msg sent successfully..");
+                Thread.sleep(2000);
             }
         } catch (Exception e) {
             e.printStackTrace();

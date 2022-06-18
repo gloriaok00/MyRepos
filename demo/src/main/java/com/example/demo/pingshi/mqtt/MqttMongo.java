@@ -7,7 +7,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.eclipse.paho.client.mqttv3.*;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 /**
  * @author zhangyu
@@ -30,12 +29,6 @@ public class MqttMongo {
 
 
     /**
-     * 客户端唯一标识
-     */
-    public static final String MQTT_CLIENT_ID = "fdsfdfddfdsfsf";
-
-
-    /**
      * 客户端
      */
     private volatile static MqttClient mqttClient;
@@ -48,7 +41,7 @@ public class MqttMongo {
             // 连接到数据库
             MongoDatabase mongoDatabase = mongoClient.getDatabase("Foo");
             MongoCollection<Document> myCollect = mongoDatabase.getCollection("F4");
-            mqttClient = new MqttClient(MQTT_BROKER_HOST, MQTT_CLIENT_ID, new MemoryPersistence());
+            mqttClient = new MqttClient(MQTT_BROKER_HOST, MqttClient.generateClientId());
             // 连接
             mqttClient.connect();
             // 订阅

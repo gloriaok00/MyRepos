@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.math.BigDecimal;
 
@@ -28,12 +27,6 @@ public class MqttServer {
 
 
     /**
-     * 客户端唯一标识
-     */
-    public static final String MQTT_CLIENT_ID = "waaaqk09k09wew";
-
-
-    /**
      * 客户端
      */
     public static MqttClient client;
@@ -42,7 +35,7 @@ public class MqttServer {
     public static void main(String... args) throws MqttException {
         // 推送消息
         try {
-            client = new MqttClient(MQTT_BROKER_HOST, MQTT_CLIENT_ID, new MemoryPersistence());
+            client = new MqttClient(MQTT_BROKER_HOST, MqttClient.generateClientId());
             client.connect();
 
             MqttMessage message = new MqttMessage();
