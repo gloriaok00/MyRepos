@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 
 @Slf4j
-public class MqttLifecycleComponent implements IMqttComponent {
+public class MqttLifecycleComponentSSL implements IMqttComponent {
 
     /** Default protocol if not set via Spring */
     public static final String DEFAULT_PROTOCOL = "tcp";
@@ -160,16 +160,18 @@ public class MqttLifecycleComponent implements IMqttComponent {
     }
 
 
-    //tcp 不加密
+    //tls 加密
     public static void main(String[] args) {
-        MqttLifecycleComponent component=new MqttLifecycleComponent();
-        component.setCleanSession(false);
-        component.setClientId("fdsfadf");
-        component.setProtocol("tcp");
-        component.setHostname("101.200.135.56");
-        component.setPort("1883");
 
-        MQTT m1=MqttLifecycleComponent.configure(component);
+        MqttLifecycleComponentSSL component=new MqttLifecycleComponentSSL();
+        component.setCleanSession(false);
+        component.setClientId("fdsfajkhdf");
+        component.setProtocol("ssl");
+        component.setHostname("101.200.135.56");
+        component.setPort("8883");
+        component.setTrustStorePath("/Users/zhangyu/IdeaProjects/MyRepos/demo/src/main/resources/certs/ssleye2022062411273884.jks");
+        component.setTrustStorePassword("123");
+        MQTT m1= MqttLifecycleComponentSSL.configure(component);
         try {
         m1.setHost(component.getProtocol() + "://" + component.getHostname() + ":" + component.getPort());
         FutureConnection connection = m1.futureConnection();
@@ -179,6 +181,7 @@ public class MqttLifecycleComponent implements IMqttComponent {
             JSONObject obj=new JSONObject();
             obj.put("ss","23");
             connection.publish("t2",obj.toJSONString().getBytes(),QoS.AT_LEAST_ONCE,false);
+            System.out.println("msg sent");
         } catch (Exception e) {
             e.printStackTrace();
         }
