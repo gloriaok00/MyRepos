@@ -46,6 +46,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -287,6 +288,10 @@
             <artifactId>mqtt-client</artifactId>
             <version>1.15</version>
         </dependency>
+       <!-- <dependency>
+            <groupId>com.iot</groupId>
+            <artifactId>iot-common</artifactId>
+        </dependency>-->
     </dependencies>
 
     <build>
