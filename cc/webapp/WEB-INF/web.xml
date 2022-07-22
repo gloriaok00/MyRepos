@@ -4,15 +4,33 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <filter>
+    <filter-name>myFilter</filter-name>
+    <filter-class>MyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>myFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <!-- 基本配置 -->
   <servlet>
     <servlet-name>hello</servlet-name>
     <servlet-class>HelloServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>world</servlet-name>
+    <servlet-class>WorldServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>hello</servlet-name>
     <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>world</servlet-name>
+    <url-pattern>/world</url-pattern>
   </servlet-mapping>
 
 </web-app>
