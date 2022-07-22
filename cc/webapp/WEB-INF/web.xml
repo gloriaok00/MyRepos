@@ -1,46 +1,46 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
 
-  <!-- 放入到ServletContext域对象中-->
-  <context-param>
-    <param-name>globalParam</param-name>
-    <param-value>全局在ServletContext中实例化出来的对象</param-value>
-  </context-param>
+    <!-- 放入到ServletContext域对象中-->
+    <context-param>
+        <param-name>globalParam</param-name>
+        <param-value>全局共享数据</param-value>
+    </context-param>
 
-  <filter>
-    <filter-name>myFilter</filter-name>
-    <filter-class>MyFilter</filter-class>
-    <!-- 只在filter自身-->
-    <init-param>
-      <param-name>filterInitParam</param-name>
-      <param-value>这个是filter自身初始化的参数</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-    <filter-name>myFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+    <filter>
+        <filter-name>myFilter</filter-name>
+        <filter-class>MyFilter</filter-class>
+        <!-- 只在filter自身-->
+        <init-param>
+            <param-name>filterInitParam</param-name>
+            <param-value>自身参数</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>myFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-  <!-- 基本配置 -->
-  <servlet>
-    <servlet-name>hello</servlet-name>
-    <servlet-class>HelloServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>world</servlet-name>
-    <servlet-class>WorldServlet</servlet-class>
-  </servlet>
+    <!-- 基本配置 -->
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>HelloServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>world</servlet-name>
+        <servlet-class>WorldServlet</servlet-class>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>world</servlet-name>
-    <url-pattern>/world</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>world</servlet-name>
+        <url-pattern>/world</url-pattern>
+    </servlet-mapping>
 </web-app>
