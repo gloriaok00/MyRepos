@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServlet;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
 import java.util.Properties;
 
 /**
@@ -14,8 +13,6 @@ import java.util.Properties;
  * @date 2022/7/20 23:07
  */
 public class HelloServlet extends HttpServlet {
-
-    private Connection connection;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -31,11 +28,6 @@ public class HelloServlet extends HttpServlet {
     }
 
     @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
-
-    @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         //TODO
         /*  OutputStream out = res.getOutputStream();
@@ -43,14 +35,6 @@ public class HelloServlet extends HttpServlet {
         res.getWriter().print("<h1>Hello JavaWeb!中文我爱你</h1>");
     }
 
-    @Override
-    public String getServletInfo() {
-        return null;
-    }
 
-    @Override
-    public void destroy() {
-
-    }
 
 }
