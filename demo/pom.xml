@@ -288,10 +288,21 @@
             <artifactId>mqtt-client</artifactId>
             <version>1.15</version>
         </dependency>
-       <!-- <dependency>
-            <groupId>com.iot</groupId>
-            <artifactId>iot-common</artifactId>
+      <!--  <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
         </dependency>-->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.26</version>
+        </dependency>
     </dependencies>
 
     <build>

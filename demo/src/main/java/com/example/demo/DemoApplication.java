@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 
 
 @SpringBootApplication
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"org.example", "com.example.demo"})
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @ServletComponentScan
+@ImportResource(locations={"classpath:bean.xml"})
 @MapperScan(basePackages = {"com.example.demo.mbs.cus.dao","com.example.demo.pingshi.mytrans.t2.dao"})
 public class DemoApplication {
 

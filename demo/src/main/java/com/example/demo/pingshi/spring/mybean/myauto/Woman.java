@@ -1,9 +1,7 @@
 package com.example.demo.pingshi.spring.mybean.myauto;
 
-import org.springframework.stereotype.Service;
-
 //@Primary
-@Service
+//@Service
 public class Woman implements Human {
 
     public String runMarathon() {
