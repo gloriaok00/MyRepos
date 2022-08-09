@@ -1,8 +1,10 @@
 package com.example.demo.pingshi.filter;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -12,12 +14,17 @@ import java.io.IOException;
 
 //直接采用组件引进来也行
 @Component
+@Order(55)
 public class MyFilter2 implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("我是F2");
+        HttpServletResponse response=(HttpServletResponse)servletResponse;
+        response.addHeader("h1","h1");
         filterChain.doFilter(servletRequest, servletResponse);
+        response.addHeader("h2","加在doFilter后已经没用了");
+
     }
 
     @Override
