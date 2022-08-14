@@ -171,6 +171,10 @@ public class MqttLifecycleComponentSSL implements IMqttComponent {
         component.setPort("8883");
         component.setTrustStorePath("/Users/zhangyu/IdeaProjects/MyRepos/demo/src/main/resources/certs/ssleye2022062411273884.jks");
         component.setTrustStorePassword("123");
+     /*   component.setTrustStorePath("/Users/zhangyu/Downloads/sh.keystore");
+        component.setTrustStorePassword("123456");*/
+       /* component.setKeyStorePath("/Users/zhangyu/Downloads/sh.keystore");
+        component.setKeyStorePassword("123456");*/
         MQTT m1= MqttLifecycleComponentSSL.configure(component);
         try {
         m1.setHost(component.getProtocol() + "://" + component.getHostname() + ":" + component.getPort());
