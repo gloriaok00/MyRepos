@@ -11,9 +11,9 @@ import java.time.format.DateTimeFormatter;
 public class Timer {
 
     public static void main(String[] args) {
-        LocalDateTime now1 = LocalDateTime.now();
+        LocalDateTime time = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        System.out.println(now1.format(formatter));
+        System.out.println(time.format(formatter));
     }
 
 }
