@@ -11,5 +11,6 @@ public class ServerUpServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         System.out.println("应用启动时就会被加载");
+        getServletContext().setAttribute("s1","也可以往ServletContext里放入Attribute啊");
     }
 }
