@@ -34,6 +34,15 @@
         <servlet-name>world</servlet-name>
         <servlet-class>WorldServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>serverUp</servlet-name>
+        <servlet-class>ServerUpServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>firstUse</servlet-name>
+        <servlet-class>FirstUseServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
@@ -42,5 +51,13 @@
     <servlet-mapping>
         <servlet-name>world</servlet-name>
         <url-pattern>/world</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>serverUp</servlet-name>
+        <url-pattern>/server/up</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>firstUse</servlet-name>
+        <url-pattern>/first/use</url-pattern>
     </servlet-mapping>
 </web-app>
