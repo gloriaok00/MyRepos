@@ -1,4 +1,3 @@
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
@@ -18,7 +17,8 @@ public class WorldServlet extends HttpServlet {
     private Connection con;
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
+    public void init() throws ServletException {
+        //TODO ERROR
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("WEB-INF/db.properties");
         Properties prop = new Properties();
         try {

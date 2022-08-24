@@ -1,8 +1,7 @@
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +14,8 @@ import java.util.Properties;
 public class HelloServlet extends HttpServlet {
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
+    public void init() throws ServletException {
+        //TODO ERROR
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("WEB-INF/db.properties");
         Properties prop = new Properties();
         try {
@@ -27,14 +27,12 @@ public class HelloServlet extends HttpServlet {
         System.out.println("test:" + url);
     }
 
+
     @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //TODO
         /*  OutputStream out = res.getOutputStream();
         out.write("Hello Servlet!!".getBytes());*/
-        res.getWriter().print("<h1>Hello JavaWeb!中文我爱你</h1>");
+        resp.getWriter().print("<h1>Hello JavaWeb!中文我爱你</h1>");
     }
-
-
-
 }
