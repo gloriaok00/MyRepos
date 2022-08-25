@@ -15,8 +15,7 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        //TODO ERROR
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("WEB-INF/db.properties");
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("db.properties");
         Properties prop = new Properties();
         try {
             prop.load(in);
