@@ -1,3 +1,4 @@
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
@@ -18,8 +19,10 @@ public class WorldServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        //TODO ERROR
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("WEB-INF/db.properties");
+        //https://blog.csdn.net/shankedixin/article/details/115670344
+        //从WEB-INF文件夹下读文件得从servletContext入手
+        ServletContext servletContext = getServletContext();
+        InputStream in = servletContext.getResourceAsStream("WEB-INF/dbbbb.properties");
         Properties prop = new Properties();
         try {
             prop.load(in);
