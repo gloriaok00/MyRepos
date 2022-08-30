@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.scheduling.annotation.EnableAsync;
 
-
+@EnableAsync
 @SpringBootApplication
 //"org.example"为mvndemo项目里的包路径，为了把里面的OtherJarBean扫进来
 //"com.example.demo"为demo工程的目录
