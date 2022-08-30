@@ -1,11 +1,11 @@
-package com.example.demo.pingshi.mythread.t4;
+package com.example.demo.pingshi.mythread.t4.lianxi;
 
 /**
  * @description
  * @date 2022/8/30 15:10
  */
 
-public class AAA {
+public class T1 {
 
     public static void main(String[] args) {
         Long s1 = System.currentTimeMillis();
