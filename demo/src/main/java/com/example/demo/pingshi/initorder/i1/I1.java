@@ -1,5 +1,9 @@
 package com.example.demo.pingshi.initorder.i1;
 
+/**
+ * @description 再研究初始化
+ * @date 2022/9/18 20:40
+ */
 public class I1 {
     static SampleClass sam = new SampleClass("静态成员sam初始化");
     SampleClass sam1 = new SampleClass("普通成员sam1初始化");
@@ -15,7 +19,7 @@ public class I1 {
     SampleClass sam2 = new SampleClass("普通成员sam2初始化");
 
     I1() {
-        System.out.println("InitialOrderWithoutExtend默认构造函数被调用");
+        System.out.println("默认构造函数被调用");
     }
 
     public static void main(String[] args) {
@@ -49,6 +53,6 @@ class SampleClass {
 
     @Override
     public String toString() {
-        return this.s;
+        return this.s + "cccc";
     }
 }
