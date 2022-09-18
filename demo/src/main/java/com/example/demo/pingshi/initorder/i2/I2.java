@@ -1,8 +1,9 @@
 package com.example.demo.pingshi.initorder.i2;
 
 /**
- * @description 终于整明白了这些顺序了
+ * @description 父cinit 子cinit 父init(全局+构造器) 子init(全局+构造器)
  * @date 2022-05-12 14:15
+ * @date 2022-09-18 20:57
  */
 
 public class I2 {
