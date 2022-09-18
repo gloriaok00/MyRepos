@@ -1,5 +1,10 @@
 package com.example.demo.pingshi.classloader.chushihua;
 
+/**
+ *  @description target/class下执行
+ *  java -XX:+TraceClassLoading -cp . com.example.demo.pingshi.classloader.c4.ClassLoadTest
+ *  @date  2022/9/17 20:11
+ */
 public class ClassLoadTest {
     public static void main(String args[]) {
         System.out.println("====start A=========");
