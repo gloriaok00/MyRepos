@@ -49,6 +49,7 @@ public class Student extends Person {
     }
 
     Student(int i) {
+        //这里间接的调用了父类的含参构造器
         this();
         System.out.println("Student(int), i=" + i);
     }
