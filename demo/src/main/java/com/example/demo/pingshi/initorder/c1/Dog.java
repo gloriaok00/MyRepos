@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.initorder.constructor;
+package com.example.demo.pingshi.initorder.c1;
 
 class Dog extends Animal {
 
