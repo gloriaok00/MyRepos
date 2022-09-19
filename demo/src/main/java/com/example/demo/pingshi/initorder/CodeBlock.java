@@ -1,8 +1,9 @@
 package com.example.demo.pingshi.initorder;
 
 /**
- *  @description 非常好的例子
- *  @date  2022/5/12 14:34
+ * @description 非常好的例子 接着练习
+ * @date 2022/5/12 14:34
+ * @date 2022/9/19 13:12
  */
 
 public class CodeBlock {
@@ -20,7 +21,7 @@ public class CodeBlock {
     }
 
     public void show() {
-        System.out.println("类方法被执行");
+        System.out.println("方法被执行");
     }
 
     public static void main(String[] args) {
