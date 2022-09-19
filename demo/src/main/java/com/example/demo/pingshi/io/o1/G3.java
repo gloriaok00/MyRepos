@@ -11,7 +11,6 @@ import java.nio.charset.StandardCharsets;
 public class G3 {
 
     public static void main(String[] args) throws IOException {
-        InputStream is = new FileInputStream("/Users/zhangyu/Desktop/test.txt");
         String str = "for tonight i am yours.. so deny the truth";
         byte[] bs = str.getBytes(StandardCharsets.UTF_8);
         OutputStream os = new FileOutputStream("/Users/zhangyu/file-1.txt");
@@ -19,6 +18,5 @@ public class G3 {
             os.write(b);
         }
         os.close();
-        is.close();
     }
 }
