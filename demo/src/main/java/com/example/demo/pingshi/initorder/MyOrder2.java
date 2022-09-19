@@ -1,8 +1,9 @@
 package com.example.demo.pingshi.initorder;
 
 /**
- *  @description 随机练习
- *  @date  2022/5/12 16:14
+ * @description 对于调父类构造器又有了新认识
+ * @date 2022/5/12 16:14
+ * @date 2022/09/19 13:26
  */
 public class MyOrder2 {
     public static void main(String[] args) {
@@ -43,7 +44,8 @@ class Child extends Parent {
     }
 
     Child(String str) {
-        super(str);
+        //没有指定默认调了父类的无参构造器
+        //super(str);
         System.out.println("执行子类带参数构造方法，参数" + str);
     }
 
