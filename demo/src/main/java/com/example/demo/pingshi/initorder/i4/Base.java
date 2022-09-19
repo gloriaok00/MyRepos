@@ -1,5 +1,9 @@
 package com.example.demo.pingshi.initorder.i4;
 
+/**
+ * @description 就是练习
+ * @date 2022/9/18 21:06
+ */
 class Base {
 
     public Base() {
@@ -7,6 +11,7 @@ class Base {
     }
 
     String b = "父类非静态变量";
+
     {
         System.out.println(b);
         System.out.println("父类非静态代码块");
@@ -23,6 +28,10 @@ class Base {
         System.out.println("父类普通静态方法");
     }
 
+    static {
+        System.out.println("父类静态代码块b");
+    }
+
 }
 
 class Derived extends Base {
@@ -32,6 +41,7 @@ class Derived extends Base {
     }
 
     String b = "子类非静态变量";
+
     {
         System.out.println(b);
         System.out.println("子类非静态代码块");
@@ -49,8 +59,8 @@ class Derived extends Base {
     }
 
     public static void main(String[] args) {
-        Base.A();
-        Derived.A();
+        System.out.println("啊啊:"+Derived.a);
+        //Derived.A();
         new Derived();
     }
 }
