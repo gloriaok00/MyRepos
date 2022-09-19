@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.initorder;
+package com.example.demo.pingshi.initorder.i7;
 
 import com.example.demo.pingshi.innerclass.OC;
 import com.example.demo.pingshi.innerclass.OuterClass;

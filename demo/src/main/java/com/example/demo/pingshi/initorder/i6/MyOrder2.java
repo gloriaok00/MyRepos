@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.initorder;
+package com.example.demo.pingshi.initorder.i6;
 
 /**
  * @description 对于调父类构造器又有了新认识

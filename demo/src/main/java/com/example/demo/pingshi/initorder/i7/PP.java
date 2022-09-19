@@ -1,5 +1,9 @@
-package com.example.demo.pingshi.initorder;
+package com.example.demo.pingshi.initorder.i7;
 
+/**
+ * @description 随机练习
+ * @date 2022/9/19 13:39
+ */
 class PP {
 
     private int id;

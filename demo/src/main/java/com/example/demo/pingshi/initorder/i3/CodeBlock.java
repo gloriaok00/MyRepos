@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.initorder;
+package com.example.demo.pingshi.initorder.i3;
 
 /**
  * @description 非常好的例子 接着练习
