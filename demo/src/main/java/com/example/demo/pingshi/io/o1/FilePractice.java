@@ -33,47 +33,17 @@ public class FilePractice {
         return null;
     }
 
-    @PostMapping(value = "/upload")
-    //当上传文件MultipartFile时 必须要加@RequestParam里的名称参数必须要加
-    //https://blog.csdn.net/CSDN19951017/article/details/84840325
-    public void uploadFile(@RequestParam("ccc") MultipartFile file11) throws IOException {
-        InputStream inputStream = null;
-        FileOutputStream outputStream = null;
-
-        try {
-            inputStream = new FileInputStream(MultipartFileToFile(file11));
-            // 给新文件拼上时间毫秒，防止重名
-            long now = System.currentTimeMillis();
-            File file = new File("/Users/zhangyu/", "file-" + now + ".txt");
-            file.createNewFile();
-
-            outputStream = new FileOutputStream(file);
-
-            byte temp[] = new byte[1024];
-            int size;
-            while ((size = inputStream.read(temp)) != -1) { // 每次读取1KB，直至读完
-                outputStream.write(temp, 0, size);
-            }
-            log.info("File load success.");
-        } catch (IOException e) {
-            log.warn("File load fail.", e);
-        } finally {
-            outputStream.close();
-            inputStream.close();
-        }
-    }
-
     //普通的文本@RequestParam可以不加名称 但file得加
     @GetMapping("/param")
     public void show(@RequestParam String param, @RequestParam("myFile") MultipartFile file) throws Exception {
         File file2 = MultipartFileToFile(file);
-        FileInputStream inputStream = new FileInputStream("/Users/zhangyu/Desktop/test.txt");
+        FileInputStream inputStream = new FileInputStream(file2);
         Long now = System.currentTimeMillis();
         FileOutputStream outputStream = new FileOutputStream("/Users/zhangyu/file-" + now + ".txt");
         byte[] bytes = new byte[1024];
         int i;
         while ((i = inputStream.read(bytes)) != -1) {
-            outputStream.write(bytes,0,i);
+            outputStream.write(bytes, 0, i);
         }
         System.out.println("结束:" + param);
         outputStream.close();
