@@ -1,14 +1,12 @@
 package com.example.demo.pingshi.io.o1;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
 /**
@@ -58,7 +56,7 @@ public class FilePractice {
     //上传文件的第二种方式，通过request转化
     @PostMapping("/upload2")
     public void show(HttpServletRequest request) throws IOException {
-        MultipartHttpServletRequest req=(MultipartHttpServletRequest)request;
+        MultipartHttpServletRequest req = (MultipartHttpServletRequest) request;
         MultipartFile file = req.getFile("file");
         InputStream inputStream = file.getInputStream();
         OutputStream outputStream = new FileOutputStream("/Users/zhangyu/file-" + System.currentTimeMillis() + ".txt");
@@ -68,6 +66,34 @@ public class FilePractice {
         while ((i = inputStream.read(bs)) != -1) {
             outputStream.write(bs, 0, i);
         }
+    }
+
+    //下载
+    @GetMapping("/download")
+    public String fileDownLoad(HttpServletResponse response) {
+        File file = new File("/Users/zhangyu/Desktop/test.txt");
+        if (!file.exists()) {
+            return "下载文件不存在";
+        }
+        response.reset();
+        response.setContentType("application/octet-stream");
+        response.setCharacterEncoding("utf-8");
+        response.setContentLength((int) file.length());
+        response.setHeader("Content-Disposition", "attachment;filename=" + file.getName());
+
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
+            byte[] buff = new byte[1024];
+            OutputStream os = response.getOutputStream();
+            int i = 0;
+            while ((i = bis.read(buff)) != -1) {
+                os.write(buff, 0, i);
+                os.flush();
+            }
+        } catch (IOException e) {
+            log.error("{}", e);
+            return "下载失败";
+        }
+        return "下载成功";
     }
 
 }
