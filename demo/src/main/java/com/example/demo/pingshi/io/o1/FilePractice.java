@@ -1,9 +1,14 @@
 package com.example.demo.pingshi.io.o1;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 
 /**
@@ -34,7 +39,7 @@ public class FilePractice {
     }
 
     //普通的文本@RequestParam可以不加名称 但file得加
-    @GetMapping("/param")
+    @PostMapping("/upload")
     public void show(@RequestParam String param, @RequestParam("myFile") MultipartFile file) throws Exception {
         File file2 = MultipartFileToFile(file);
         FileInputStream inputStream = new FileInputStream(file2);
@@ -49,4 +54,20 @@ public class FilePractice {
         outputStream.close();
         inputStream.close();
     }
+
+    //上传文件的第二种方式，通过request转化
+    @PostMapping("/upload2")
+    public void show(HttpServletRequest request) throws IOException {
+        MultipartHttpServletRequest req=(MultipartHttpServletRequest)request;
+        MultipartFile file = req.getFile("file");
+        InputStream inputStream = file.getInputStream();
+        OutputStream outputStream = new FileOutputStream("/Users/zhangyu/file-" + System.currentTimeMillis() + ".txt");
+
+        byte[] bs = new byte[1024];
+        int i;
+        while ((i = inputStream.read(bs)) != -1) {
+            outputStream.write(bs, 0, i);
+        }
+    }
+
 }
