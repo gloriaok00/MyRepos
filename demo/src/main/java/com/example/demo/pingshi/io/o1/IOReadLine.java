@@ -15,7 +15,7 @@ public class IOReadLine {
     public static void main(String[] args) {
 
         try {
-            InputStream stream = IOReadLine.class.getClassLoader().getResourceAsStream("bb.txt");
+            InputStream stream = IOReadLine.class.getClassLoader().getResourceAsStream("application.properties");
             InputStreamReader in = new InputStreamReader(stream);
             BufferedReader reader = new BufferedReader(in);
             String line;
