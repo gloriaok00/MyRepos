@@ -8,6 +8,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * @description io以及上传文件练习
@@ -68,7 +70,7 @@ public class FilePractice {
         }
     }
 
-    //下载
+    //从本地文件中下载
     @GetMapping("/download")
     public String fileDownLoad(HttpServletResponse response) {
         File file = new File("/Users/zhangyu/Desktop/test.txt");
@@ -95,5 +97,28 @@ public class FilePractice {
         }
         return "下载成功";
     }
+
+    //从网络获取并下载
+    @RequestMapping("/netDownloadLocal")
+    public void downloadNet(String netAddress) throws IOException {
+        URL httpurl=new URL("http://223.223.176.32:30711/iot/zy_t1/tenant/%E6%88%AA%E5%B1%8F2022-07-18%2011.35.04.png?Content-Disposition=attachment%3B%20filename%3D%22zy_t1%2Ftenant%2F%E6%88%AA%E5%B1%8F2022-07-18%2011.35.04.png%22&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=OKw3bxT5me%2F20220922%2F%2Fs3%2Faws4_request&X-Amz-Date=20220922T014318Z&X-Amz-Expires=432000&X-Amz-SignedHeaders=host&X-Amz-Signature=a7294b909aaa64fdf173aaa92d2f02423c1768d45ae00791cd0429b762ebb00d");
+        HttpURLConnection httpConn=(HttpURLConnection)httpurl.openConnection();
+
+        //URLConnection conn = url.openConnection();
+        //File file=new File("/Users/zhangyu/Downloads/截屏2022-07-18 11.35.04.png");
+        InputStream inputStream = httpConn.getInputStream();
+        FileOutputStream fileOutputStream = new FileOutputStream("/Users/zhangyu/22.png");
+
+        int bytesum = 0;
+        int byteread;
+        byte[] buffer = new byte[1024];
+        while ((byteread = inputStream.read(buffer)) != -1) {
+            bytesum += byteread;
+            System.out.println(bytesum);
+            fileOutputStream.write(buffer, 0, byteread);
+        }
+        fileOutputStream.close();
+    }
+
 
 }
