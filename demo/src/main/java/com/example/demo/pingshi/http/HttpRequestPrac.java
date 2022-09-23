@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.rest;
+package com.example.demo.pingshi.http;
 
 import cn.hutool.http.HttpRequest;
 
@@ -9,7 +9,7 @@ import java.util.HashMap;
  * @date 2022/9/20 17:38
  */
 
-public class FormReq {
+public class HttpRequestPrac {
 
     public static void main(String[] args) {
         HashMap<String, Object> map = new HashMap<>();

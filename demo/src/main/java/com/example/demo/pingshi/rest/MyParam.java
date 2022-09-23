@@ -1,10 +1,7 @@
 package com.example.demo.pingshi.rest;
 
 import cn.hutool.extra.servlet.ServletUtil;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -12,11 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
 /**
- * @author zhangyu
- * @date 2019/12/1 15:13
+ *  @description url以及form-data上的不通过@RequestParam也能接收，就正常就能接收。
+ *  然后@RequestBody就是接收raw里的，无论什么格式
+ *  @date 2019/12/1 15:13
+ *  @date  2022/9/23 14:39
  */
 @RestController
-public class Demo {
+public class MyParam {
 
     /**
      * 方法 1 使用 HttpServletRequest 接收
@@ -51,6 +50,12 @@ public class Demo {
     @RequestMapping("/demo4/{userName}")
     public String getParam4(@PathVariable String userName) {
         return userName;
+    }
+
+    @RequestMapping("/demo5")
+    public String parma5(@RequestBody String xxx) {
+        System.out.println("nnn:"+xxx);
+        return xxx;
     }
 
 }
