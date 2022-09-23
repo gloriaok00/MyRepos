@@ -38,9 +38,9 @@ public class FilePractice {
         return null;
     }
 
-    //普通的文本@RequestParam可以不加名称 但file得加
     @PostMapping("/upload")
-    public void show(@RequestParam String param, @RequestParam("myFile") MultipartFile file) throws Exception {
+    //requestParam这个注解非必须加
+    public void show(String param, MultipartFile file) throws Exception {
         File file2 = MultipartFileToFile(file);
         FileInputStream inputStream = new FileInputStream(file2);
         Long now = System.currentTimeMillis();
