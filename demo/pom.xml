@@ -62,13 +62,13 @@
             <artifactId>poi</artifactId>
             <version>4.1.0</version>
         </dependency>
-        <!-- excel,word,ppt均需要 -->
+<!--        &lt;!&ndash; excel,word,ppt均需要 &ndash;&gt;
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>4.1.0</version>
         </dependency>
-        <!-- excel需要 -->
+        &lt;!&ndash; excel需要 &ndash;&gt;
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-schemas</artifactId>
@@ -88,7 +88,7 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-scratchpad</artifactId>
             <version>4.1.0</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.cookingfox</groupId>
             <artifactId>guava-preconditions</artifactId>

@@ -74,11 +74,11 @@ public class SysUserController {
         String columnNames[] = {"姓名", "性别", "邮箱", "电话", "部门", "角色", "状态", "创建时间"};//列名
         String keys[] = {"name", "gender", "email", "phone", "department", "role", "status", "createTime"};//map中的key
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        try {
-            ExcelUtil.createWorkBook(list, keys, columnNames).write(os);
+       /* try {
+            //ExcelUtil.createWorkBook(list, keys, columnNames).write(os);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         byte[] content = os.toByteArray();
         InputStream is = new ByteArrayInputStream(content);
         // 设置response参数，可以打开下载页面

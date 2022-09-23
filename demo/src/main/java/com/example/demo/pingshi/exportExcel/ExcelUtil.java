@@ -5,13 +5,6 @@ package com.example.demo.pingshi.exportExcel;
  * @date 2019/12/5 09:43
  */
 
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-
-import java.util.List;
-import java.util.Map;
-
-
 /**
  * 生成Excel文件的工具类
  *
@@ -26,6 +19,7 @@ public class ExcelUtil {
      * @param keys        list中map的key数组集合
      * @param columnNames excel的列名
      */
+    /*
     public static Workbook createWorkBook(List<Map<String, Object>> list, String[] keys, String columnNames[]) {
         // 创建excel工作簿
         SXSSFWorkbook wb = new SXSSFWorkbook(100);//在内存中只保留100行记录,超过100就将之前的存储到磁盘里
@@ -90,5 +84,9 @@ public class ExcelUtil {
             }
         }
         return wb;
+
+
     }
+
+     */
 }
