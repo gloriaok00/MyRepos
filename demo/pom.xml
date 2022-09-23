@@ -89,16 +89,16 @@
             <artifactId>poi-scratchpad</artifactId>
             <version>4.1.0</version>
         </dependency>-->
-        <dependency>
+       <!-- <dependency>
             <groupId>com.cookingfox</groupId>
             <artifactId>guava-preconditions</artifactId>
             <version>0.1.4</version>
-        </dependency>
-        <dependency>
+        </dependency>-->
+      <!--  <dependency>
             <groupId>com.sitewhere</groupId>
             <artifactId>sitewhere-java-client</artifactId>
             <version>2.1.1</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>

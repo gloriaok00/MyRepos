@@ -1,21 +1,10 @@
 package com.example.demo.pingshi.mqtt.sw;
 
-import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sitewhere.rest.model.device.communication.DeviceRequest;
-import com.sitewhere.rest.model.device.event.request.DeviceLocationCreateRequest;
-import com.sitewhere.rest.model.device.event.request.DeviceMeasurementCreateRequest;
-import com.sitewhere.spi.SiteWhereException;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 /**
@@ -65,7 +54,7 @@ public class MqttServerSW {
 
             //选择event类型
             //instance.sendLocationOverMqtt(message);
-            instance.sendNonStandardMeasurements(message);
+            //instance.sendNonStandardMeasurements(message);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,7 +76,7 @@ public class MqttServerSW {
      * @param message
      * @throws SiteWhereException
      */
-    public void sendLocationOverMqtt(MqttMessage message) throws SiteWhereException {
+  /*  public void sendLocationOverMqtt(MqttMessage message) throws SiteWhereException {
         while (true) {
             DeviceRequest request = new DeviceRequest();
             //request.setDeviceToken((Math.random()>0.5)?"40678-OPENHAB-324906":"70991-OPENHAB-8397183");
@@ -116,14 +105,14 @@ public class MqttServerSW {
                 throw new SiteWhereException(e);
             }
         }
-    }
+    }*/
 
     /**
      * measurement
      *
      * @throws SiteWhereException
      */
-    public void sendNonStandardMeasurements(MqttMessage message) throws SiteWhereException {
+   /* public void sendNonStandardMeasurements(MqttMessage message) throws SiteWhereException {
         for (int i = 0; i < 100; i++) {
             DeviceRequest request = new DeviceRequest();
             request.setDeviceToken("29315-MT90-2646710");
@@ -143,9 +132,9 @@ public class MqttServerSW {
             try {
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode json = mapper.convertValue(request, JsonNode.class);
-           /* ObjectNode mxsNode = (ObjectNode) json.get("request").get("measurements");
+           *//* ObjectNode mxsNode = (ObjectNode) json.get("request").get("measurements");
             mxsNode.put("stringTest", "value");
-            mxsNode.put("booleanTest", true);*/
+            mxsNode.put("booleanTest", true);*//*
                 String payload = mapper.writeValueAsString(json);
 
                 System.out.println("Payload:\n\n" + payload);
@@ -158,6 +147,6 @@ public class MqttServerSW {
                 throw new SiteWhereException(e);
             }
         }
-    }
+    }*/
 
 }

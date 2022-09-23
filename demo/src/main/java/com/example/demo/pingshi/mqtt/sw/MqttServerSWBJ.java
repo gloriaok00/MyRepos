@@ -1,17 +1,7 @@
 package com.example.demo.pingshi.mqtt.sw;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sitewhere.rest.model.device.communication.DeviceRequest;
-import com.sitewhere.rest.model.device.event.request.DeviceMeasurementCreateRequest;
-import com.sitewhere.spi.SiteWhereException;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author zhangyu
@@ -53,17 +43,19 @@ public class MqttServerSWBJ {
             MqttServerSWBJ instance = new MqttServerSWBJ();
 
             //选择event类型
-            instance.sendNonStandardMeasurements(message);
+            //instance.sendNonStandardMeasurements(message);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     /**
      * measurement
      *
      * @throws SiteWhereException
      */
+     /*
     public void sendNonStandardMeasurements(MqttMessage message) throws SiteWhereException {
         while (true) {
             DeviceRequest request = new DeviceRequest();
@@ -97,5 +89,5 @@ public class MqttServerSWBJ {
             }
         }
     }
-
+*/
 }

@@ -1,7 +1,5 @@
 package com.example.demo.pingshi.siddhi;
 
-import com.sitewhere.rest.model.device.event.DeviceEvent;
-import com.sitewhere.rest.model.device.event.DeviceEventContext;
 import lombok.Data;
 
 /**
@@ -15,11 +13,11 @@ public class EnrichedEventPayload {
     /**
      * Extra context
      */
-    private DeviceEventContext eventContext;
+    //private DeviceEventContext eventContext;
 
     /**
      * Event
      */
-    private DeviceEvent event;
+    //private DeviceEvent event;
 
 }

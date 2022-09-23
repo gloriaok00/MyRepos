@@ -1,18 +1,9 @@
 package com.example.demo.pingshi.siddhi;
 
-import com.alibaba.fastjson.JSONObject;
-import com.sitewhere.rest.model.device.event.DeviceEventContext;
-import com.sitewhere.rest.model.device.event.DeviceMeasurement;
-import com.sitewhere.spi.device.DeviceAssignmentStatus;
 import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Properties;
-import java.util.UUID;
 
 /**
  * @author zhangyu
@@ -32,13 +23,13 @@ public class MyProducerSW {
         props.put("value.serializer", StringSerializer.class.getName());
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(props);
         for (int i = 1; i <= 10; i++) {
-            EnrichedEventPayload temp = initPayload(i);
-            producer.send(new ProducerRecord<String, String>("t3", "Message" + i, JSONObject.toJSONString(temp)));
+            //EnrichedEventPayload temp = initPayload(i);
+            //producer.send(new ProducerRecord<String, String>("t3", "Message" + i, JSONObject.toJSONString(temp)));
         }
         producer.close();
     }
 
-    public static EnrichedEventPayload initPayload(int i) {
+   /* public static EnrichedEventPayload initPayload(int i) {
         EnrichedEventPayload instance = new EnrichedEventPayload();
         DeviceEventContext eventContext = new DeviceEventContext();
         UUID deviceId = UUID.randomUUID();
@@ -66,5 +57,5 @@ public class MyProducerSW {
         deviceMeasurement.setReceivedDate(new Date());
         instance.setEvent(deviceMeasurement);
         return instance;
-    }
+    }*/
 }
