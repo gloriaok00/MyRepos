@@ -40,6 +40,7 @@ public class FilePractice {
 
     @PostMapping("/upload")
     //requestParam这个注解非必须加
+    //出现file没获取到是因为postman那个选择文件重选一下
     public void show(String param, MultipartFile file) throws Exception {
         File file2 = MultipartFileToFile(file);
         FileInputStream inputStream = new FileInputStream(file2);
