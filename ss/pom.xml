@@ -31,7 +31,7 @@
             <artifactId>servlet-api</artifactId>
             <version>1</version>
             <scope>system</scope>
-            <systemPath>/Users/zhangyu/apache-tomcat-8.5.81/lib/servlet-api.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/webapp/lib/servlet-api.jar</systemPath>
         </dependency>
     </dependencies>
 
