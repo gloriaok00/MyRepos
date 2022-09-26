@@ -19,12 +19,11 @@ public class JoinTest {
 
         };
 
+        Thread girl1 = new Thread(girl);
+        girl1.start();
         Runnable boy=()->{
 
             System.out.println("男孩和女孩准备出去逛街");
-
-            Thread girl1 = new Thread(girl);
-            girl1.start();
 
             int time = 2000;
             try {
