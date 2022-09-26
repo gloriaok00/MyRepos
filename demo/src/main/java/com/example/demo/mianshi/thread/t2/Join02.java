@@ -18,13 +18,11 @@ public class Join02 {
             System.out.println("女孩化妆完成！，耗时" + time);
         };
 
-
+        Thread girl1 = new Thread(girl);
+        girl1.start();
         Runnable boy = () -> {
             System.out.println("男孩和女孩准备出去逛街");
-
-            Thread girl1 = new Thread(girl);
-            girl1.start();
-
+            
             try {
                 girl1.join();
             } catch (InterruptedException e) {
