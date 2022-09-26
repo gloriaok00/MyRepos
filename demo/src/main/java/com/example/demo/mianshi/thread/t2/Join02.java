@@ -22,7 +22,7 @@ public class Join02 {
         girl1.start();
         Runnable boy = () -> {
             System.out.println("男孩和女孩准备出去逛街");
-            
+
             try {
                 girl1.join();
             } catch (InterruptedException e) {
