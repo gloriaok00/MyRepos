@@ -1,6 +1,6 @@
 package com.example.demo.mianshi.thread.t2;
 
-public class JoinTest {
+public class Join03 {
 
     public static void main(String[] args) {
 
