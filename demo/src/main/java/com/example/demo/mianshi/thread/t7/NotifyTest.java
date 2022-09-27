@@ -46,8 +46,8 @@ public class NotifyTest{
         for(int i=0;i<50;i++){
             synchronized (lock) {
                 lock.notify();
-                TimeUnit.MILLISECONDS.sleep(10);
             }
+            TimeUnit.MILLISECONDS.sleep(10);
         }
         TimeUnit.SECONDS.sleep(1);
         System.out.println("wait顺序:"+waitList.toString());
