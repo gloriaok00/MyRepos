@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.initorder;
+package com.example.demo.pingshi.servlet;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.*;
@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 /**
- * @description todo 2022/09/19
+ * @description 随机练习
  * @date 2021-12-14 10:34
+ * @date 2022/09/19
+ * @date 2022/09/28 00:06
  */
 
 @WebServlet(urlPatterns = "/mytree1", initParams = {
