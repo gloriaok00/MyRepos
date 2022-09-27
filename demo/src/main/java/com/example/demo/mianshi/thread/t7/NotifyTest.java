@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- *  @description notify随机唤醒?
+ *  @description notify唤醒顺序
  *  @date  2022/9/27 14:29
  */
 public class NotifyTest{
@@ -49,7 +49,6 @@ public class NotifyTest{
             }
             TimeUnit.MILLISECONDS.sleep(10);
         }
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("wait顺序:"+waitList.toString());
         System.out.println("唤醒顺序:"+notifyList.toString());
     }
