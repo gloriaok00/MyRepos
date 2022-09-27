@@ -13,6 +13,11 @@ public class Thread4 {
     public static void main(String[] args) {
         Runnable r = () -> {
             int n = 0;
+           /* while (true){
+                n++;
+                System.out.println("hello," + n);
+            }*/
+
             while (!Thread.currentThread().isInterrupted()) {
                 n++;
                 System.out.println("hello," + n);
