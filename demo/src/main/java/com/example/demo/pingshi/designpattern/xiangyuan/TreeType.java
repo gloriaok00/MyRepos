@@ -14,5 +14,4 @@ public class TreeType {
         this.color = color;
         this.texture = texture;
     }
-
 }

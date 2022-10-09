@@ -40,7 +40,6 @@ public class TreeFactory {
         treeTypes.add(tt1);
         treeTypes.add(tt2);
         TreeType xx=getTreeType("T1","Green","绿树");
-        //TODO toString
-        System.out.println(xx.toString());
+        System.out.println(xx);
     }
 }
