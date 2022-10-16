@@ -15,4 +15,8 @@ public class BMain {
         //直接调的static字段，引起了类的初始化
         //System.out.println(Book.xx1);
     }
+
+    static {
+        System.out.println("先走");
+    }
 }
