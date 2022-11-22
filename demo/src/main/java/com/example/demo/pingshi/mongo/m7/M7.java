@@ -14,7 +14,7 @@ import java.util.List;
  * @date 2022/11/18 17:50
  */
 
-public class M8 {
+public class M7 {
 
     @SneakyThrows
     public static void main(String[] args) {

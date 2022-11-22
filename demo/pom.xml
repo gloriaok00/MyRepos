@@ -62,43 +62,43 @@
             <artifactId>poi</artifactId>
             <version>4.1.0</version>
         </dependency>
-<!--        &lt;!&ndash; excel,word,ppt均需要 &ndash;&gt;
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>4.1.0</version>
-        </dependency>
-        &lt;!&ndash; excel需要 &ndash;&gt;
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml-schemas</artifactId>
-            <version>4.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-examples</artifactId>
-            <version>4.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-excelant</artifactId>
-            <version>4.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-scratchpad</artifactId>
-            <version>4.1.0</version>
-        </dependency>-->
-       <!-- <dependency>
-            <groupId>com.cookingfox</groupId>
-            <artifactId>guava-preconditions</artifactId>
-            <version>0.1.4</version>
-        </dependency>-->
-      <!--  <dependency>
-            <groupId>com.sitewhere</groupId>
-            <artifactId>sitewhere-java-client</artifactId>
-            <version>2.1.1</version>
-        </dependency>-->
+        <!--        &lt;!&ndash; excel,word,ppt均需要 &ndash;&gt;
+                <dependency>
+                    <groupId>org.apache.poi</groupId>
+                    <artifactId>poi-ooxml</artifactId>
+                    <version>4.1.0</version>
+                </dependency>
+                &lt;!&ndash; excel需要 &ndash;&gt;
+                <dependency>
+                    <groupId>org.apache.poi</groupId>
+                    <artifactId>poi-ooxml-schemas</artifactId>
+                    <version>4.1.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.poi</groupId>
+                    <artifactId>poi-examples</artifactId>
+                    <version>4.1.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.poi</groupId>
+                    <artifactId>poi-excelant</artifactId>
+                    <version>4.1.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.poi</groupId>
+                    <artifactId>poi-scratchpad</artifactId>
+                    <version>4.1.0</version>
+                </dependency>-->
+        <!-- <dependency>
+             <groupId>com.cookingfox</groupId>
+             <artifactId>guava-preconditions</artifactId>
+             <version>0.1.4</version>
+         </dependency>-->
+        <!--  <dependency>
+              <groupId>com.sitewhere</groupId>
+              <artifactId>sitewhere-java-client</artifactId>
+              <version>2.1.1</version>
+          </dependency>-->
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
@@ -109,23 +109,18 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.61</version>
         </dependency>
-        <dependency>
-            <groupId>com.hynnet</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>3.1.0</version>
-        </dependency>
 
         <!-- protobuf 安装-->
-      <!--  <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.12.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java-util</artifactId>
-            <version>3.11.0</version>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>com.google.protobuf</groupId>
+              <artifactId>protobuf-java</artifactId>
+              <version>3.12.2</version>
+          </dependency>
+          <dependency>
+              <groupId>com.google.protobuf</groupId>
+              <artifactId>protobuf-java-util</artifactId>
+              <version>3.11.0</version>
+          </dependency>-->
         <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
@@ -137,23 +132,23 @@
                 </exclusion>
             </exclusions>
         </dependency>
- <!--       <dependency>
-            <groupId>sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT</groupId>
-            <artifactId>sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>
-                ${project.basedir}/src/main/resources/lib/sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT.jar
-            </systemPath>
-        </dependency>-->
+        <!--       <dependency>
+                   <groupId>sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT</groupId>
+                   <artifactId>sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT</artifactId>
+                   <version>1.0.0</version>
+                   <scope>system</scope>
+                   <systemPath>
+                       ${project.basedir}/src/main/resources/lib/sitewhere-eventmgnt-grpc-api-0.0.1-SNAPSHOT.jar
+                   </systemPath>
+               </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.wso2.extension.siddhi.execution.extrema/siddhi-execution-extrema -->
 
-      <!--  <dependency>
-            <groupId>com.googlecode.protobuf-java-format</groupId>
-            <artifactId>protobuf-java-format</artifactId>
-            <version>1.4</version>
-            <type>pom</type>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>com.googlecode.protobuf-java-format</groupId>
+              <artifactId>protobuf-java-format</artifactId>
+              <version>1.4</version>
+              <type>pom</type>
+          </dependency>-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -178,11 +173,11 @@
             <artifactId>mail</artifactId>
             <version>1.4</version>
         </dependency>
-       <!-- <dependency>
-            <groupId>com.rabbitmq</groupId>
-            <artifactId>amqp-client</artifactId>
-            <version>5.0.0</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>com.rabbitmq</groupId>
+             <artifactId>amqp-client</artifactId>
+             <version>5.0.0</version>
+         </dependency>-->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
@@ -212,11 +207,11 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.13</version>
         </dependency>
-      <!--  <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <version>4.4.14</version>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>org.apache.httpcomponents</groupId>
+              <artifactId>httpcore</artifactId>
+              <version>4.4.14</version>
+          </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -288,11 +283,11 @@
             <artifactId>mqtt-client</artifactId>
             <version>1.15</version>
         </dependency>
-      <!--  <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>5.0.0</version>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>jakarta.servlet</groupId>
+              <artifactId>jakarta.servlet-api</artifactId>
+              <version>5.0.0</version>
+          </dependency>-->
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
