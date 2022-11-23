@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -41,5 +42,12 @@ public class JStream2 {
         IntStream intStream = numbers.stream().mapToInt(i -> i);
         Stream<Integer> boxed = intStream.boxed();
 
+    }
+
+    @Test
+    public void hhh(){
+        Random random = new Random();
+        //生成多个随机数
+        random.ints(0, 100).limit(5).boxed().collect(Collectors.toList()).forEach(System.out::println);
     }
 }
