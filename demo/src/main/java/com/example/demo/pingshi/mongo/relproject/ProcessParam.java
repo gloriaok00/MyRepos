@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.mongo.m8;
+package com.example.demo.pingshi.mongo.relproject;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
