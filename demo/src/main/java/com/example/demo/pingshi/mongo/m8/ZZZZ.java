@@ -1,6 +1,5 @@
 package com.example.demo.pingshi.mongo.m8;
 
-import com.iot.api.dto.data.qua.process.ProcessParam;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
@@ -22,7 +21,7 @@ import java.util.List;
 public class ZZZZ {
 
     public static void main(String[] args) {
-        String uri = "mongodb://www.67934.cn:30708";
+        String uri = "mongodb://127.0.0.1:27017";
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             CodecRegistry pojoCodecRegistry = org.bson.codecs.configuration.CodecRegistries.fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), org.bson.codecs.configuration.CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
             MongoDatabase database = mongoClient.getDatabase("iot").withCodecRegistry(pojoCodecRegistry);
