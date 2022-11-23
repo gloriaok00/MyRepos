@@ -1,9 +1,12 @@
 package com.example.demo.pingshi.java8stream.s2;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @description 随机练习
@@ -29,5 +32,14 @@ public class JStream2 {
             return xx;
         }).boxed().collect(Collectors.toList());
         return result;
+    }
+
+    @Test
+    public void oo(){
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 3, 4, 5);
+        IntStream intStream = numbers.stream().mapToInt(i -> i);
+        Stream<Integer> boxed = intStream.boxed();
+
     }
 }
