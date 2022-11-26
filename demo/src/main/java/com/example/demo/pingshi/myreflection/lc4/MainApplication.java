@@ -1,0 +1,30 @@
+package com.example.demo.pingshi.myreflection.lc4;
+
+import com.example.demo.pingshi.myreflection.lc3.UserService;
+import com.example.demo.pingshi.myreflection.lc3.UserServiceInvocationHandler;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
+
+/**
+ *  @description 理解代理失效非常好的例子
+ *  https://juejin.cn/post/6844903951976890381
+ *  @date  2022/11/27 00:43
+ */
+public class MainApplication {
+
+    public static void main(String[] args) {
+        // 让代理对象的class文件写入到磁盘
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+        // 指明一个类加载器，要操作class文件，怎么少得了类加载器呢
+        ClassLoader classLoader = MainApplication.class.getClassLoader();
+        // 为代理对象指定要是实现哪些接口，这里我们要为UserServiceImpl这个目标对象创建动态代理，所以需要为代理对象指定实现UserService接口
+        Class[] classes = new Class[]{UserService.class};
+        // 初始化一个InvocationHandler，并初始化InvocationHandler中的目标对象
+        InvocationHandler invocationHandler = new UserServiceInvocationHandler(new UserServiceImpl());
+        // 创建动态代理
+        UserService userService = (UserService) Proxy.newProxyInstance(classLoader, classes, invocationHandler);
+        // 执行代理对象的方法，通过观察控制台的结果，判断我们是否对目标对象(UserServiceImpl)的方法进行了增强
+        userService.insert();
+    }
+}
