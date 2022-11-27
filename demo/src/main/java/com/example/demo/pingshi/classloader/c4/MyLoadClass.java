@@ -2,6 +2,7 @@ package com.example.demo.pingshi.classloader.c4;
 
 /**
  * @description 是loadClass仅仅是加载
+ * https://blog.csdn.net/CaptHua/article/details/120925452
  * @date 2022/9/19 11:01
  */
 
