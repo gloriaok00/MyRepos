@@ -17,6 +17,7 @@ public class Mammal {
         System.out.println("PostConstruct方法..本身没在servlet环境中");
         System.out.println("所以看上去像不生效了");
         System.out.println("虽然是在jdk里的注解 但是应用在servlet中的");
+        System.out.println("再就是看看那个注释的英文原文，人家几次提到了dependency injection");
     }
 
     public static void main(String[] args) {
