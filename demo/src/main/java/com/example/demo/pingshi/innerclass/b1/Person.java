@@ -32,12 +32,12 @@ public class Person {
             this.name=name;
         }
 
-        public Builder setAge(int age){
+        public Builder age(int age){
             this.age=age;
             return this;
         }
 
-        public Builder setAddress(String address){
+        public Builder address(String address){
             this.address=address;
             return this;
         }
@@ -49,7 +49,7 @@ public class Person {
 
     public static void main(String[] args) {
         //建造者模式练习
-        Person p=new Person.Builder(1,"zy").setAge(12).build();
+        Person p=new Person.Builder(1,"zy").age(12).build();
         System.out.println(p.id);
         System.out.println(p.name);
         System.out.println(p.age);
