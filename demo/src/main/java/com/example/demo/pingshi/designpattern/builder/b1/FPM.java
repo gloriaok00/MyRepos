@@ -12,5 +12,8 @@ public class FPM {
         System.out.println(fp.getS1());
         System.out.println(fp.getS6());
         System.out.println("空吧:" + fp.getS2());
+
+        System.out.println("没重写toString:"+new FPM());
+
     }
 }
