@@ -5,14 +5,14 @@ package com.example.demo.pingshi.designpattern.builder.b2;
  * @date 2022/12/3 12:52
  */
 
-public class PPP {
+public class B2 {
 
     private int id;
     private String name;
     private int age;
     private String idCard;
 
-    public PPP(Builder builder) {
+    public B2(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.age = builder.age;
@@ -56,13 +56,13 @@ public class PPP {
             return this;
         }
 
-        public PPP build() {
-            return new PPP(this);
+        public B2 build() {
+            return new B2(this);
         }
     }
 
     public static void main(String[] args) {
-        PPP ppp=new PPP.Builder().id(1).age(12).name("zy").idCard("220102").build();
+        B2 ppp=new B2.Builder().id(1).age(12).name("zy").idCard("220102").build();
         System.out.println(ppp);
     }
 }
