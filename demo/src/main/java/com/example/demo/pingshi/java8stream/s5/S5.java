@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,9 @@ public class S5 {
 
         Map<String, Integer> ll = list.stream().collect(
                 Collectors.groupingBy(S5::getName, Collectors.summingInt(S5::getA1)));
+
+        List<Integer> aa = new ArrayList<>(ll.values());
+        System.out.println(aa);
 
     }
 
