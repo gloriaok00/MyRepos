@@ -61,7 +61,7 @@ public class B3 {
     }
 
     public static void main(String[] args) {
-        B3 mm = new B3.Buidler().id(1).name("zy").age(11).address("xxx").build();
+        B3 mm =  new B3.Buidler().id(1).name("zy").age(11).address("xxx").build();
         System.out.println(mm);
     }
 }
