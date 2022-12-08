@@ -42,6 +42,10 @@ public class S5 {
             cc.setSum(v.stream().mapToInt(S5::getA1).sum());
             System.out.println(cc);
         });
+
+        Map<String, Integer> ll = list.stream().collect(
+                Collectors.groupingBy(S5::getName, Collectors.summingInt(S5::getA1)));
+
     }
 
 }
