@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.java8stream.s3;
+package com.example.demo.pingshi.java8stream.s4;
 
 import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
@@ -30,5 +30,14 @@ public class S4 {
         xx1.entrySet().forEach(ee -> {
             System.out.println("键:" + ee.getKey() + ",值:" + ee.getValue());
         });
+    }
+
+    @Test
+    public void xx() {
+        Map<String, Object> iMap = new ImmutableMap.Builder<String, Object>()
+                .put("k1", "v1")
+                .put("k2", "v2")
+                .build();
+        //iMap.put("1","2");
     }
 }
