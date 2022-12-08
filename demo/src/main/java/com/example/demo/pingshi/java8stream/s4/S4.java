@@ -34,6 +34,7 @@ public class S4 {
 
     @Test
     public void xx() {
+        //这个ImmutableMap不是jdk里的api
         Map<String, Object> iMap = new ImmutableMap.Builder<String, Object>()
                 .put("k1", "v1")
                 .put("k2", "v2")
