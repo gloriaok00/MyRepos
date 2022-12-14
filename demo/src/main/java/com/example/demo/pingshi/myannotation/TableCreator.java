@@ -8,7 +8,10 @@ import java.util.List;
 /**
  * @description 运行时注解处理器，构造表创建语句
  * 终于整明白 那些注解的逻辑在哪了 是有注解处理器
+ * jdk并没有统一的规范去规定注解处理器一定要是怎样的。
+ * 都是通过自己的的逻辑去写的，像自己写的@DataScope。用的是过滤器
  * @date 2022-05-03 13:14
+ * @date 2022-12-14 22:23
  */
 
 public class TableCreator {
