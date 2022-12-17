@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.book.b1;
+package com.example.demo.pingshi.book.b1.c2;
 
 // lowArray.java
 // demonstrates array class with low-level interface

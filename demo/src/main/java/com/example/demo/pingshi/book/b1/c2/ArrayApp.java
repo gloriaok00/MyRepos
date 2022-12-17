@@ -1,4 +1,4 @@
-package com.example.demo.pingshi.book.b1;
+package com.example.demo.pingshi.book.b1.c2;
 
 // array.java
 // demonstrates Java arrays
