@@ -9,29 +9,29 @@ public class OrderArray {
 
     public static void main(String[] args) {
 
-        EArray demo = new EArray(10);
+        EEArray demo = new EEArray(10);
 
-        demo.insert(112);
-        demo.insert(45);
         demo.insert(1);
+        demo.insert(5);
+        demo.insert(10);
         demo.insert(89);
-        demo.insert(23);
-        demo.insert(90);
-        demo.insert(34);
-        demo.insert(2);
-        demo.insert(4);
-        demo.insert(40);
+        demo.insert(123);
+        demo.insert(190);
+        demo.insert(234);
+        demo.insert(278);
+        demo.insert(478);
+        demo.insert(540);
 
         //display elem
         demo.display();
         System.out.println();
 
         //search elem
-        System.out.println("查找结果位置:" + demo.find(23));
+        System.out.println("查找结果位置:" + demo.find(123));
         System.out.println("查找结果位置:" + demo.find(111));
 
         //delete elem
-        demo.delete(1);
+        demo.delete(190);
         demo.delete(98);
 
         //display elem
@@ -56,19 +56,28 @@ class EEArray {
     }
 
     public int find(long searchKey) {
-        int i = 0;
-        for (; i < eElem; i++) {
-            if (a[i] == searchKey) {
-                break;
+        int lower = 0;
+        int upper = a.length - 1;
+        int curIn = 0;
+        while (true) {
+            curIn = (lower + upper) / 2;
+            if (a[curIn] == searchKey) {
+                return curIn;
+            } else if (lower > upper) {
+                return -1;
+            } else {
+                if (a[curIn] < searchKey) {
+                    lower = curIn + 1;
+                } else {
+                    upper = curIn - 1;
+                }
             }
         }
-        //隐喻i==eElem说明没有找到
-        return i;
     }
 
     public void delete(long deleteKey) {
         int index = find(deleteKey);
-        if (index == eElem) {
+        if (index == -1) {
             System.out.println("删除失败,不存在key:" + deleteKey);
         } else {
             //移动数组填洞
