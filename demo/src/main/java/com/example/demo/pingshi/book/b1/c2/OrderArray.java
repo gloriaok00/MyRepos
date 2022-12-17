@@ -1,7 +1,10 @@
 package com.example.demo.pingshi.book.b1.c2;
 
+import java.util.Random;
+import java.util.stream.IntStream;
+
 /**
- * @description
+ * @description 二分法练习
  * @date 2022/12/17 12:06
  */
 
@@ -9,50 +12,24 @@ public class OrderArray {
 
     public static void main(String[] args) {
 
-        EEArray demo = new EEArray(10);
-
-        demo.insert(1);
-        demo.insert(5);
-        demo.insert(10);
-        demo.insert(89);
-        demo.insert(123);
-        demo.insert(190);
-        demo.insert(234);
-        demo.insert(278);
-        demo.insert(478);
-        demo.insert(540);
-
-        //display elem
-        demo.display();
-        System.out.println();
-
+        EEArray demo = new EEArray();
+        demo.init(1000);
         //search elem
-        System.out.println("查找结果位置:" + demo.find(123));
+        System.out.println("查找结果位置:" + demo.find(demo.a[678]));
         System.out.println("查找结果位置:" + demo.find(111));
-
-        //delete elem
-        demo.delete(190);
-        demo.delete(98);
-
-        //display elem
-        demo.display();
 
     }
 }
 
 class EEArray {
 
-    private long[] a;
-    private int eElem;
+    public long[] a;
 
-    public EEArray(int size) {
+    public void init(int size) {
         a = new long[size];
-        eElem = 0;
-    }
-
-    public void insert(long value) {
-        a[eElem] = value;
-        eElem++;
+        Random r = new Random();
+        //bound给的范围比较大 主要是避免重复
+        a = IntStream.range(0, size).mapToLong(i -> r.nextInt(1000000)).sorted().toArray();
     }
 
     public int find(long searchKey) {
@@ -64,6 +41,7 @@ class EEArray {
             if (a[curIn] == searchKey) {
                 return curIn;
             } else if (lower > upper) {
+                //没找到
                 return -1;
             } else {
                 if (a[curIn] < searchKey) {
@@ -72,26 +50,6 @@ class EEArray {
                     upper = curIn - 1;
                 }
             }
-        }
-    }
-
-    public void delete(long deleteKey) {
-        int index = find(deleteKey);
-        if (index == -1) {
-            System.out.println("删除失败,不存在key:" + deleteKey);
-        } else {
-            //移动数组填洞
-            for (; index < eElem - 1; index++) {
-                a[index] = a[index + 1];
-            }
-            eElem--;
-            System.out.println("成功删除:" + deleteKey);
-        }
-    }
-
-    public void display() {
-        for (int i = 0; i < eElem; i++) {
-            System.out.print(a[i] + " ");
         }
     }
 
