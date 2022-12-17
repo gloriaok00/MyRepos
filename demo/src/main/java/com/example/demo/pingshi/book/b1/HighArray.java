@@ -1,95 +1,89 @@
 package com.example.demo.pingshi.book.b1;
 
-// highArray.java
-// demonstrates array class with high-level interface
-// to run this program: C>java HighArrayApp
-////////////////////////////////////////////////////////////////
-class HighArray
-   {
-   private long[] a;                 // ref to array a
-   private int nElems;               // number of data items
-   //-----------------------------------------------------------
-   public HighArray(int max)         // constructor
-      {
-      a = new long[max];                 // create the array
-      nElems = 0;                        // no items yet
-      }
-   //-----------------------------------------------------------
-   public boolean find(long searchKey)
-      {                              // find specified value
-      int j;
-      for(j=0; j<nElems; j++)            // for each element,
-         if(a[j] == searchKey)           // found item?
-            break;                       // exit loop before end
-      if(j == nElems)                    // gone to end?
-         return false;                   // yes, can't find it
-      else
-         return true;                    // no, found it
-      }  // end find()
-   //-----------------------------------------------------------
-   public void insert(long value)    // put element into array
-      {
-      a[nElems] = value;             // insert it
-      nElems++;                      // increment size
-      }
-   //-----------------------------------------------------------
-   public boolean delete(long value)
-      {
-      int j;
-      for(j=0; j<nElems; j++)        // look for it
-         if( value == a[j] )
-            break;
-      if(j==nElems)                  // can't find it
-         return false;
-      else                           // found it
-         {
-         for(int k=j; k<nElems; k++) // move higher ones down
-            a[k] = a[k+1];
-         nElems--;                   // decrement size
-         return true;
-         }
-      }  // end delete()
-   //-----------------------------------------------------------
-   public void display()             // displays array contents
-      {
-      for(int j=0; j<nElems; j++)       // for each element,
-         System.out.print(a[j] + " ");  // display it
-      System.out.println("");
-      }
-   //-----------------------------------------------------------
-   }  // end class HighArray
-////////////////////////////////////////////////////////////////
-class HighArrayApp
-   {
-   public static void main(String[] args)
-      {
-      int maxSize = 100;            // array size
-      HighArray arr;                // reference to array
-      arr = new HighArray(maxSize); // create the array
+/**
+ * @description
+ * @date 2022/12/17 12:06
+ */
 
-      arr.insert(77);               // insert 10 items
-      arr.insert(99);
-      arr.insert(44);
-      arr.insert(55);
-      arr.insert(22);
-      arr.insert(88);
-      arr.insert(11);
-      arr.insert(00);
-      arr.insert(66);
-      arr.insert(33);
+public class HighArray {
 
-      arr.display();                // display items
+    public static void main(String[] args) {
 
-      int searchKey = 35;           // search for item
-      if( arr.find(searchKey) )
-         System.out.println("Found " + searchKey);
-      else
-         System.out.println("Can't find " + searchKey);
+        EArray demo = new EArray(10);
 
-      arr.delete(00);               // delete 3 items
-      arr.delete(55);
-      arr.delete(99);
+        demo.insert(112);
+        demo.insert(45);
+        demo.insert(1);
+        demo.insert(89);
+        demo.insert(23);
+        demo.insert(90);
+        demo.insert(34);
+        demo.insert(2);
+        demo.insert(4);
+        demo.insert(40);
 
-      arr.display();                // display items again
-      }  // end main()
-   }  // end class HighArrayApp
+        //display elem
+        demo.display();
+        System.out.println();
+
+        //search elem
+        System.out.println("查找结果位置:" + demo.find(23));
+        System.out.println("查找结果位置:" + demo.find(111));
+
+        //delete elem
+        demo.delete(1);
+        demo.delete(98);
+
+        //display elem
+        demo.display();
+
+    }
+}
+
+class EArray {
+
+    private long[] a;
+    private int eElem;
+
+    public EArray(int size) {
+        a = new long[size];
+        eElem = 0;
+    }
+
+    public void insert(long value) {
+        a[eElem] = value;
+        eElem++;
+    }
+
+    public int find(long searchKey) {
+        int i = 0;
+        for (; i < eElem; i++) {
+            if (a[i] == searchKey) {
+                break;
+            }
+        }
+        //隐喻i==eElem说明没有找到
+        return i;
+    }
+
+    public void delete(long deleteKey) {
+        int index = find(deleteKey);
+        if (index == eElem) {
+            System.out.println("删除失败,不存在key:" + deleteKey);
+        } else {
+            //移动数组填洞
+            for (; index < eElem - 1; index++) {
+                a[index] = a[index + 1];
+            }
+            eElem--;
+            System.out.println("成功删除:" + deleteKey);
+        }
+    }
+
+    public void display() {
+        for (int i = 0; i < eElem; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+
+}
