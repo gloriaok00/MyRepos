@@ -12,7 +12,7 @@ public class L2 {
 
     public static void main(String[] args) throws InterruptedException {
 
-        final List<Integer> list = new ArrayList<Integer>();
+        final List<Integer> list = new ArrayList<>();
 
         // 线程A将0-10000添加到list
         new Thread(new Runnable() {
