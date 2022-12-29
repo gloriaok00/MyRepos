@@ -16,7 +16,7 @@ public class LinkedMain {
         xx.insert(3, 33.3);
         xx.find(2);
         //xx.delete();
-        //xx.display();
+        xx.display();
 
     }
 
@@ -51,21 +51,23 @@ class LinkX {
     }
 
     public void display() {
-        while (first != null) {
-            System.out.print(first.value + ", ");
-            first = first.next;
+        Node current = first;
+        while (current != null) {
+            System.out.print(current.value + ", ");
+            current = current.next;
         }
     }
 
     public Node find(int id) {
-        while (first != null) {
-            if (first.id == id) {
-                System.out.println("成功找到元素:" + first.value);
+        Node current = first;
+        while (current != null) {
+            if (current.id == id) {
+                System.out.println("成功找到元素:" + current.value);
                 break;
             }
-            first = first.next;
+            current = current.next;
         }
-        return first;
+        return current;
     }
 
 }
