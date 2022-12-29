@@ -11,12 +11,12 @@ public class LinkedMain {
     public static void main(String[] args) {
 
         LinkX xx = new LinkX();
-        xx.insert(1, 1);
-        xx.insert(2, 2);
-        xx.insert(3, 3);
-
-        xx.delete();
-        xx.display();
+        xx.insert(1, 1.12);
+        xx.insert(2, 2.2);
+        xx.insert(3, 33.3);
+        xx.find(2);
+        //xx.delete();
+        //xx.display();
 
     }
 
@@ -56,4 +56,16 @@ class LinkX {
             first = first.next;
         }
     }
+
+    public Node find(int id) {
+        while (first != null) {
+            if (first.id == id) {
+                System.out.println("成功找到元素:" + first.value);
+                break;
+            }
+            first = first.next;
+        }
+        return first;
+    }
+
 }
