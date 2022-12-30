@@ -48,20 +48,21 @@ class LinkX {
     }
 
     public void delete(int id) {
-        Node current = first;              // search for link
+        Node current = first;
         Node previous = first;
         while (current.id != id) {
-            if (current.next == null)
-                return;                 // didn't find it
-            else {
-                previous = current;          // go to next link
+            if (current.next == null) {
+                return;
+            } else {
+                previous = current;
                 current = current.next;
             }
-        }                               // found it
-        if (current == first)               // if first link,
-            first = first.next;             //    change first
-        else                               // otherwise,
-            previous.next = current.next;   //    bypass it
+        }
+        if (current == first) {
+            first = first.next;
+        } else {
+            previous.next = current.next;
+        }
         System.out.println("成功删除1个元素");
     }
 
