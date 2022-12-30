@@ -14,8 +14,10 @@ public class LinkedMain {
         xx.insert(1, 1.12);
         xx.insert(2, 2.2);
         xx.insert(3, 33.3);
+        xx.insert(4, 44.09);
+        xx.insert(5, 555);
         xx.find(2);
-        //xx.delete();
+        xx.delete(3);
         xx.display();
 
     }
@@ -45,8 +47,21 @@ class LinkX {
         first = x;
     }
 
-    public void delete() {
-        first = first.next;
+    public void delete(int id) {
+        Node current = first;              // search for link
+        Node previous = first;
+        while (current.id != id) {
+            if (current.next == null)
+                return;                 // didn't find it
+            else {
+                previous = current;          // go to next link
+                current = current.next;
+            }
+        }                               // found it
+        if (current == first)               // if first link,
+            first = first.next;             //    change first
+        else                               // otherwise,
+            previous.next = current.next;   //    bypass it
         System.out.println("成功删除1个元素");
     }
 
