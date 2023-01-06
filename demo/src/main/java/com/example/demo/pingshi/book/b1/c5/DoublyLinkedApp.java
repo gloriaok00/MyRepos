@@ -23,6 +23,15 @@ public class DoublyLinkedApp {
         demo.insertLast(8);
         demo.deleteLast();
         demo.displayBackward();
+        System.out.println("========");
+        demo.deleteKey(3);
+        demo.displayBackward();
+        System.out.println("========");
+        demo.deleteKey(7);
+        demo.displayBackward();
+        System.out.println("========");
+        demo.deleteKey(1);
+        demo.displayBackward();
 
     }
 }
@@ -84,6 +93,23 @@ class DoublyLink {
             current = current.previous;
             current.next = null;
             last = current;
+        }
+    }
+
+    public void deleteKey(int data) {
+        XLink current = first;
+        while (current.data != data) {
+            current = current.next;
+        }
+        if (current == first) {
+            first = first.next;
+        } else {
+            current.previous.next = current.next;
+        }
+        if (current == last) {
+            last = last.previous;
+        } else {
+            current.next.previous = current.previous;
         }
     }
 
