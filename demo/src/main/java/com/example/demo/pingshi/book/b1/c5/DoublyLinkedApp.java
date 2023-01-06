@@ -14,12 +14,14 @@ public class DoublyLinkedApp {
         demo.insertFirst(2);
         demo.insertFirst(3);
         demo.insertFirst(4);
+        demo.deleteFirst();
+        demo.displayForward();
+        System.out.println("========");
+
         demo.insertLast(6);
         demo.insertLast(7);
         demo.insertLast(8);
-
-        demo.displayForward();
-        System.out.println("========");
+        demo.deleteLast();
         demo.displayBackward();
 
     }
@@ -60,6 +62,28 @@ class DoublyLink {
             last.next = newLink;
             newLink.previous = last;
             last = newLink;
+        }
+    }
+
+    public void deleteFirst() {
+        XLink current = first;
+        if (first == null) {
+            return;
+        } else {
+            current = current.next;
+            current.previous = null;
+            first = current;
+        }
+    }
+
+    public void deleteLast() {
+        XLink current = last;
+        if (last == null) {
+            return;
+        } else {
+            current = current.previous;
+            current.next = null;
+            last = current;
         }
     }
 
