@@ -46,23 +46,23 @@ class DoublyLink {
     public void insertFirst(int data) {
         XLink newLink = new XLink(data);
         if (first == null) {
-            first = newLink;
+            last = newLink;
         } else {
             first.previous = newLink;
-            newLink.next = first;
-            first = newLink;
         }
+        newLink.next = first;
+        first = newLink;
     }
 
     public void insertLast(int data) {
         XLink newLink = new XLink(data);
         if (last == null) {
-            last = newLink;
+            first = newLink;
         } else {
             last.next = newLink;
             newLink.previous = last;
-            last = newLink;
         }
+        last = newLink;
     }
 
     public void deleteFirst() {
