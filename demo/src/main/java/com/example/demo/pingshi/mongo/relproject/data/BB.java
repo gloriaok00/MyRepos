@@ -23,7 +23,8 @@ import java.util.UUID;
 public class BB {
 
     @SneakyThrows
-    public static void main(String[] args) {
+    @Test
+    public void kk() {
 
         MongoClient client = new MongoClient("localhost:27017");
         MongoDatabase iotdb = client.getDatabase("Foo");
@@ -42,8 +43,20 @@ public class BB {
         doc.put("partNumber", "S10.41.1001G-Z");
         //batchType
         doc.put("batchType", 1);
+        //检测人
+        doc.put("inspector", "JJZ03");
+        //核验人
+        doc.put("verifier", "JJZ02");
+        //设备名称
+        doc.put("deviceName", "三坐标测量机");
+        //型号/规格
+        doc.put("deviceModel", "GLOBAL STATUS 9.9.8");
+        //温度
+        doc.put("temperature", 21.2);
+        //相对湿度
+        doc.put("humidity", 39);
 
-        iotdb.getCollection("test").insertOne(doc);
+        iotdb.getCollection("task").insertOne(doc);
 
     }
 
@@ -67,20 +80,6 @@ public class BB {
             doc.put("$set", set);
             iotdb.getCollection("task").updateOne(query, doc);
         });
-       /* //insert data
-        Document doc = new Document();
-        Binary bb = new Binary((byte) 3, UuidHelper.encodeUuidToBinary(UUID.randomUUID(), UuidRepresentation.JAVA_LEGACY));
-        doc.put("_id", bb);
-        //taskNumber
-        doc.put("taskNumber", "22-11-11");
-        //batchNumberDown
-        doc.put("batchNumberDown", "22-11-11");
-        //partName
-        doc.put("partName", "斜支板承力框架_铸件");
-        //partNumber
-        doc.put("partNumber", "S10.41.1001G-Z");
-        //batchType
-        doc.put("batchType", 1);*/
 
     }
 
