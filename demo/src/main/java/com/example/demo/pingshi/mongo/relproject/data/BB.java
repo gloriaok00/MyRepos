@@ -6,6 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.bson.Document;
+import org.bson.UuidRepresentation;
+import org.bson.internal.UuidHelper;
+import org.bson.types.Binary;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,6 +18,7 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @description 录入新批次
@@ -169,7 +174,21 @@ public class BB {
             for (int i = 21; i <= map.size(); i++) {
                 System.out.println(map.get(i));
                 //insert data
-              /*  Document doc = new Document();
+                Document doc = new Document();
+                Binary bb = new Binary((byte) 3, UuidHelper.encodeUuidToBinary(UUID.randomUUID(), UuidRepresentation.JAVA_LEGACY));
+                doc.put("_id", bb);
+                //taskNumber
+                doc.put("taskNumber", "22-11-11");
+                //batchNumberDown
+                doc.put("batchNumberDown", "22-11-11");
+                //partName
+                doc.put("partName", "22-11-11");
+                //partNumber
+                doc.put("partNumber", "22-11-11");
+                //batchType
+                doc.put("batchType", "22-11-11");
+
+
                 //name
                 doc.put("name", map.get(i).get(0));
                 //type
@@ -177,20 +196,14 @@ public class BB {
                 String name = map.get(i).get(0).toString();
                 int code = 0;
                 doc.put("code", code);
-                //taskNumber
-                doc.put("taskNumber", "22-11-11");
                 //value
                 doc.put("value", Double.parseDouble(map.get(i).get(1).toString()));
-                //pdate
-                //2022-10-27T07:30:49.000Z
-                DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date date = fmt.parse("2022-10-28 15:30:49");
-                doc.put("pdate", date);
+
                 //sn
                 if (name.contains("A") || name.contains("S")) {
                     doc.put("sn", Integer.parseInt(name.substring(0, 1)));
                 }
-                System.out.println("zz:" + doc.toJson());*/
+                System.out.println("zz:" + doc.toJson());
                 //iotdb.getCollection("cmm").insertOne(doc);
             }
         } catch (FileNotFoundException e) {
