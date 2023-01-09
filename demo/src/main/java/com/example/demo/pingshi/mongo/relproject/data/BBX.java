@@ -20,7 +20,7 @@ import java.util.UUID;
  */
 
 @Slf4j
-public class BB {
+public class BBX {
 
     @SneakyThrows
     @Test
@@ -36,25 +36,25 @@ public class BB {
         //taskNumber
         doc.put("taskNumber", "22-11-11");
         //batchNumberDown
-        doc.put("batchNumberDown", "22-11-11");
+        doc.put("batchNumberDown", "22KG97G9 4/3");
         //partName
         doc.put("partName", "斜支板承力框架_铸件");
         //partNumber
         doc.put("partNumber", "S10.41.1001G-Z");
         //batchType
-        doc.put("batchType", 1);
+        doc.put("batchType", 2);
         //检测人
-        doc.put("inspector", "JJZ03");
+        doc.put("inspector", "JJZ01");
         //核验人
-        doc.put("verifier", "JJZ02");
+        doc.put("verifier", "JJZ03");
         //设备名称
         doc.put("deviceName", "三坐标测量机");
         //型号/规格
-        doc.put("deviceModel", "GLOBAL STATUS 9.9.8");
+        doc.put("deviceModel", "GLOBAL ADVANTAGE15.22.10");
         //温度
-        doc.put("temperature", 21.2);
+        doc.put("temperature", 21.9);
         //相对湿度
-        doc.put("humidity", 39);
+        doc.put("humidity", 37);
 
         iotdb.getCollection("task").insertOne(doc);
 
