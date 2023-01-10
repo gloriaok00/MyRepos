@@ -13,10 +13,11 @@ public class BinaryTreeDemo {
         tree.insert(2);
         tree.insert(3);
         tree.insert(4);
-        tree.inOrder(tree.root);
-        System.out.println();
-        tree.find(2);
-        tree.delete(4);
+        tree.insert(5);
+        //tree.inOrder(tree.root);
+        //System.out.println();
+        //tree.find(2);
+        tree.delete(3);
         tree.inOrder(tree.root);
     }
 }
@@ -111,15 +112,33 @@ class Tree {
             }
         }
 
-        if (current == root) {
-            root = null;
-            System.out.println("树为空");
-        } else if (isLeft) {
-            parent.left = null;
-            System.out.println("删除左节点成功");
-        } else {
-            parent.right = null;
-            System.out.println("删除右节点成功");
+        if (current.left == null && current.right == null) {
+            if (current == root) {
+                root = null;
+                System.out.println("树为空");
+            } else if (isLeft) {
+                parent.left = null;
+                System.out.println("删除左节点成功");
+            } else {
+                parent.right = null;
+                System.out.println("删除右节点成功");
+            }
+        } else if (current.right == null) {
+            if (current == root) {
+                root = current.left;
+            } else if (isLeft) {
+                parent.left=current.left;
+            } else {
+                parent.right=current.left;
+            }
+        } else if (current.left == null) {
+            if (current == root) {
+                root = current.right;
+            } else if (isLeft) {
+                parent.left=current.right;
+            } else {
+                parent.right=current.right;
+            }
         }
 
     }
