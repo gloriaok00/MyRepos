@@ -16,6 +16,8 @@ public class BinaryTreeDemo {
         tree.inOrder(tree.root);
         System.out.println();
         tree.find(2);
+        tree.delete(4);
+        tree.inOrder(tree.root);
     }
 }
 
@@ -88,6 +90,38 @@ class Tree {
             System.out.print(current.data + ",");
             inOrder(current.right);
         }
+    }
+
+    public void delete(int data) {
+        Node current = root;
+        Node parent = root;
+        boolean isLeft = true;
+        while (current.data != data) {
+            parent = current;
+            if (data < current.data) {
+                isLeft = true;
+                current = current.left;
+            } else if (data > current.data) {
+                isLeft = false;
+                current = current.right;
+            }
+            if (current == null) {
+                System.out.println("没有找到");
+                break;
+            }
+        }
+
+        if (current == root) {
+            root = null;
+            System.out.println("树为空");
+        } else if (isLeft) {
+            parent.left = null;
+            System.out.println("删除左节点成功");
+        } else {
+            parent.right = null;
+            System.out.println("删除右节点成功");
+        }
+
     }
 
 }
