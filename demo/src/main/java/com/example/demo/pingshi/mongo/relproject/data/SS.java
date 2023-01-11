@@ -158,8 +158,8 @@ public class SS {
 
     public static void main(String[] args) {
         try {
-            String filepath = "/Users/zhangyu/Desktop/zhi/三坐标铸件数据_0103.xlsx";
-            EEEE excelReader = new EEEE(filepath);
+            String filepath = "/Users/zhangyu/Desktop/test011.xlsx";
+            SS excelReader = new SS(filepath);
             // 对读取Excel表格标题测试
 //			String[] title = excelReader.readExcelTitle();
 //			System.out.println("获得Excel表格的标题:");
@@ -206,7 +206,7 @@ public class SS {
                     doc.put("sn", Integer.parseInt(name.substring(0, 1)));
                 }
                 //System.out.println("zz:" + doc.toJson());
-                iotdb.getCollection("cmm").insertOne(doc);
+                iotdb.getCollection("test").insertOne(doc);
             }
         } catch (FileNotFoundException e) {
             System.out.println("未找到指定路径的文件!");
