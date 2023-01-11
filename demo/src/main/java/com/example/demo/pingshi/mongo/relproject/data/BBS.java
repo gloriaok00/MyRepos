@@ -34,27 +34,27 @@ public class BBS {
         Binary bb = new Binary((byte) 3, UuidHelper.encodeUuidToBinary(UUID.randomUUID(), UuidRepresentation.JAVA_LEGACY));
         doc.put("_id", bb);
         //taskNumber
-        doc.put("taskNumber", "22-11-11");
+        doc.put("taskNumber", "22-10-18");
         //batchNumberDown
-        doc.put("batchNumberDown", "22KG97G9 4/3");
+        doc.put("batchNumberDown", "22-10-18");
         //partName
         doc.put("partName", "斜支板承力框架_铸件");
         //partNumber
         doc.put("partNumber", "S10.41.1001G-Z");
         //batchType
-        doc.put("batchType", 2);
+        doc.put("batchType", 1);
         //检测人
-        doc.put("inspector", "JJZ01");
+        doc.put("inspector", "JJZ03");
         //核验人
-        doc.put("verifier", "JJZ03");
+        doc.put("verifier", "JJZ02");
         //设备名称
         doc.put("deviceName", "三坐标测量机");
         //型号/规格
         doc.put("deviceModel", "GLOBAL ADVANTAGE15.22.10");
         //温度
-        doc.put("temperature", 21.9);
+        doc.put("temperature", 23.2);
         //相对湿度
-        doc.put("humidity", 37);
+        doc.put("humidity", 32);
 
         iotdb.getCollection("task").insertOne(doc);
 
