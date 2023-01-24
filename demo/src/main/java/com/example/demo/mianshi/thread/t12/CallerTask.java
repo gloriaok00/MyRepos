@@ -5,7 +5,6 @@ import lombok.SneakyThrows;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
-//创建任务类，类似Runable
 public class CallerTask implements Callable<String> {
 
     @Override
