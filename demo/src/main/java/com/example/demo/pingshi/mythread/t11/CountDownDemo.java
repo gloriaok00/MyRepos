@@ -5,21 +5,21 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownDemo {
 
     public static void main(String[] args) throws Exception {
-        //定义线程数
-        int subThreadNum = 5;
-        //取得一个倒计时器，从5开始
-        CountDownLatch countDownLatch = new CountDownLatch(subThreadNum);
-        //依次创建5个线程，并启动
-        for (int i = 0; i < subThreadNum; i++) {
-            new SubThread(2000*(i+1), countDownLatch).start();
-        }
-        //主线程工作
+        int sum = 5;
+        CountDownLatch latch = new CountDownLatch(sum);
+        Long time = 3000L;
+        System.out.println("main keeping..");
         mainWork();
-        //等待所有的子线程结束
-        countDownLatch.await();
-        System.out.println("Main Done!");
+        for (int i = 0; i < sum; i++) {
+            Thread xx=new SubThread(time, latch);
+            xx.start();
+        }
+        latch.await();
+        System.out.println("main ends");
+
     }
-    private static void mainWork(){
+
+    private static void mainWork() {
         System.out.println("Main thread start work!");
         try {
             Thread.sleep(2000L);
@@ -29,16 +29,16 @@ public class CountDownDemo {
         }
         System.out.println("Main Thread work done!");
     }
+
     /**
      * 子线程类
-     * @author fuhg
      */
-    private static class SubThread extends Thread{
+    private static class SubThread extends Thread {
 
         private CountDownLatch countDownLatch;
         private long workTime;
 
-        public SubThread(long workTime,CountDownLatch countDownLatch){
+        public SubThread(long workTime, CountDownLatch countDownLatch) {
             this.workTime = workTime;
             this.countDownLatch = countDownLatch;
         }
