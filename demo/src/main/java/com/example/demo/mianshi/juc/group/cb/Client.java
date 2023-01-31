@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class Client {
 
     public static void main(String[] args) throws Exception {
-
+        //第二个参数的意思是都达到条件后 要执行的东西
         CyclicBarrier cyclicBarrier = new CyclicBarrier(3, new TourGuideTask());
         Executor executor = Executors.newFixedThreadPool(3);
         //登哥最大牌，到的最晚
