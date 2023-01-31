@@ -47,14 +47,12 @@ public class CountDownDemo {
             // TODO Auto-generated method stub
             try {
                 System.out.println("Sub thread is starting!");
+                countDownLatch.countDown();
                 Thread.sleep(workTime);
                 System.out.println("Sub thread is stopping!");
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            } finally {
-                //线程结束时，将计时器减一
-                countDownLatch.countDown();
             }
         }
     }
