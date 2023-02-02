@@ -1,7 +1,5 @@
 package com.example.demo.mianshi.juc.blockqueue;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -15,7 +13,6 @@ public class LianXi4 {
     }
 }
 
-@Slf4j
 class MyRunnable implements Runnable {
     int id;
 
