@@ -5,10 +5,11 @@ import java.util.concurrent.ArrayBlockingQueue;
 /**
  * @description queue add vs offer
  * 终于有时间把queue的api深入的看一下 也是现在学完了数据结构了后才有效果
+ * add remove element看源码后就知道了 他们是故意抛出的异常
  * @date 2023/2/3 10:16
  */
 
-public class QueueTest {
+public class QueueApi {
 
     public static void main(String[] args) {
         ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
@@ -18,6 +19,17 @@ public class QueueTest {
             //offer方法若超出数量后返回false
             System.out.println(queue.offer(i));
         }
-        System.out.println(queue.size());
+        System.out.println("当前queue容量:" + queue.size());
+        for (int i = 1; i <= 15; i++) {
+            //remove抛异常
+            //queue.remove();
+            //poll返回null
+            System.out.println(queue.poll());
+        }
+        System.out.println("当前queue容量:" + queue.size());
+        //element抛异常
+        //queue.element();
+        //peek返回null
+        System.out.println(queue.peek());
     }
 }
