@@ -2,10 +2,11 @@ package com.example.demo.mianshi.juc.group;
 
 import java.util.concurrent.CyclicBarrier;
 
+
 /**
- * @author zhangyu
+ * @description 刚来北京时的理解 不深刻
+ * @date 2023/2/3 11:42
  * @date 2019-09-14 15:22
- * @despcrtion 加法
  */
 public class MyCyclicBarrier {
 
@@ -20,6 +21,7 @@ public class MyCyclicBarrier {
                 System.out.println("搜集神龙" + temp + "成功");
                 try {
                     cyclicBarrier.await();
+                    System.out.println(temp + "在总的完事后继续运行");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

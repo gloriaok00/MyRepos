@@ -3,9 +3,9 @@ package com.example.demo.mianshi.juc.group;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author zhangyu
- * @date 2019-09-14 14:06
- * @despcrtion 减法
+ *  @description 刚来北京时的理解 不深刻
+ *  @date  2023/2/3 11:44
+ *  @date  2019-09-14 14:06
  */
 public class MyCountDownLatch {
     public static void main(String[] args) throws Exception {
