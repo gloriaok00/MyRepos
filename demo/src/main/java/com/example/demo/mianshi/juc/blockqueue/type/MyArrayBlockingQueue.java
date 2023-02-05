@@ -1,4 +1,4 @@
-package com.example.demo.mianshi.juc.blockqueue;
+package com.example.demo.mianshi.juc.blockqueue.type;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;

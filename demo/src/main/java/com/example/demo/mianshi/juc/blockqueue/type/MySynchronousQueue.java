@@ -10,14 +10,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class MySynchronousQueue {
     public static void main(String[] args) {
-        SynchronousQueue syncQueue = new SynchronousQueue();
+
+        SynchronousQueue<String> syncQueue = new SynchronousQueue<>();
         new Thread(() -> {
             try {
-                System.out.println("A放进来了");
+                System.out.println("放A");
                 syncQueue.put("A");
-                System.out.println("B放进来了");
+                System.out.println("放B");
                 syncQueue.put("B");
-                System.out.println("C进来了");
+                System.out.println("放C");
                 syncQueue.put("C");
             } catch (Exception e) {
                 e.printStackTrace();
