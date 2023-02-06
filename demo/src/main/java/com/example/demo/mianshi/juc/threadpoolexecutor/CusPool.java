@@ -3,24 +3,22 @@ package com.example.demo.mianshi.juc.threadpoolexecutor;
 import java.util.concurrent.*;
 
 /**
- * @author zhangyu
- * @date 2019-09-15 17:19
+ *  @description 也是之前的东西 现在在练习
+ *  @date  2019-09-15 17:19
+ *  @date  2023/2/6 20:50
  */
-public class Demo {
+public class CusPool {
     public static void main(String[] args) {
-        //ExecutorService pool= Executors.newFixedThreadPool(5);
-        //ExecutorService pool= Executors.newSingleThreadExecutor();
-        //ExecutorService pool= Executors.newCachedThreadPool();
         ExecutorService pool = new ThreadPoolExecutor(
-                2,
-                5,
-                1L,
+                40,
+                50,
+                60L,
                 TimeUnit.SECONDS,
-                new LinkedBlockingQueue<>(3),
+                new LinkedBlockingQueue<>(300),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy());
         try {
-            for (int i = 1; i <= 100; i++) {
+            for (int i = 1; i <= 10000; i++) {
                 final int temp = i;
                 pool.execute(new Thread(() -> {
                     Thread currentThread = Thread.currentThread();
