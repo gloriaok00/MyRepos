@@ -28,6 +28,7 @@ public class MyCallable {
         int result2 = 100;
         int result1 = futureTask.get();
         System.out.println(result1 + result2);
+        pool.shutdown();
     }
 
 }
