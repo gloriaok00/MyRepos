@@ -33,8 +33,7 @@ public class TL3 {
         //这里要是不注释的话，相当于同步取回了
         //Integer result=future.get();
         System.out.println("main函数执行结束");
-
-        System.in.read();
+        executor.shutdown();
 
     }
 
