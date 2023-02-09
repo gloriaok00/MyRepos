@@ -15,6 +15,7 @@ public class FixPool {
         for (int i = 1; i <= 20; i++) {
             executorService.execute(new rr(i));
         }
+        executorService.shutdown();
     }
 
 }
