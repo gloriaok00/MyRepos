@@ -1,6 +1,6 @@
 package com.example.demo.pingshi.classloader.cl3;
 
-import groovy.sql.GroovyResultSetExtension;
+//import groovy.sql.GroovyResultSetExtension;
 
 /**
  * @author zhangyu
@@ -13,9 +13,9 @@ import groovy.sql.GroovyResultSetExtension;
 public class HMain {
 
     public static void main(String[] args) {
-        ClassLoader xx = GroovyResultSetExtension.class.getClassLoader();
+        /*ClassLoader xx = GroovyResultSetExtension.class.getClassLoader();
         if (xx != null) {
             System.out.println(xx);
-        }
+        }*/
     }
 }

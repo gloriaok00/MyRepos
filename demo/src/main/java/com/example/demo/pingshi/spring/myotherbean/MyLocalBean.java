@@ -1,6 +1,6 @@
 package com.example.demo.pingshi.spring.myotherbean;
 
-import org.example.config.OtherJarBean;
+//import org.example.config.OtherJarBean;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,12 +13,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class MyLocalBean {
 
-    @Autowired
+   /* @Autowired
     private OtherJarBean aaa;
 
     @Test
     public void show() {
         System.out.println(aaa.a);
-    }
+    }*/
 
 }
