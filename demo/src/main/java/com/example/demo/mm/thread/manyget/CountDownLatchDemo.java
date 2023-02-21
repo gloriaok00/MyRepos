@@ -12,21 +12,20 @@ import java.util.concurrent.*;
 
 public class CountDownLatchDemo {
 
-
     public static void main(String[] args) throws InterruptedException {
         List<RestResult<Integer>> vector = new Vector();
         CountDownLatch latch = new CountDownLatch(3);
-
-        WorkThread w1=new WorkThread(1000,"线程1",latch,vector);
-        WorkThread w2=new WorkThread(2000,"线程2",latch,vector);
-        WorkThread w3=new WorkThread(3000,"线程3",latch,vector);
-        w1.start();
-        w2.start();
-        w3.start();
+        ExecutorService pool = Executors.newFixedThreadPool(3);
+        WorkThread w1 = new WorkThread(1000, "线程1", latch, vector);
+        WorkThread w2 = new WorkThread(2000, "线程2", latch, vector);
+        WorkThread w3 = new WorkThread(3000, "线程3", latch, vector);
+        pool.submit(w1);
+        pool.submit(w2);
+        pool.submit(w3);
         latch.await();
         System.out.println("主线程已取回所有结果");
         for (RestResult<Integer> temp : vector) {
-            System.out.println("结果:"+temp.getData());
+            System.out.println("结果:" + temp.getData());
         }
     }
 }
