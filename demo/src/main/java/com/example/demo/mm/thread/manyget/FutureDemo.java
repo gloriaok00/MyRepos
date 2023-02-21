@@ -1,4 +1,4 @@
-package com.example.demo.mm.thread.future;
+package com.example.demo.mm.thread.manyget;
 
 import java.util.ArrayList;
 import java.util.List;
