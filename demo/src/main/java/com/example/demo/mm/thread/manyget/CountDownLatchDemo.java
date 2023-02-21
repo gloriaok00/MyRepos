@@ -27,6 +27,7 @@ public class CountDownLatchDemo {
         for (RestResult<Integer> temp : vector) {
             System.out.println("结果:" + temp.getData());
         }
+        pool.shutdown();
     }
 }
 
