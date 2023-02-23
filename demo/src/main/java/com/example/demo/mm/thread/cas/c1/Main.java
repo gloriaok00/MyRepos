@@ -1,5 +1,6 @@
-package com.example.demo.mm.thread.cas;
+package com.example.demo.mm.thread.cas.c1;
 
+import com.example.demo.mm.thread.cas.c1.Account;
 import org.junit.Test;
 
 import java.util.concurrent.*;

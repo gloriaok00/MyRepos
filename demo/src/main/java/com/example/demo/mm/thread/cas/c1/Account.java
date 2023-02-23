@@ -1,4 +1,4 @@
-package com.example.demo.mm.thread.cas;
+package com.example.demo.mm.thread.cas.c1;
 
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
