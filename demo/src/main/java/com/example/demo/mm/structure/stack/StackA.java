@@ -1,7 +1,7 @@
 package com.example.demo.mm.structure.stack;
 
 /**
- * @description
+ * @description 数组实现栈
  * @date 2023/2/25 21:53
  */
 
