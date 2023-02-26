@@ -5,7 +5,7 @@ package com.example.demo.mm.structure.queue;
  * @date 2023/2/26 00:36
  */
 
-public class Queue {
+public class QueueA {
 
     private int front;
     private int rear;
@@ -46,7 +46,7 @@ public class Queue {
 
     public static void main(String[] args) {
 
-        Queue queue = new Queue();
+        QueueA queue = new QueueA();
         queue.offer(1);
         queue.offer(2);
         queue.offer(3);
