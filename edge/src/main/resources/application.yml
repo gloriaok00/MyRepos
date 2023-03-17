@@ -15,8 +15,3 @@ sl:
   mongodb:
     ip: 127.0.0.1
     port: 27017
-    replicated-name: rs0
-    #60*60*1000 1hour
-    max-connection-idle-time: 3600000
-    active-replicate: false
-    application-name: iot-back-api-mongodb
