@@ -1,4 +1,4 @@
-package org.example.edge;
+package org.example.edge.pojo;
 
 /**
  * 常用API返回对象

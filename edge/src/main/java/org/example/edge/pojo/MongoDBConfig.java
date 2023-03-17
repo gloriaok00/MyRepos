@@ -1,4 +1,4 @@
-package org.example.edge;
+package org.example.edge.pojo;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;

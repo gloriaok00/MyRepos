@@ -1,4 +1,4 @@
-package org.example.edge;
+package org.example.edge.rest;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
@@ -7,6 +7,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Aggregates;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
+import org.example.edge.pojo.MongoDBConfig;
+import org.example.edge.pojo.MxDom4jXml;
+import org.example.edge.pojo.MxXmlRequest;
 import org.springframework.stereotype.Service;
 import org.wso2.carbon.siddhi.editor.core.util.designview.beans.EventFlow;
 import org.wso2.carbon.siddhi.editor.core.util.designview.deserializers.DeserializersRegisterer;

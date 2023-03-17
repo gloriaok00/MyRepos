@@ -1,8 +1,9 @@
-package org.example.edge;
+package org.example.edge.pojo;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.example.edge.pojo.SiddhiItemEnum;
 import org.wso2.carbon.siddhi.editor.core.util.designview.beans.EventFlow;
 import org.wso2.carbon.siddhi.editor.core.util.designview.beans.configs.Edge;
 import org.wso2.carbon.siddhi.editor.core.util.designview.beans.configs.SiddhiAppConfig;

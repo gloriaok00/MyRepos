@@ -1,4 +1,4 @@
-package org.example.edge;
+package org.example.edge.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

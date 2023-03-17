@@ -1,6 +1,8 @@
-package org.example.edge;
+package org.example.edge.rest;
 
 import com.alibaba.fastjson.JSONObject;
+import org.example.edge.pojo.CommonResult;
+import org.example.edge.pojo.MxXmlRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
