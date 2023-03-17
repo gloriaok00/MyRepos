@@ -1,0 +1,22 @@
+server:
+  port: 8989
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    username: root
+    password: '!Qazxsw2'
+    url: jdbc:mysql://localhost:3306/employees
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+sl:
+  mongodb:
+    ip: 127.0.0.1
+    port: 27017
+    replicated-name: rs0
+    #60*60*1000 1hour
+    max-connection-idle-time: 3600000
+    active-replicate: false
+    application-name: iot-back-api-mongodb
