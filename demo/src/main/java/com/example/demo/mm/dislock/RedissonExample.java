@@ -15,7 +15,7 @@ import java.util.concurrent.CountDownLatch;
 
 public class RedissonExample implements Runnable{
 
-    CountDownLatch latch=new CountDownLatch(3);
+    CountDownLatch latch;
     Config config;
     RedissonClient redisson;
     RAtomicLong counter;
@@ -25,6 +25,7 @@ public class RedissonExample implements Runnable{
         config.useSingleServer().setAddress("redis://127.0.0.1:6379");
         this.redisson = Redisson.create(config);
         this.counter = redisson.getAtomicLong("count3");
+        this.latch=new CountDownLatch(3);
     }
 
     @SneakyThrows
@@ -37,9 +38,7 @@ public class RedissonExample implements Runnable{
         t1.start();
         t2.start();
         t3.start();
-        t1.join();
-        t2.join();
-        t3.join();
+        example.latch.await();
         // 打印递增后的计数器值
         System.out.println("Counter value: " + example.counter.get());
 
@@ -53,5 +52,6 @@ public class RedissonExample implements Runnable{
         for (int i = 1; i <= 99; i++) {
             counter.incrementAndGet();
         }
+        latch.countDown();
     }
 }
