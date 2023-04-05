@@ -15,14 +15,14 @@ public class WorkThread extends Thread{
     private int sleepTime;
     private String threadName;
     private CountDownLatch latch;
-    private List<RestResult<Integer>> vector;
+    private List<RestResult<Integer>> list;
 
     @Override
     public void run() {
         try {
             Thread.sleep(sleepTime);
             int number = Integer.parseInt(threadName.substring(2));
-            vector.add(new RestResult<>(number, 200, "成功"));
+            list.add(new RestResult<>(number, 200, "成功"));
             System.out.println(threadName + "已返回结果");
             latch.countDown();
         } catch (InterruptedException e) {
