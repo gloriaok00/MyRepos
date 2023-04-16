@@ -34,7 +34,7 @@ public class Kuaipai {
     }
 
     public static void main(String[] args) {
-        int[] a = {13, 22, 130, 4, 51, 69, 101, 2, 90};
+        int[] a = {13, 3, 130, 4, 51, 69, 101, 2, 90};
         sort(a, 0, 8);
         for (int i = 0; i < a.length - 1; i++) {
             System.out.println(a[i]);
