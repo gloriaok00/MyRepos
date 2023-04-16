@@ -8,13 +8,13 @@ public class Kuaipai {
 
     public static void sort(int[] arr, int left, int right) {
         if (left < right) {
-            int c = partition(arr, left, right);
+            int c = part(arr, left, right);
             sort(arr, left, c - 1);
             sort(arr, c + 1, right);
         }
     }
 
-    private static int partition(int[] arr, int left, int right) {
+    public static int part(int[] arr, int left, int right) {
         int c = left;
         int cv = arr[left];
         for (int i = left + 1; i <= right; i++) {
