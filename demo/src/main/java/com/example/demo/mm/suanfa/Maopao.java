@@ -1,7 +1,7 @@
 package com.example.demo.mm.suanfa;
 
 /**
- * @description
+ * @description  冒泡的思想是每次把最大的往后放
  * @date 2023/4/16 10:00
  */
 
