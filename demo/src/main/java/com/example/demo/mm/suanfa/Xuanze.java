@@ -1,7 +1,8 @@
 package com.example.demo.mm.suanfa;
 
 /**
- * @description
+ * @description 首先遍历整个数组，记录当前未排序部分中的最小值，
+ * 然后将最小值与当前未排序部分的首位元素进行交换。
  * @date 2023/4/16 10:00
  */
 
