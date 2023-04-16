@@ -8,23 +8,23 @@ public class Kuaipai {
 
     public static void sort(int[] arr, int left, int right) {
         if (left < right) {
-            int pivotIndex = partition(arr, left, right);
-            sort(arr, left, pivotIndex - 1);
-            sort(arr, pivotIndex + 1, right);
+            int c = partition(arr, left, right);
+            sort(arr, left, c - 1);
+            sort(arr, c + 1, right);
         }
     }
 
     private static int partition(int[] arr, int left, int right) {
-        int pivotIndex = left;
+        int c = left;
         int pivotValue = arr[left];
         for (int i = left + 1; i <= right; i++) {
             if (arr[i] < pivotValue) {
-                pivotIndex++;
-                swap(arr, i, pivotIndex);
+                c++;
+                swap(arr, i, c);
             }
         }
-        swap(arr, left, pivotIndex);
-        return pivotIndex;
+        swap(arr, left, c);
+        return c;
     }
 
     private static void swap(int[] arr, int i, int j) {
