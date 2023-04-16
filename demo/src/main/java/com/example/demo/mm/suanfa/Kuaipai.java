@@ -16,9 +16,9 @@ public class Kuaipai {
 
     private static int partition(int[] arr, int left, int right) {
         int c = left;
-        int pivotValue = arr[left];
+        int cv = arr[left];
         for (int i = left + 1; i <= right; i++) {
-            if (arr[i] < pivotValue) {
+            if (arr[i] < cv) {
                 c++;
                 swap(arr, i, c);
             }
