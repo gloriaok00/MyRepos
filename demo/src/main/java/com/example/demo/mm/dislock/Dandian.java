@@ -27,24 +27,26 @@ public class Dandian implements Runnable {
 
     @Override
     public void run() {
+        String id = Thread.currentThread().getName();
+        String idStr = "1号机器" + id+"，";
         try {
             // 尝试加锁，等待时间为10秒，锁持有时间为60秒
             boolean isLocked = lock.tryLock(10, 60, TimeUnit.SECONDS);
             while (!isLocked) {
                 // 没抢着锁，就歇一会，然后继续抢
-                System.out.println(Thread.currentThread().getId() + "没抢着锁，就歇一会，然后继续抢");
+                System.out.println(idStr + "没抢着锁，就歇一会，然后继续抢");
                 Thread.sleep(100);
             }
             // 成功获取到锁
-            System.out.println(Thread.currentThread().getId() + "抢到锁了，模拟执行业务逻辑...");
+            System.out.println(idStr + "抢到锁了，模拟执行业务逻辑...");
             Thread.sleep(500);
-            System.out.println(Thread.currentThread().getId()+"成功执行完了，准备释放锁");
+            System.out.println(idStr + "成功执行完了，准备释放锁");
         } catch (InterruptedException e) {
             // 锁获取过程中被中断
             System.out.println("获取锁过程中被中断");
         } finally {
             // 释放锁
-            System.out.println(Thread.currentThread().getId()+"释放锁了");
+            System.out.println(idStr + "释放锁了");
             lock.unlock();
         }
 
@@ -53,11 +55,13 @@ public class Dandian implements Runnable {
     }
 
     public static void main(String[] args) {
-        Dandian t1=new Dandian();
+        Dandian t1 = new Dandian();
         t1.init();
         System.out.println("开始抢锁：");
-        for (int i = 0; i < 30; i++) {
-            new Thread(t1).start();
+        for (int i = 0; i < 10; i++) {
+            Thread t=new Thread(t1);
+            t.setName(String.valueOf(i));
+            t.start();
         }
 
     }
