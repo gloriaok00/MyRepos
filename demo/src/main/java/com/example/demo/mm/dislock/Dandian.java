@@ -17,9 +17,9 @@ public class Dandian implements Runnable {
 
     private Config config = new Config();
     private RLock lock = null;
-    private RedissonClient redisson = null;
-    private CountDownLatch latch;
-    private String mid;
+    RedissonClient redisson = null;
+    CountDownLatch latch;
+    String mid;
 
     public Dandian(String mid, int count) {
         this.mid = mid;
