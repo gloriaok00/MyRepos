@@ -1,10 +1,12 @@
 package com.example.demo.mm.dislock;
 
+import lombok.SneakyThrows;
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -16,6 +18,13 @@ public class Dandian implements Runnable {
     private Config config = new Config();
     private RLock lock = null;
     private RedissonClient redisson = null;
+    private CountDownLatch latch;
+    private String mid;
+
+    public Dandian(String mid, int count) {
+        this.mid = mid;
+        latch = new CountDownLatch(count);
+    }
 
     public void init() {
         // 创建 Redisson 客户端连接
@@ -28,19 +37,22 @@ public class Dandian implements Runnable {
     @Override
     public void run() {
         String id = Thread.currentThread().getName();
-        String idStr = "1号机器" + id+"，";
+        String idStr = mid + id + "，";
         try {
-            // 尝试加锁，等待时间为10秒，锁持有时间为60秒
-            boolean isLocked = lock.tryLock(10, 60, TimeUnit.SECONDS);
+            // 尝试加锁
+            System.out.println(idStr + "准备抢锁");
+            boolean isLocked = lock.tryLock(1, 6, TimeUnit.SECONDS);
             while (!isLocked) {
                 // 没抢着锁，就歇一会，然后继续抢
                 System.out.println(idStr + "没抢着锁，就歇一会，然后继续抢");
-                Thread.sleep(100);
+                Thread.sleep(50);
+                isLocked = lock.tryLock(1, 6, TimeUnit.SECONDS);
             }
             // 成功获取到锁
             System.out.println(idStr + "抢到锁了，模拟执行业务逻辑...");
             Thread.sleep(500);
             System.out.println(idStr + "成功执行完了，准备释放锁");
+            latch.countDown();
         } catch (InterruptedException e) {
             // 锁获取过程中被中断
             System.out.println("获取锁过程中被中断");
@@ -50,19 +62,22 @@ public class Dandian implements Runnable {
             lock.unlock();
         }
 
-        // 关闭 Redisson 客户端连接
-        //redisson.shutdown();
     }
 
+    @SneakyThrows
     public static void main(String[] args) {
-        Dandian t1 = new Dandian();
+        int count = 20;
+        Dandian t1 = new Dandian("1号机器", count);
         t1.init();
         System.out.println("开始抢锁：");
-        for (int i = 0; i < 10; i++) {
-            Thread t=new Thread(t1);
+        for (int i = 0; i < count; i++) {
+            Thread t = new Thread(t1);
             t.setName(String.valueOf(i));
             t.start();
         }
-
+        t1.latch.await();
+        System.out.println(t1.mid + "全部执行结束，关闭redisson客户端");
+        // 关闭 Redisson 客户端连接
+        t1.redisson.shutdown();
     }
 }
