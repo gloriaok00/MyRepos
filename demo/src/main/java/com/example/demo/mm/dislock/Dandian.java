@@ -80,4 +80,23 @@ public class Dandian implements Runnable {
         // 关闭 Redisson 客户端连接
         t1.redisson.shutdown();
     }
+
+    //模拟多个机器上一起抢
+    @SneakyThrows
+    public void begin(CountDownLatch latch1) {
+        int count = 20;
+        Dandian t1 = new Dandian(mid, count);
+        t1.init();
+        System.out.println("开始抢锁：");
+        for (int i = 0; i < count; i++) {
+            Thread t = new Thread(t1);
+            t.setName(String.valueOf(i));
+            t.start();
+        }
+        t1.latch.await();
+        System.out.println(t1.mid + "全部执行结束，关闭redisson客户端");
+        // 关闭 Redisson 客户端连接
+        t1.redisson.shutdown();
+        latch1.countDown();
+    }
 }
