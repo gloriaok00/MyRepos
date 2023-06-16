@@ -23,4 +23,11 @@ public class CCtrl {
     public void show() {
         bBean.show();
     }
+
+    @GetMapping(value = "/show")
+    public String ss() {
+        System.out.println("show");
+        return "show-result";
+    }
+
 }
